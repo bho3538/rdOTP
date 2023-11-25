@@ -1,6 +1,6 @@
 ## Install And Initial Settings.
-1. Run Setup file. You need Administrator rights.
-2. After installed, an icon will be displayed at 'Desktop'\ 
+1. Run Setup file. You need Administrator rights.\
+2. After installed, an icon will be displayed at 'Desktop'\
    ![image](https://github.com/bho3538/rdOTP/assets/12496720/4a5f39da-9c0e-4d1f-8d0c-f1c355d210ea)
 3. Run 'rdOTP Settings'.\
    ![image](https://github.com/bho3538/rdOTP/assets/12496720/2c10fc58-58ae-46f7-b30a-e96ca8abbe10)
