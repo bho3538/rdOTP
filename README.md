@@ -13,8 +13,13 @@ This program register 'Credential Provider' extension at system.\
 This credential provider require OTP autherication if user connect pc using RDP
 
 ## How to use this program?
-English Manual\
-한국어 설명
+[English](https://github.com/bho3538/rdOTP/blob/master/manual_en.md)\
+[한국어](https://github.com/bho3538/rdOTP/blob/master/manual_ko.md)
+
+## Todo list
+Per account OTP Auth
+ARM64 Support
+Another Remote Program support (if possible)
 
 ## License
 MIT
