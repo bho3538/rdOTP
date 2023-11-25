@@ -1,0 +1,19 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{5fd3d285-0dd9-4362-8855-e0abaacd4af6}]
+@="rdOTPCred"
+
+[HKEY_CLASSES_ROOT\CLSID\{5fd3d285-0dd9-4362-8855-e0abaacd4af6}]
+@="rdOTPCred"
+
+[HKEY_CLASSES_ROOT\CLSID\{5fd3d285-0dd9-4362-8855-e0abaacd4af6}\InprocServer32]
+@="c:\\rdOTPCred.dll"
+"ThreadingModel"="Apartment"
+
+
+[HKEY_CLASSES_ROOT\CLSID\{0C34E73F-B241-48F3-8C7C-C5C7698BF718}]
+@="rdOTPCred Filter"
+
+[HKEY_CLASSES_ROOT\CLSID\{0C34E73F-B241-48F3-8C7C-C5C7698BF718}\InprocServer32]
+@="c:\\rdOTPCred.dll"
+"ThreadingModel"="Apartment"
