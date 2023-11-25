@@ -21,5 +21,10 @@ Per account OTP Auth
 ARM64 Support
 Another Remote Program support (if possible)
 
+## Using OpenSource
+[OTP.Net](https://github.com/kspearrin/Otp.NET)\
+[QRCoder](https://github.com/codebude/QRCoder)\
+Credential Provider V2 Sample From Microsoft SDK
+
 ## License
 MIT
