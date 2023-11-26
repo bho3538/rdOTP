@@ -23,8 +23,8 @@ This credential provider require OTP autherication if user connect pc using RDP
 [한국어](https://github.com/bho3538/rdOTP/blob/master/manual_ko.md)
 
 ## Todo list
-Per account OTP Auth
-ARM64 Support
+Per account OTP Auth\
+ARM64 Support\
 Another Remote Program support (if possible)
 
 ## Using OpenSource
