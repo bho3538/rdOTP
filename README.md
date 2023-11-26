@@ -8,6 +8,12 @@ Windows 8 (Server 2012) or higer version. (x86, x64)\
 .NET Framework 4.6.2 or higher version.\
 Visual C++ Redistributable 2022
 
+## Tested OS
+Windows Server 2012 R2\
+Wdinwos Server vNext (2024)\
+Windows 10 (x86, x64)\
+Windows 11
+
 ## How does it work?
 This program register 'Credential Provider' extension at system.\
 This credential provider require OTP autherication if user connect pc using RDP
