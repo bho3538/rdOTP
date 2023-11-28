@@ -4,9 +4,9 @@
 
 [Setup]
 PrivilegesRequired=admin
-OutputBaseFilename=rdOTP 1.0
+OutputBaseFilename=rdOTP 1.1
 AppName=rdOTP
-AppVersion=1.0
+AppVersion=1.1
 AppVerName=rdOTP
 AppPublisher=bho3538
 AppPublisherURL=https://github.com/bho3538/rdOTP
@@ -31,8 +31,8 @@ UninstallLogMode=append
 ArchitecturesInstallIn64BitMode=x64
 LanguageDetectionMethod=uilanguage
 ShowLanguageDialog=yes
-VersionInfoProductVersion=2.0
-VersionInfoVersion=2.0
+VersionInfoProductVersion=1.1
+VersionInfoVersion=1.1
 UsePreviousTasks=no
 
 

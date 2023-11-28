@@ -21,6 +21,7 @@ namespace rdOTP
 
         private KeySettings _settings = new KeySettings();
         private string _otpKey = "";
+        private int _seconds = 30;
 
         public AuthForm()
         {
@@ -29,6 +30,11 @@ namespace rdOTP
             _otpKey = _settings.GetGlobalSecretKey();
 
             wrong_msg.Visible = false;
+            if (string.IsNullOrEmpty(_otpKey))
+            {
+                wrong_msg.Text = "OTP not configured. Click 'submit' and setting it first!";
+                wrong_msg.Visible = true;
+            }
 
             _timer = new System.Windows.Forms.Timer();
             _timer.Tick += _timer_Tick;
@@ -41,6 +47,15 @@ namespace rdOTP
             //update machine time label
             DateTime dt = DateTime.Now;
             this.time_value_label.Text = dt.ToString("yyyy-mm-dd HH:mm:ss");
+
+            _seconds -= 1;
+            this.leftTime_label.Text = string.Format("Dialog will be closed in {0} seconds.", _seconds);
+
+            if(_seconds == 0)
+            {
+                //prevent LogonUI.exe HANG
+                this.Close();
+            }
         }
 
         protected override void OnClosed(EventArgs e)
@@ -61,6 +76,14 @@ namespace rdOTP
         private void submit_btn_Click(object sender, EventArgs e)
         {
             string code = this.code_input.Text;
+
+            if (string.IsNullOrEmpty(_otpKey))
+            {
+                valid = true;
+                this.Close();
+                return;
+            }
+
             var totp = new Totp(Base32Encoding.ToBytes(_otpKey), 30, OtpHashMode.Sha1, 6);
 
             long matched = 0;

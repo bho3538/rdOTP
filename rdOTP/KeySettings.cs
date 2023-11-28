@@ -29,7 +29,13 @@ namespace rdOTP
                 displayName = "MY COMPUTER";
             }
 
-            string url = new OtpUri(OtpType.Totp, this.secrent_key_value.Text, "RDOTP", displayName).ToString();
+            string key = this.secrent_key_value.Text;
+            if (string.IsNullOrEmpty(key))
+            {
+                return;
+            }
+
+            string url = new OtpUri(OtpType.Totp, key, "RDOTP", displayName).ToString();
 
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(url, QRCodeGenerator.ECCLevel.Q);
@@ -130,11 +136,22 @@ namespace rdOTP
 
         private void qr_show_btn_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(this.secrent_key_value.Text))
+            {
+                MessageBox.Show("Please Generate Key first", "RDOTP");
+                return;
+            }
             SetQRCode();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(this.secrent_key_value.Text))
+            {
+                MessageBox.Show("Please Generate Key first", "RDOTP");
+                return;
+            }
+
             AuthForm form = new AuthForm();
             if (form.ShowAndValidateCode())
             {
