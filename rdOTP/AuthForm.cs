@@ -18,6 +18,7 @@ namespace rdOTP
         private System.Windows.Forms.Timer _timer = null;
         private int retryCnt = 0;
         private bool valid = false;
+        private bool firstFocused = false;
 
         private KeySettings _settings = new KeySettings();
         private string _otpKey = "";
@@ -55,6 +56,12 @@ namespace rdOTP
             {
                 //prevent LogonUI.exe HANG
                 this.Close();
+            }
+
+            if (!firstFocused)
+            {
+                firstFocused = true;
+                this.Activate();
             }
         }
 
