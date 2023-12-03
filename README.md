@@ -30,7 +30,8 @@ Another Remote Program support (if possible)
 ## Using OpenSource
 [OTP.Net](https://github.com/kspearrin/Otp.NET)\
 [QRCoder](https://github.com/codebude/QRCoder)\
-Credential Provider V2 Sample From Microsoft SDK
+Credential Provider V2 Sample From Microsoft SDK\
+Lock icon by [Icons8](https://icons8.com)
 
 ## License
 MIT
