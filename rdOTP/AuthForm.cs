@@ -28,6 +28,8 @@ namespace rdOTP
         {
             InitializeComponent();
 
+            this.code_input.MaxLength = 16;
+
             _otpKey = _settings.GetGlobalSecretKey();
 
             wrong_msg.Visible = false;

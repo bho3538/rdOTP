@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.34114.132
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rdOTP", "rdOTP\rdOTP.csproj", "{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}"
 EndProject
@@ -12,41 +12,55 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM64 = Debug|ARM64
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|ARM64 = Release|ARM64
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}.Debug|ARM64.Build.0 = Debug|ARM64
 		{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}.Debug|x64.Build.0 = Debug|Any CPU
 		{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}.Debug|x86.Build.0 = Debug|Any CPU
 		{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}.Release|ARM64.ActiveCfg = Release|ARM64
+		{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}.Release|ARM64.Build.0 = Release|ARM64
 		{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}.Release|x64.ActiveCfg = Release|Any CPU
 		{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}.Release|x64.Build.0 = Release|Any CPU
 		{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}.Release|x86.ActiveCfg = Release|Any CPU
 		{CE139036-B150-4C2F-AF42-B1CF8D1B78A7}.Release|x86.Build.0 = Release|Any CPU
 		{59A55B9C-339A-4F98-B08E-D8F605914B40}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{59A55B9C-339A-4F98-B08E-D8F605914B40}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{59A55B9C-339A-4F98-B08E-D8F605914B40}.Debug|ARM64.Build.0 = Debug|ARM64
 		{59A55B9C-339A-4F98-B08E-D8F605914B40}.Debug|x64.ActiveCfg = Debug|x64
 		{59A55B9C-339A-4F98-B08E-D8F605914B40}.Debug|x64.Build.0 = Debug|x64
 		{59A55B9C-339A-4F98-B08E-D8F605914B40}.Debug|x86.ActiveCfg = Debug|Win32
 		{59A55B9C-339A-4F98-B08E-D8F605914B40}.Debug|x86.Build.0 = Debug|Win32
 		{59A55B9C-339A-4F98-B08E-D8F605914B40}.Release|Any CPU.ActiveCfg = Release|Win32
+		{59A55B9C-339A-4F98-B08E-D8F605914B40}.Release|ARM64.ActiveCfg = Release|ARM64
+		{59A55B9C-339A-4F98-B08E-D8F605914B40}.Release|ARM64.Build.0 = Release|ARM64
 		{59A55B9C-339A-4F98-B08E-D8F605914B40}.Release|x64.ActiveCfg = Release|x64
 		{59A55B9C-339A-4F98-B08E-D8F605914B40}.Release|x64.Build.0 = Release|x64
 		{59A55B9C-339A-4F98-B08E-D8F605914B40}.Release|x86.ActiveCfg = Release|Win32
 		{59A55B9C-339A-4F98-B08E-D8F605914B40}.Release|x86.Build.0 = Release|Win32
 		{8396ADB2-46DB-4A3D-B877-6ECFE6F3EC6E}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{8396ADB2-46DB-4A3D-B877-6ECFE6F3EC6E}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{8396ADB2-46DB-4A3D-B877-6ECFE6F3EC6E}.Debug|ARM64.Build.0 = Debug|ARM64
 		{8396ADB2-46DB-4A3D-B877-6ECFE6F3EC6E}.Debug|x64.ActiveCfg = Debug|x64
 		{8396ADB2-46DB-4A3D-B877-6ECFE6F3EC6E}.Debug|x64.Build.0 = Debug|x64
 		{8396ADB2-46DB-4A3D-B877-6ECFE6F3EC6E}.Debug|x86.ActiveCfg = Debug|Win32
 		{8396ADB2-46DB-4A3D-B877-6ECFE6F3EC6E}.Debug|x86.Build.0 = Debug|Win32
 		{8396ADB2-46DB-4A3D-B877-6ECFE6F3EC6E}.Release|Any CPU.ActiveCfg = Release|Win32
+		{8396ADB2-46DB-4A3D-B877-6ECFE6F3EC6E}.Release|ARM64.ActiveCfg = Release|ARM64
+		{8396ADB2-46DB-4A3D-B877-6ECFE6F3EC6E}.Release|ARM64.Build.0 = Release|ARM64
 		{8396ADB2-46DB-4A3D-B877-6ECFE6F3EC6E}.Release|x64.ActiveCfg = Release|x64
 		{8396ADB2-46DB-4A3D-B877-6ECFE6F3EC6E}.Release|x64.Build.0 = Release|x64
 		{8396ADB2-46DB-4A3D-B877-6ECFE6F3EC6E}.Release|x86.ActiveCfg = Release|Win32

@@ -4,9 +4,9 @@
 
 [Setup]
 PrivilegesRequired=admin
-OutputBaseFilename=rdOTP 1.1
+OutputBaseFilename=rdOTP 1.3
 AppName=rdOTP
-AppVersion=1.1
+AppVersion=1.3
 AppVerName=rdOTP
 AppPublisher=bho3538
 AppPublisherURL=https://github.com/bho3538/rdOTP
@@ -28,11 +28,11 @@ SolidCompression=yes
 WizardImageStretch=no
 UninstallFilesDir={pf}\rdOTP\unRDOTP
 UninstallLogMode=append
-ArchitecturesInstallIn64BitMode=x64
+ArchitecturesInstallIn64BitMode=x64 arm64
 LanguageDetectionMethod=uilanguage
 ShowLanguageDialog=yes
-VersionInfoProductVersion=1.1
-VersionInfoVersion=1.1
+VersionInfoProductVersion=1.3
+VersionInfoVersion=1.3
 UsePreviousTasks=no
 
 
@@ -43,15 +43,19 @@ Name: "ENU" ; MessagesFile: "compiler:Default.isl"
 [Dirs]
 
 [Files]
-
 Source: ".\Source\rdOTP\Otp.NET.dll"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion
-Source: ".\Source\rdOTP\QRCoder.dll"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion
-Source: ".\Source\rdOTP\rdOTP.exe"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion
-Source: ".\Source\rdOTP\x86\rdOTPCred.dll"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: not Is64BitInstallMode
-Source: ".\Source\rdOTP\x86\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: not Is64BitInstallMode
-Source: ".\Source\rdOTP\x64\rdOTPCred.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: Is64BitInstallMode
-Source: ".\Source\rdOTP\x64\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: Is64BitInstallMode
+Source: ".\Source\rdOTP\QRCoder.dll"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion 
+Source: ".\Source\rdOTP\rdOTP.exe"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion; Check: not InstallARM64
+Source: ".\Source\rdOTP\ARM64\rdOTP.exe"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
 
+Source: ".\Source\rdOTP\x86\rdOTPCred.dll"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
+Source: ".\Source\rdOTP\x86\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
+
+Source: ".\Source\rdOTP\x64\rdOTPCred.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
+Source: ".\Source\rdOTP\x64\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
+
+Source: ".\Source\rdOTP\ARM64\rdOTPCred.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
+Source: ".\Source\rdOTP\ARM64\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
 
 [Icons]
 Name: "{group}\rdOTP Settings"; Filename: "{app}\rdOTP.exe"
@@ -82,6 +86,21 @@ begin
       then
         RegDeleteKeyIncludingSubkeys(HKEY_LOCAL_MACHINE, 'SOFTWARE\rdOTP');
   end;
+end;
+
+function InstallX64: Boolean;
+begin
+  Result := Is64BitInstallMode and (ProcessorArchitecture = paX64);
+end;
+
+function InstallARM64: Boolean;
+begin
+  Result := Is64BitInstallMode and (ProcessorArchitecture = paARM64);
+end;
+
+function InstallOtherArch: Boolean;
+begin
+  Result := not InstallX64 and not InstallARM64;
 end;
 
 
