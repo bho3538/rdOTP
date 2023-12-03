@@ -8,10 +8,11 @@
    Visual C++ Redistributable 2022가 설치되지 않은 경우 오류 메시지가 표시될수 있습니다.\
    해당 파일은 다음 주소에서 받을 수 있습니다. (시스템에 맞는 아키택쳐를 설치해주시기 바랍니다)\
    설치 후 프로그램을 재실행해야 합니다.\
-   https://aka.ms/vs/17/release/vc_redist.x86.exe \
-   https://aka.ms/vs/17/release/vc_redist.x64.exe 
-5. 'Configuration' 단추를 눌러 OTP 키를 설정합니다. 최초 실행한 경우 'Generate' 단추를 눌러 키를 생성하십시오.
-6. 키 생성후'Show QR Code' 단추를 눌러 QR코드를 생성한 후 휴대전화 앱에 등록합니다.
+   x86 : https://aka.ms/vs/17/release/vc_redist.x86.exe \
+   x64 : https://aka.ms/vs/17/release/vc_redist.x64.exe \
+   ARM64 : https://aka.ms/vs/17/release/vc_redist.ARM64.exe
+6. 'Configuration' 단추를 눌러 OTP 키를 설정합니다. 최초 실행한 경우 'Generate' 단추를 눌러 키를 생성하십시오.
+7. 키 생성후'Show QR Code' 단추를 눌러 QR코드를 생성한 후 휴대전화 앱에 등록합니다.
    등록하는 방법은 사용하시는 앱에 따라 다를 수 있습니다.\
    이 설명서에서는 MS사의 Authenticator 앱을 사용하였습니다.\
    6-1. 휴대전화에서 앱을 Play Store 혹은 App Store 에서 다운로드 받습니다.\
@@ -22,10 +23,10 @@
    6-4. 컴퓨터 화면에 표시되는 QR 코드를 촬영합니다. 이 후 자동으로 앱에 OTP 정보가 추가됩니다.
    ![Screenshot_20231128-204800](https://github.com/bho3538/rdOTP/assets/12496720/85557f13-dcdb-4365-8aa4-a3c3203c7788)\
    6-5. 앱 메인 화면에 OTP정보가 추가된 것을 확인할 수 있습니다. 이를 클릭하면 OTP 인증코드를 확인할 수 있습니다.
-7. 'OTP Test' 단추를 눌러 휴대전화 앱에 추가된 OTP 인증 정보를 테스트합니다.\
+8. 'OTP Test' 단추를 눌러 휴대전화 앱에 추가된 OTP 인증 정보를 테스트합니다.\
    휴대전화 앱에 표시된 코드를 테스트 창에 입력 후, 'Test Success!' 라는 메시지 상자가 나오면 됩니다.
    * 지속적으로 인증 실패 시 모바일 앱에서 인증정보를 삭제한 후 6번의 단계를 다시 진행해 주십시오.\ (휴대전화에서 QR코드가 부정확하게 찍힐 수 있습니다.)
-8. 다른 기기 에서 MSTSC 등을 사용하여 원격 접속을 시도합니다.\
+9. 다른 기기 에서 MSTSC 등을 사용하여 원격 접속을 시도합니다.\
    다음과 같이 인증화면이 나오면 성공입니다.\
    ![image](https://github.com/bho3538/rdOTP/assets/12496720/9ac0916f-dd30-4940-9cc6-4b00403c53ef)
 
