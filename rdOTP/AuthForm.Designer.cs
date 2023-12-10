@@ -45,7 +45,7 @@
             // 
             this.code_input.Location = new System.Drawing.Point(12, 82);
             this.code_input.Name = "code_input";
-            this.code_input.Size = new System.Drawing.Size(406, 23);
+            this.code_input.Size = new System.Drawing.Size(406, 33);
             this.code_input.TabIndex = 0;
             this.code_input.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -65,7 +65,7 @@
             this.title_label.Font = new System.Drawing.Font("Arial", 14F);
             this.title_label.Location = new System.Drawing.Point(13, 13);
             this.title_label.Name = "title_label";
-            this.title_label.Size = new System.Drawing.Size(257, 27);
+            this.title_label.Size = new System.Drawing.Size(404, 43);
             this.title_label.TabIndex = 2;
             this.title_label.Text = "Autherication Required";
             // 
@@ -75,7 +75,7 @@
             this.title_des_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.title_des_label.Location = new System.Drawing.Point(12, 50);
             this.title_des_label.Name = "title_des_label";
-            this.title_des_label.Size = new System.Drawing.Size(305, 20);
+            this.title_des_label.Size = new System.Drawing.Size(493, 31);
             this.title_des_label.TabIndex = 3;
             this.title_des_label.Text = "Enter OTP Code from registered phone.";
             // 
@@ -84,7 +84,7 @@
             this.time_label.AutoSize = true;
             this.time_label.Location = new System.Drawing.Point(11, 152);
             this.time_label.Name = "time_label";
-            this.time_label.Size = new System.Drawing.Size(106, 16);
+            this.time_label.Size = new System.Drawing.Size(165, 25);
             this.time_label.TabIndex = 4;
             this.time_label.Text = "Machine Time : ";
             // 
@@ -93,7 +93,7 @@
             this.time_value_label.AutoSize = true;
             this.time_value_label.Location = new System.Drawing.Point(113, 152);
             this.time_value_label.Name = "time_value_label";
-            this.time_value_label.Size = new System.Drawing.Size(0, 16);
+            this.time_value_label.Size = new System.Drawing.Size(0, 25);
             this.time_value_label.TabIndex = 5;
             // 
             // wrong_msg
@@ -103,7 +103,7 @@
             this.wrong_msg.ForeColor = System.Drawing.Color.Red;
             this.wrong_msg.Location = new System.Drawing.Point(10, 120);
             this.wrong_msg.Name = "wrong_msg";
-            this.wrong_msg.Size = new System.Drawing.Size(225, 17);
+            this.wrong_msg.Size = new System.Drawing.Size(374, 27);
             this.wrong_msg.TabIndex = 6;
             this.wrong_msg.Text = "Autherication code does not valid.";
             // 
@@ -121,14 +121,13 @@
             this.leftTime_label.AutoSize = true;
             this.leftTime_label.Location = new System.Drawing.Point(12, 178);
             this.leftTime_label.Name = "leftTime_label";
-            this.leftTime_label.Size = new System.Drawing.Size(230, 16);
+            this.leftTime_label.Size = new System.Drawing.Size(352, 25);
             this.leftTime_label.TabIndex = 8;
             this.leftTime_label.Text = "Dialog will be closed in 30 seconds.";
             // 
             // AuthForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(432, 203);
             this.Controls.Add(this.leftTime_label);
             this.Controls.Add(this.pictureBox1);

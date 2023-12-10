@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace rdOTP
         public AuthForm()
         {
             InitializeComponent();
+            SetLayout();
 
             this.code_input.MaxLength = 16;
 
@@ -43,6 +45,76 @@ namespace rdOTP
             _timer.Tick += _timer_Tick;
             _timer.Interval = 1000;
             _timer.Start();
+        }
+
+        private void SetLayout()
+        {
+            bool bHack = false;
+            float dpiX = 0;
+            Graphics graphics = this.CreateGraphics();
+            dpiX = graphics.DpiX;
+            graphics.Dispose();
+
+            float scale = dpiX / 96;
+
+            if(scale == 1)
+            {
+                int width = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Size.Width;
+                if (width > 1920)
+                {
+                    scale = (float)width / 1920;
+                    scale += 1;
+                    bHack = true;
+                }
+            }
+
+            if(scale > 1)
+            {
+                this.Width = (int)(this.Width * scale);
+                this.Height = (int)(this.Height * scale);
+
+                int cnt = this.Controls.Count;
+
+                for(int i = 0; i < cnt; i++)
+                {
+                    Control ctrl = this.Controls[i];
+
+                    ctrl.Width = (int)(ctrl.Width * scale);
+                    ctrl.Height = (int)(ctrl.Height * scale);
+                    ctrl.Location = new Point((int)(ctrl.Location.X * scale), (int)(ctrl.Location.Y * scale));
+
+                    if(ctrl is Label lb)
+                    {
+                        float fontSize = lb.Font.Size + scale;
+                        if (bHack)
+                        {
+                            fontSize += 6;
+                        }
+
+                        lb.Font = new Font("Arial", fontSize, lb.Font.Style);
+                    }
+                    else if(ctrl is Button btn)
+                    {
+                        float fontSize = btn.Font.Size + scale;
+                        if (bHack)
+                        {
+                            fontSize += 6;
+                        }
+
+                        btn.Font = new Font("Arial", fontSize, btn.Font.Style);
+                    }
+                    else if (ctrl is TextBox box)
+                    {
+                        float fontSize = box.Font.Size + scale;
+                        if (bHack)
+                        {
+                            fontSize += 6;
+                        }
+
+                        box.Font = new Font("Arial", fontSize, box.Font.Style);
+                    }
+                }
+            }
         }
 
         private void _timer_Tick(object sender, EventArgs e)
