@@ -378,7 +378,7 @@ HRESULT CRDotpCredential::CommandLinkClicked(DWORD dwFieldID)
             }
 
             // Pop a messagebox indicating the click.
-            ::MessageBox(hwndOwner, L"Command link clicked", L"Click!", 0);
+            ::MessageBox(hwndOwner, L"Visit this link using other devices.\nhttps://github.com/bho3538/rdOTP", L"RDOTP", 0);
             break;
         default:
             hr = E_INVALIDARG;
