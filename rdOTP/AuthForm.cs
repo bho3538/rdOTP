@@ -165,6 +165,12 @@ namespace rdOTP
                 return;
             }
 
+            if(string.IsNullOrWhiteSpace(code) || code.Length != 6)
+            {
+                HandleCodeError();
+                return;
+            }
+
             var totp = new Totp(Base32Encoding.ToBytes(_otpKey), 30, OtpHashMode.Sha1, 6);
 
             long matched = 0;
@@ -175,18 +181,25 @@ namespace rdOTP
             }
             else
             {
-                this.code_input.Text = "";
-                this.wrong_msg.Visible = true;
-                valid = false;
-                retryCnt++;
-
-                if (retryCnt >= 3)
-                {
-                    this.Close();
-                }
-
+                HandleCodeError();
             }
 
+        }
+
+        private void HandleCodeError()
+        {
+            this.code_input.Text = "";
+            this.wrong_msg.Visible = true;
+            valid = false;
+            retryCnt++;
+
+            Thread.Sleep(500);
+
+            if (retryCnt >= 3)
+            {
+                Thread.Sleep(1000);
+                this.Close();
+            }
         }
     }
 }

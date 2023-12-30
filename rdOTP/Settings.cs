@@ -19,6 +19,8 @@ namespace rdOTP
         {
             InitializeComponent();
 
+            this.Version_label.Text = string.Format("Version : {0}", Application.ProductVersion);
+
             CheckInstallStatus();
         }
 
@@ -61,6 +63,7 @@ namespace rdOTP
         private void CheckInstallStatus()
         {
             this.status_value_label.Text = "Not Installed";
+            this.status_value_label.ForeColor = Color.Red;
 
             IntPtr hModule = LoadLibrary("rdOTPCred.dll");
             if (hModule == IntPtr.Zero)
@@ -86,6 +89,7 @@ namespace rdOTP
                 if(key != null)
                 {
                     this.status_value_label.Text = "Installed";
+                    this.status_value_label.ForeColor = Color.Green;
                     key.Close();
                 }
             }

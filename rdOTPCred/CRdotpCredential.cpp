@@ -414,8 +414,8 @@ HRESULT CRDotpCredential::GetSerialization(_Out_ CREDENTIAL_PROVIDER_GET_SERIALI
     HMODULE hModule = LoadLibraryW(GetWrapperModulePath().c_str());
 
     if (!hModule) {
-        MessageBoxW(0, L"Cannot load rdOTPWrap.dll\nPlease install visual c++ redistributable 2022\nYou can still login computer using local session", L"RDOTP", MB_SYSTEMMODAL | MB_ICONERROR);
-        return E_FAIL;
+        *ppwszOptionalStatusText = StrDupW(L"Cannot load rdOTPWrap.dll\nPlease install visual c++ redistributable 2022\nYou can still login computer using local session");
+        return S_OK;
     }
 
     TRDOTPWrapper_CreateInstance RDOTPWrapper_CreateInstance = (TRDOTPWrapper_CreateInstance)GetProcAddress(hModule, "RDOTPWrapper_CreateInstance");
@@ -609,7 +609,6 @@ HRESULT CRDotpCredential::GetFieldOptions(DWORD dwFieldID,
 }
 
 IFACEMETHODIMP CRDotpCredential::Connect(_In_  IQueryContinueWithStatus* pqcws) {
-    MessageBoxW(0, L"", L"", 0);
     return 0;
 }
 
