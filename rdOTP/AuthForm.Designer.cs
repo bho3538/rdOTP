@@ -52,6 +52,7 @@
             // 
             // submit_btn
             // 
+            this.submit_btn.Font = new System.Drawing.Font("Arial", 9F);
             this.submit_btn.Location = new System.Drawing.Point(305, 145);
             this.submit_btn.Name = "submit_btn";
             this.submit_btn.Size = new System.Drawing.Size(113, 27);
@@ -83,7 +84,7 @@
             // time_label
             // 
             this.time_label.AutoSize = true;
-            this.time_label.Font = new System.Drawing.Font("Arial", 8.5F);
+            this.time_label.Font = new System.Drawing.Font("Arial", 9F);
             this.time_label.Location = new System.Drawing.Point(11, 152);
             this.time_label.Name = "time_label";
             this.time_label.Size = new System.Drawing.Size(93, 15);
@@ -93,9 +94,10 @@
             // time_value_label
             // 
             this.time_value_label.AutoSize = true;
+            this.time_value_label.Font = new System.Drawing.Font("Arial", 9F);
             this.time_value_label.Location = new System.Drawing.Point(113, 152);
             this.time_value_label.Name = "time_value_label";
-            this.time_value_label.Size = new System.Drawing.Size(0, 14);
+            this.time_value_label.Size = new System.Drawing.Size(0, 15);
             this.time_value_label.TabIndex = 5;
             // 
             // wrong_msg

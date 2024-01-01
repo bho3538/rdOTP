@@ -162,5 +162,17 @@ namespace rdOTP
                 MessageBox.Show("Test Failed!\nTry again or re-register QR Code at your phone", "RDOTP", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void secret_view_check_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.secret_view_check.Checked)
+            {
+                this.secrent_key_value.PasswordChar = '\0';
+            }
+            else
+            {
+                this.secrent_key_value.PasswordChar = '*';
+            }
+        }
     }
 }

@@ -29,15 +29,16 @@ System::Reflection::Assembly^ currentDomain_AssemblyResolve(Object^ sender, Reso
 	String^ finalPath = nullptr;
 	try
 	{
-		//System::Reflection::Assembly::GetExecutingAssembly()->Location;
-		finalPath = gcnew String("C:\\Program Files\\rdOTP\\") + args->Name->Substring(0, args->Name->IndexOf(",")) + ".dll";
+		String^ programFiles = Environment::GetFolderPath(Environment::SpecialFolder::ProgramFiles);
+		programFiles += "\\rdOTP\\";
+		finalPath = gcnew String(programFiles) + args->Name->Substring(0, args->Name->IndexOf(",")) + ".dll";
 
 		if (System::IO::File::Exists(finalPath)) {
 			System::Reflection::Assembly^ retval = System::Reflection::Assembly::LoadFrom(finalPath);
 			return retval;
 		}
 
-		finalPath = gcnew String("C:\\Program Files\\rdOTP\\") + args->Name->Substring(0, args->Name->IndexOf(",")) + ".exe";
+		finalPath = gcnew String(programFiles) + args->Name->Substring(0, args->Name->IndexOf(",")) + ".exe";
 
 		if (System::IO::File::Exists(finalPath)) {
 			System::Reflection::Assembly^ retval = System::Reflection::Assembly::LoadFrom(finalPath);

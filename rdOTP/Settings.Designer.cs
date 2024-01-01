@@ -43,6 +43,7 @@ namespace rdOTP
             this.logo = new System.Windows.Forms.PictureBox();
             this.MainTitle = new System.Windows.Forms.Label();
             this.aboutGroup = new System.Windows.Forms.GroupBox();
+            this.credit_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.aboutGroup.SuspendLayout();
             this.SuspendLayout();
@@ -50,26 +51,26 @@ namespace rdOTP
             // status_label
             // 
             this.status_label.AutoSize = true;
-            this.status_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status_label.Location = new System.Drawing.Point(9, 53);
+            this.status_label.Font = new System.Drawing.Font("Arial", 10F);
+            this.status_label.Location = new System.Drawing.Point(9, 55);
             this.status_label.Name = "status_label";
-            this.status_label.Size = new System.Drawing.Size(103, 18);
+            this.status_label.Size = new System.Drawing.Size(97, 16);
             this.status_label.TabIndex = 0;
             this.status_label.Text = "Module Status";
             // 
             // secret_label
             // 
             this.secret_label.AutoSize = true;
-            this.secret_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.secret_label.Location = new System.Drawing.Point(9, 92);
+            this.secret_label.Font = new System.Drawing.Font("Arial", 10F);
+            this.secret_label.Location = new System.Drawing.Point(9, 94);
             this.secret_label.Name = "secret_label";
-            this.secret_label.Size = new System.Drawing.Size(129, 18);
+            this.secret_label.Size = new System.Drawing.Size(125, 16);
             this.secret_label.TabIndex = 1;
             this.secret_label.Text = "Auth Configuration";
             // 
             // secret_config_btn
             // 
-            this.secret_config_btn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.secret_config_btn.Font = new System.Drawing.Font("Arial", 10F);
             this.secret_config_btn.Location = new System.Drawing.Point(286, 88);
             this.secret_config_btn.Name = "secret_config_btn";
             this.secret_config_btn.Size = new System.Drawing.Size(231, 28);
@@ -81,10 +82,10 @@ namespace rdOTP
             // status_value_label
             // 
             this.status_value_label.AutoSize = true;
-            this.status_value_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status_value_label.Location = new System.Drawing.Point(160, 53);
+            this.status_value_label.Font = new System.Drawing.Font("Arial", 10F);
+            this.status_value_label.Location = new System.Drawing.Point(160, 55);
             this.status_value_label.Name = "status_value_label";
-            this.status_value_label.Size = new System.Drawing.Size(89, 18);
+            this.status_value_label.Size = new System.Drawing.Size(84, 16);
             this.status_value_label.TabIndex = 3;
             this.status_value_label.Text = "Not Installed";
             // 
@@ -92,12 +93,12 @@ namespace rdOTP
             // 
             this.WebSite_link.AutoSize = true;
             this.WebSite_link.Font = new System.Drawing.Font("Arial", 9F);
-            this.WebSite_link.Location = new System.Drawing.Point(6, 53);
+            this.WebSite_link.Location = new System.Drawing.Point(6, 43);
             this.WebSite_link.Name = "WebSite_link";
-            this.WebSite_link.Size = new System.Drawing.Size(85, 15);
+            this.WebSite_link.Size = new System.Drawing.Size(178, 15);
             this.WebSite_link.TabIndex = 5;
             this.WebSite_link.TabStop = true;
-            this.WebSite_link.Text = "View Web Site";
+            this.WebSite_link.Text = "View web site with source code";
             this.WebSite_link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // intstall_btn
@@ -126,7 +127,7 @@ namespace rdOTP
             // 
             this.IconInfo_link.AutoSize = true;
             this.IconInfo_link.Font = new System.Drawing.Font("Arial", 9F);
-            this.IconInfo_link.Location = new System.Drawing.Point(6, 80);
+            this.IconInfo_link.Location = new System.Drawing.Point(6, 66);
             this.IconInfo_link.Name = "IconInfo_link";
             this.IconInfo_link.Size = new System.Drawing.Size(114, 15);
             this.IconInfo_link.TabIndex = 8;
@@ -138,7 +139,7 @@ namespace rdOTP
             // 
             this.Version_label.AutoSize = true;
             this.Version_label.Font = new System.Drawing.Font("Arial", 9F);
-            this.Version_label.Location = new System.Drawing.Point(6, 27);
+            this.Version_label.Location = new System.Drawing.Point(6, 22);
             this.Version_label.Name = "Version_label";
             this.Version_label.Size = new System.Drawing.Size(72, 15);
             this.Version_label.TabIndex = 9;
@@ -169,6 +170,7 @@ namespace rdOTP
             // 
             // aboutGroup
             // 
+            this.aboutGroup.Controls.Add(this.credit_label);
             this.aboutGroup.Controls.Add(this.Version_label);
             this.aboutGroup.Controls.Add(this.WebSite_link);
             this.aboutGroup.Controls.Add(this.IconInfo_link);
@@ -179,6 +181,17 @@ namespace rdOTP
             this.aboutGroup.TabIndex = 12;
             this.aboutGroup.TabStop = false;
             this.aboutGroup.Text = "About";
+            // 
+            // credit_label
+            // 
+            this.credit_label.AutoSize = true;
+            this.credit_label.Font = new System.Drawing.Font("Arial", 9F);
+            this.credit_label.ForeColor = System.Drawing.Color.Green;
+            this.credit_label.Location = new System.Drawing.Point(6, 87);
+            this.credit_label.Name = "credit_label";
+            this.credit_label.Size = new System.Drawing.Size(166, 15);
+            this.credit_label.TabIndex = 10;
+            this.credit_label.Text = "Program created by bho3538";
             // 
             // Settings
             // 
@@ -227,5 +240,6 @@ namespace rdOTP
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Label MainTitle;
         private System.Windows.Forms.GroupBox aboutGroup;
+        private System.Windows.Forms.Label credit_label;
     }
 }

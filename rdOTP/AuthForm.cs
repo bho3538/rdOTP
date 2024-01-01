@@ -31,12 +31,15 @@ namespace rdOTP
             SetLayout();
 
             this.code_input.MaxLength = 16;
+            this.code_input.TextChanged += Code_input_TextChanged;
+            this.time_value_label.Text = DateTime.Now.ToString("yyyy-mm-dd HH:mm:ss");
 
             _otpKey = _settings.GetGlobalSecretKey();
 
             wrong_msg.Visible = false;
             if (string.IsNullOrEmpty(_otpKey))
             {
+                this.code_input.Enabled = false;
                 wrong_msg.Text = "OTP not configured. Click 'submit' and setting it first!";
                 wrong_msg.Visible = true;
             }
@@ -45,6 +48,14 @@ namespace rdOTP
             _timer.Tick += _timer_Tick;
             _timer.Interval = 1000;
             _timer.Start();
+        }
+
+        private void Code_input_TextChanged(object sender, EventArgs e)
+        {
+            if(this.code_input.TextLength > 0)
+            {
+                wrong_msg.Visible = false;
+            }
         }
 
         private void SetLayout()
