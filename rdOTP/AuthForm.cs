@@ -25,6 +25,8 @@ namespace rdOTP
         private string _otpKey = "";
         private int _seconds = 30;
 
+        private const string TIME_FORMAT = "yyyy-mm-dd HH:mm:ss";
+
         public AuthForm()
         {
             InitializeComponent();
@@ -32,7 +34,7 @@ namespace rdOTP
 
             this.code_input.MaxLength = 16;
             this.code_input.TextChanged += Code_input_TextChanged;
-            this.time_value_label.Text = DateTime.Now.ToString("yyyy-mm-dd HH:mm:ss");
+            this.time_value_label.Text = DateTime.Now.ToString(TIME_FORMAT);
 
             _otpKey = _settings.GetGlobalSecretKey();
 
@@ -132,7 +134,7 @@ namespace rdOTP
         {
             //update machine time label
             DateTime dt = DateTime.Now;
-            this.time_value_label.Text = dt.ToString("yyyy-mm-dd HH:mm:ss");
+            this.time_value_label.Text = dt.ToString(TIME_FORMAT);
 
             _seconds -= 1;
             this.leftTime_label.Text = string.Format("Dialog will be closed in {0} seconds.", _seconds);
@@ -204,11 +206,11 @@ namespace rdOTP
             valid = false;
             retryCnt++;
 
-            Thread.Sleep(500);
+            Thread.Sleep(700);
 
             if (retryCnt >= 3)
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(2000);
                 this.Close();
             }
         }

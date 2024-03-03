@@ -42,9 +42,11 @@ namespace rdOTP
             this.secret_view_check = new System.Windows.Forms.CheckBox();
             this.qrgroupbox = new System.Windows.Forms.GroupBox();
             this.otpInfoGroup = new System.Windows.Forms.GroupBox();
+            this.timestep_label = new System.Windows.Forms.Label();
             this.digest_length_label = new System.Windows.Forms.Label();
             this.key_mode_label = new System.Windows.Forms.Label();
-            this.timestep_label = new System.Windows.Forms.Label();
+            this.expKey_btn = new System.Windows.Forms.Button();
+            this.impKey_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.qrcode)).BeginInit();
             this.qrgroupbox.SuspendLayout();
             this.otpInfoGroup.SuspendLayout();
@@ -62,12 +64,13 @@ namespace rdOTP
             // 
             // secret_generate_btn
             // 
-            this.secret_generate_btn.Location = new System.Drawing.Point(587, 12);
+            this.secret_generate_btn.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.secret_generate_btn.Location = new System.Drawing.Point(587, 9);
             this.secret_generate_btn.Name = "secret_generate_btn";
             this.secret_generate_btn.Size = new System.Drawing.Size(141, 24);
             this.secret_generate_btn.TabIndex = 2;
             this.secret_generate_btn.Text = "Generate New";
-            this.secret_generate_btn.UseVisualStyleBackColor = true;
+            this.secret_generate_btn.UseVisualStyleBackColor = false;
             this.secret_generate_btn.Click += new System.EventHandler(this.secret_generate_btn_Click);
             // 
             // qrcode
@@ -122,7 +125,7 @@ namespace rdOTP
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Info;
-            this.button1.Location = new System.Drawing.Point(430, 12);
+            this.button1.Location = new System.Drawing.Point(438, 9);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 24);
             this.button1.TabIndex = 8;
@@ -176,6 +179,15 @@ namespace rdOTP
             this.otpInfoGroup.TabStop = false;
             this.otpInfoGroup.Text = "OTP Info";
             // 
+            // timestep_label
+            // 
+            this.timestep_label.AutoSize = true;
+            this.timestep_label.Location = new System.Drawing.Point(9, 78);
+            this.timestep_label.Name = "timestep_label";
+            this.timestep_label.Size = new System.Drawing.Size(153, 16);
+            this.timestep_label.TabIndex = 2;
+            this.timestep_label.Text = "Time step : 30 seconds";
+            // 
             // digest_length_label
             // 
             this.digest_length_label.AutoSize = true;
@@ -194,14 +206,25 @@ namespace rdOTP
             this.key_mode_label.TabIndex = 0;
             this.key_mode_label.Text = "Key hash mode : SHA1";
             // 
-            // timestep_label
+            // expKey_btn
             // 
-            this.timestep_label.AutoSize = true;
-            this.timestep_label.Location = new System.Drawing.Point(9, 78);
-            this.timestep_label.Name = "timestep_label";
-            this.timestep_label.Size = new System.Drawing.Size(153, 16);
-            this.timestep_label.TabIndex = 2;
-            this.timestep_label.Text = "Time step : 30 seconds";
+            this.expKey_btn.Location = new System.Drawing.Point(587, 38);
+            this.expKey_btn.Name = "expKey_btn";
+            this.expKey_btn.Size = new System.Drawing.Size(141, 23);
+            this.expKey_btn.TabIndex = 13;
+            this.expKey_btn.Text = "Export key";
+            this.expKey_btn.UseVisualStyleBackColor = true;
+            this.expKey_btn.Click += new System.EventHandler(this.expKey_btn_Click);
+            // 
+            // impKey_btn
+            // 
+            this.impKey_btn.Location = new System.Drawing.Point(438, 38);
+            this.impKey_btn.Name = "impKey_btn";
+            this.impKey_btn.Size = new System.Drawing.Size(143, 23);
+            this.impKey_btn.TabIndex = 14;
+            this.impKey_btn.Text = "Import key";
+            this.impKey_btn.UseVisualStyleBackColor = true;
+            this.impKey_btn.Click += new System.EventHandler(this.impKey_btn_Click);
             // 
             // KeySettings
             // 
@@ -209,6 +232,8 @@ namespace rdOTP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(747, 377);
+            this.Controls.Add(this.impKey_btn);
+            this.Controls.Add(this.expKey_btn);
             this.Controls.Add(this.otpInfoGroup);
             this.Controls.Add(this.qrgroupbox);
             this.Controls.Add(this.secret_view_check);
@@ -255,5 +280,7 @@ namespace rdOTP
         private System.Windows.Forms.Label key_mode_label;
         private System.Windows.Forms.Label digest_length_label;
         private System.Windows.Forms.Label timestep_label;
+        private System.Windows.Forms.Button expKey_btn;
+        private System.Windows.Forms.Button impKey_btn;
     }
 }

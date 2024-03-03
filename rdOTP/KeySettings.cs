@@ -6,10 +6,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SaveFileDialog = System.Windows.Forms.SaveFileDialog;
 
 namespace rdOTP
 {
@@ -19,10 +21,13 @@ namespace rdOTP
         {
             InitializeComponent();
             this.secrent_key_value.Text = GetGlobalSecretKey();
+            this.displayname_input.MaxLength = 32;
         }
 
         private void SetQRCode()
         {
+            EraseQRCode();
+
             string displayName = this.displayname_input.Text;
             if (string.IsNullOrEmpty(displayName))
             {
@@ -44,10 +49,6 @@ namespace rdOTP
             Bitmap bm = qrCode.GetGraphic(20);
             this.qrcode.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            if (this.qrcode.Image != null)
-            {
-                this.qrcode.Image.Dispose();
-            }
             this.qrcode.Image = bm;
         }
 
@@ -59,7 +60,7 @@ namespace rdOTP
        
         private void secret_generate_btn_Click(object sender, EventArgs e)
         {
-            var op = MessageBox.Show("If you change secret key, You need change all OTP information at your phone.\nContinue?", "RDOTP", MessageBoxButtons.YesNo);
+            var op = MessageBox.Show("If you change secret key, You need change all OTP information at your phone.\nContinue?", "RDOTP", MessageBoxButtons.YesNo, MessageBoxIcon.None , MessageBoxDefaultButton.Button2);
             if(op != DialogResult.Yes)
             {
                 return;
@@ -76,11 +77,7 @@ namespace rdOTP
 
             this.secrent_key_value.Text = base32String;
 
-            if(this.qrcode.Image != null)
-            {
-                this.qrcode.Image.Dispose();
-            }
-            this.qrcode.Image = null;
+            EraseQRCode();
 
             MessageBox.Show("Key generation complete!.\nPlease run 'OTP Test' before lock remote session");
         }
@@ -138,7 +135,7 @@ namespace rdOTP
         {
             if (string.IsNullOrEmpty(this.secrent_key_value.Text))
             {
-                MessageBox.Show("Please Generate Key first", "RDOTP");
+                MessageBox.Show("Key does not exist.\nGenerate key or import saved key first", "RDOTP");
                 return;
             }
             SetQRCode();
@@ -148,7 +145,7 @@ namespace rdOTP
         {
             if (string.IsNullOrEmpty(this.secrent_key_value.Text))
             {
-                MessageBox.Show("Please Generate Key first", "RDOTP");
+                MessageBox.Show("Key does not exist.\nGenerate key or import saved key first", "RDOTP");
                 return;
             }
 
@@ -173,6 +170,142 @@ namespace rdOTP
             {
                 this.secrent_key_value.PasswordChar = '*';
             }
+        }
+
+        private void expKey_btn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(this.secrent_key_value.Text))
+            {
+                MessageBox.Show("Key does not exist.\nGenerate key or import saved key first", "RDOTP");
+                return;
+            }
+
+            using (SaveFileDialog saveDialog = new SaveFileDialog())
+            {
+                saveDialog.Filter = "rdOTP Key File|*.rdotpkey";
+                saveDialog.Title = "Export secret key to file (Encoding : UTF8)";
+                saveDialog.OverwritePrompt= true;
+
+                var result = saveDialog.ShowDialog();
+                if (result != DialogResult.OK)
+                {
+                    return;
+                }
+
+                string path = saveDialog.FileName;
+                if (string.IsNullOrEmpty(path))
+                {
+                    return;
+                }
+                try
+                {
+                    File.WriteAllText(path, this.secrent_key_value.Text, Encoding.UTF8);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Cannot export key at file\n" + ex.Message, "RDOTP" ,MessageBoxButtons.OK , MessageBoxIcon.Error);
+                }
+            }
+
+            MessageBox.Show("Key has been exported", "RDOTP");
+        }
+
+        private void impKey_btn_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.secrent_key_value.Text))
+            {
+                var op = MessageBox.Show("If you import new key, You need change all OTP information at your phone.\nContinue?", "RDOTP", MessageBoxButtons.YesNo , MessageBoxIcon.None, MessageBoxDefaultButton.Button2);
+                if(op != DialogResult.Yes)
+                {
+                    return;
+                }
+            }
+
+            using (System.Windows.Forms.OpenFileDialog openDialog = new System.Windows.Forms.OpenFileDialog())
+            {
+                openDialog.Filter = "rdOTP Key File|*.rdotpkey";
+                openDialog.Title = "Import secret key from file (Encoding : UTF8)";
+
+                var result = openDialog.ShowDialog();
+                if (result != DialogResult.OK)
+                {
+                    return;
+                }
+
+                string path = openDialog.FileName;
+                if (string.IsNullOrEmpty(path) || !File.Exists(path))
+                {
+                    return;
+                }
+
+                // check file validation
+                try
+                {
+                    FileInfo fileInfo = new FileInfo(path);
+                    if (fileInfo.Length > 1024)
+                    {
+                        MessageBox.Show("Invalid key file.", "RDOTP", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Cannot read key file information.\n" + ex.Message, "RDOTP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string data = string.Empty;
+
+                try
+                {
+                    data = File.ReadAllText(path, Encoding.UTF8);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Cannot read key file.\n" + ex.Message, "RDOTP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(data))
+                {
+                    MessageBox.Show("File is empty", "RDOTP", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (data.Length != 32)
+                {
+                    MessageBox.Show("Invalid key file.", "RDOTP", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // check invalid char in key data
+                foreach (var c in data)
+                {
+                    if(c >= 128) // check ascii
+                    {
+                        // invalid char
+                        MessageBox.Show("Invalid key data.", "RDOTP", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
+                SetStringValueFromReg(Registry.LocalMachine, "SOFTWARE\\RDOTP", "GlobalSecretKey", data);
+
+                this.secrent_key_value.Text = data;
+
+                EraseQRCode();
+            }
+
+            MessageBox.Show("Key has been imported.", "RDOTP");
+        }
+
+        private void EraseQRCode()
+        {
+            if (this.qrcode.Image != null)
+            {
+                this.qrcode.Image.Dispose();
+            }
+            this.qrcode.Image = null;
         }
     }
 }
