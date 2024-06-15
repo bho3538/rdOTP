@@ -117,7 +117,147 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="secrent_key_value.MaxLength" type="System.Int32, mscorlib">
+    <value>128</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="qrgroupbox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 10pt</value>
+  </data>
+  <data name="&gt;&gt;qrcode.Name" xml:space="preserve">
+    <value>qrcode</value>
+  </data>
+  <data name="&gt;&gt;displayname_label.Parent" xml:space="preserve">
+    <value>qrgroupbox</value>
+  </data>
+  <data name="&gt;&gt;secrent_key_value.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="qr_show_btn.Text" xml:space="preserve">
+    <value>Show QR Code</value>
+  </data>
+  <data name="&gt;&gt;qrgroupbox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="secret_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 24</value>
+  </data>
+  <data name="qrgroupbox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 114</value>
+  </data>
+  <data name="secret_view_check.Text" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="qrgroupbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 84</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="digest_length_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="displayname_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 24</value>
+  </data>
+  <data name="timestep_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 16</value>
+  </data>
+  <data name="&gt;&gt;otpInfoGroup.Name" xml:space="preserve">
+    <value>otpInfoGroup</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="timestep_label.Text" xml:space="preserve">
+    <value>Time step : 30 seconds</value>
+  </data>
+  <data name="secret_generate_btn.Text" xml:space="preserve">
+    <value>Generate New</value>
+  </data>
+  <data name="&gt;&gt;displayname_input.Name" xml:space="preserve">
+    <value>displayname_input</value>
+  </data>
+  <data name="&gt;&gt;key_mode_label.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="key_mode_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 16</value>
+  </data>
+  <data name="qrcode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>395, 71</value>
+  </data>
+  <data name="secret_generate_btn.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="secrent_key_value.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="secret_generate_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 24</value>
+  </data>
+  <data name="&gt;&gt;secret_view_check.Name" xml:space="preserve">
+    <value>secret_view_check</value>
+  </data>
+  <data name="&gt;&gt;secret_generate_btn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;digest_length_label.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="secret_label.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 10pt</value>
+  </data>
+  <data name="digest_length_label.Text" xml:space="preserve">
+    <value>Digest : 6</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="secret_label.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>RDOTP KeySettings</value>
+  </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>OTP Test</value>
+  </data>
+  <data name="&gt;&gt;timestep_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;qrcode.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;displayname_label.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;otpInfoGroup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;timestep_label.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;secrent_key_value.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="impKey_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>438, 38</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAQAEBAAAAEAIABoBAAARgAAABgYAAABACAAiAkAAK4EAAAgIAAAAQAgAKgQAAA2DgAAMDAAAAEA
@@ -415,4 +555,343 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 </value>
   </data>
+  <data name="&gt;&gt;digest_length_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="impKey_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 23</value>
+  </data>
+  <data name="displayname_input.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="digest_length_label.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;qrgroupbox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="displayname_label.Text" xml:space="preserve">
+    <value>Display Name</value>
+  </data>
+  <data name="displayname_label.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 10pt</value>
+  </data>
+  <data name="displayname_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 16</value>
+  </data>
+  <data name="&gt;&gt;qrcode.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="displayname_input.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="&gt;&gt;impKey_btn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;expKey_btn.Name" xml:space="preserve">
+    <value>expKey_btn</value>
+  </data>
+  <data name="secret_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 16</value>
+  </data>
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;secrent_key_value.Name" xml:space="preserve">
+    <value>secrent_key_value</value>
+  </data>
+  <data name="qrgroupbox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="digest_length_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 16</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 71</value>
+  </data>
+  <data name="qr_show_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 23</value>
+  </data>
+  <data name="&gt;&gt;qr_show_btn.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;secret_label.Name" xml:space="preserve">
+    <value>secret_label</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>KeySettings</value>
+  </data>
+  <data name="secret_view_check.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;expKey_btn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="timestep_label.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="secret_generate_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>587, 9</value>
+  </data>
+  <data name="&gt;&gt;displayname_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="secrent_key_value.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="displayname_label.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="expKey_btn.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>311, 16</value>
+  </data>
+  <data name="secrent_key_value.Size" type="System.Drawing.Size, System.Drawing">
+    <value>311, 21</value>
+  </data>
+  <data name="&gt;&gt;timestep_label.Parent" xml:space="preserve">
+    <value>otpInfoGroup</value>
+  </data>
+  <data name="&gt;&gt;secret_view_check.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="impKey_btn.Text" xml:space="preserve">
+    <value>Import key</value>
+  </data>
+  <data name="&gt;&gt;impKey_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="otpInfoGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 113</value>
+  </data>
+  <data name="secret_label.Text" xml:space="preserve">
+    <value>Secret Key : </value>
+  </data>
+  <data name="&gt;&gt;secret_generate_btn.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;otpInfoGroup.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;secret_label.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;secrent_key_value.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="impKey_btn.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;digest_length_label.Name" xml:space="preserve">
+    <value>digest_length_label</value>
+  </data>
+  <data name="otpInfoGroup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 249</value>
+  </data>
+  <data name="secret_view_check.Location" type="System.Drawing.Point, System.Drawing">
+    <value>271, 13</value>
+  </data>
+  <data name="qrcode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>333, 291</value>
+  </data>
+  <data name="expKey_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>587, 38</value>
+  </data>
+  <data name="qr_show_btn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="&gt;&gt;secret_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;digest_length_label.Parent" xml:space="preserve">
+    <value>otpInfoGroup</value>
+  </data>
+  <data name="digest_length_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 51</value>
+  </data>
+  <data name="&gt;&gt;secret_view_check.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="secrent_key_value.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 38</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="otpInfoGroup.Text" xml:space="preserve">
+    <value>OTP Info</value>
+  </data>
+  <data name="&gt;&gt;displayname_input.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;qrcode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="key_mode_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 23</value>
+  </data>
+  <data name="&gt;&gt;key_mode_label.Name" xml:space="preserve">
+    <value>key_mode_label</value>
+  </data>
+  <data name="&gt;&gt;qr_show_btn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="secret_view_check.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 19</value>
+  </data>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;secret_generate_btn.Name" xml:space="preserve">
+    <value>secret_generate_btn</value>
+  </data>
+  <data name="&gt;&gt;secret_view_check.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="displayname_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;qr_show_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>438, 9</value>
+  </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
+  <data name="timestep_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;secret_generate_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="timestep_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 78</value>
+  </data>
+  <data name="&gt;&gt;qrgroupbox.Name" xml:space="preserve">
+    <value>qrgroupbox</value>
+  </data>
+  <data name="otpInfoGroup.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 10pt</value>
+  </data>
+  <data name="&gt;&gt;displayname_input.Parent" xml:space="preserve">
+    <value>qrgroupbox</value>
+  </data>
+  <data name="&gt;&gt;secret_label.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;impKey_btn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>WARNING : Do not share secret key or QR code</value>
+  </data>
+  <data name="&gt;&gt;expKey_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;displayname_input.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="qr_show_btn.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="key_mode_label.Text" xml:space="preserve">
+    <value>Key hash mode : SHA1</value>
+  </data>
+  <data name="&gt;&gt;timestep_label.Name" xml:space="preserve">
+    <value>timestep_label</value>
+  </data>
+  <data name="expKey_btn.Text" xml:space="preserve">
+    <value>Export key</value>
+  </data>
+  <data name="&gt;&gt;qr_show_btn.Name" xml:space="preserve">
+    <value>qr_show_btn</value>
+  </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="displayname_input.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 48</value>
+  </data>
+  <data name="key_mode_label.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;key_mode_label.Parent" xml:space="preserve">
+    <value>otpInfoGroup</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>747, 377</value>
+  </data>
+  <data name="&gt;&gt;impKey_btn.Name" xml:space="preserve">
+    <value>impKey_btn</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 10pt</value>
+  </data>
+  <data name="qrgroupbox.Text" xml:space="preserve">
+    <value>QR Code Options</value>
+  </data>
+  <data name="&gt;&gt;qrgroupbox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="otpInfoGroup.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="qrcode.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;expKey_btn.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;key_mode_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="qr_show_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 204</value>
+  </data>
+  <data name="secret_view_check.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="expKey_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 23</value>
+  </data>
+  <data name="displayname_input.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 21</value>
+  </data>
+  <data name="key_mode_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="displayname_input.Text" xml:space="preserve">
+    <value>My Remote Computer</value>
+  </data>
+  <data name="&gt;&gt;displayname_label.Name" xml:space="preserve">
+    <value>displayname_label</value>
+  </data>
+  <data name="&gt;&gt;otpInfoGroup.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="secret_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 13</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>ko-KR</value>
+  </metadata>
 </root>

@@ -1,4 +1,5 @@
 ﻿using OtpNet;
+using rdOTP.Locale;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,7 +43,7 @@ namespace rdOTP
             if (string.IsNullOrEmpty(_otpKey))
             {
                 this.code_input.Enabled = false;
-                wrong_msg.Text = "OTP not configured. Click 'submit' and setting it first!";
+                wrong_msg.Text = Resource.Auth_NotConfigured;
                 wrong_msg.Visible = true;
             }
 
@@ -137,7 +138,7 @@ namespace rdOTP
             this.time_value_label.Text = dt.ToString(TIME_FORMAT);
 
             _seconds -= 1;
-            this.leftTime_label.Text = string.Format("Dialog will be closed in {0} seconds.", _seconds);
+            this.leftTime_label.Text = string.Format(Resource.Auth_Timeout, _seconds);
 
             if(_seconds == 0)
             {

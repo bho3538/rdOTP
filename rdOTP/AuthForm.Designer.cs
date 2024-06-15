@@ -43,97 +43,57 @@
             // 
             // code_input
             // 
-            this.code_input.Font = new System.Drawing.Font("Arial", 9.5F);
-            this.code_input.Location = new System.Drawing.Point(12, 82);
+            resources.ApplyResources(this.code_input, "code_input");
             this.code_input.Name = "code_input";
-            this.code_input.Size = new System.Drawing.Size(406, 22);
-            this.code_input.TabIndex = 0;
-            this.code_input.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // submit_btn
             // 
-            this.submit_btn.Font = new System.Drawing.Font("Arial", 9F);
-            this.submit_btn.Location = new System.Drawing.Point(305, 145);
+            resources.ApplyResources(this.submit_btn, "submit_btn");
             this.submit_btn.Name = "submit_btn";
-            this.submit_btn.Size = new System.Drawing.Size(113, 27);
-            this.submit_btn.TabIndex = 1;
-            this.submit_btn.Text = "Submit";
             this.submit_btn.UseVisualStyleBackColor = true;
             this.submit_btn.Click += new System.EventHandler(this.submit_btn_Click);
             // 
             // title_label
             // 
-            this.title_label.AutoSize = true;
-            this.title_label.Font = new System.Drawing.Font("Arial", 14F);
-            this.title_label.Location = new System.Drawing.Point(13, 13);
+            resources.ApplyResources(this.title_label, "title_label");
             this.title_label.Name = "title_label";
-            this.title_label.Size = new System.Drawing.Size(202, 22);
-            this.title_label.TabIndex = 2;
-            this.title_label.Text = "Autherication Required";
             // 
             // title_des_label
             // 
-            this.title_des_label.AutoSize = true;
-            this.title_des_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title_des_label.Location = new System.Drawing.Point(12, 50);
+            resources.ApplyResources(this.title_des_label, "title_des_label");
             this.title_des_label.Name = "title_des_label";
-            this.title_des_label.Size = new System.Drawing.Size(260, 17);
-            this.title_des_label.TabIndex = 3;
-            this.title_des_label.Text = "Enter OTP Code from registered phone.";
             // 
             // time_label
             // 
-            this.time_label.AutoSize = true;
-            this.time_label.Font = new System.Drawing.Font("Arial", 9F);
-            this.time_label.Location = new System.Drawing.Point(11, 152);
+            resources.ApplyResources(this.time_label, "time_label");
             this.time_label.Name = "time_label";
-            this.time_label.Size = new System.Drawing.Size(93, 15);
-            this.time_label.TabIndex = 4;
-            this.time_label.Text = "Machine Time : ";
             // 
             // time_value_label
             // 
-            this.time_value_label.AutoSize = true;
-            this.time_value_label.Font = new System.Drawing.Font("Arial", 9F);
-            this.time_value_label.Location = new System.Drawing.Point(113, 152);
+            resources.ApplyResources(this.time_value_label, "time_value_label");
             this.time_value_label.Name = "time_value_label";
-            this.time_value_label.Size = new System.Drawing.Size(0, 15);
-            this.time_value_label.TabIndex = 5;
             // 
             // wrong_msg
             // 
-            this.wrong_msg.AutoSize = true;
-            this.wrong_msg.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.wrong_msg, "wrong_msg");
             this.wrong_msg.ForeColor = System.Drawing.Color.Red;
-            this.wrong_msg.Location = new System.Drawing.Point(10, 120);
             this.wrong_msg.Name = "wrong_msg";
-            this.wrong_msg.Size = new System.Drawing.Size(190, 15);
-            this.wrong_msg.TabIndex = 6;
-            this.wrong_msg.Text = "Autherication code does not valid.";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(366, 13);
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 55);
-            this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
             // leftTime_label
             // 
-            this.leftTime_label.AutoSize = true;
-            this.leftTime_label.Font = new System.Drawing.Font("Arial", 8.5F);
-            this.leftTime_label.Location = new System.Drawing.Point(12, 178);
+            resources.ApplyResources(this.leftTime_label, "leftTime_label");
             this.leftTime_label.Name = "leftTime_label";
-            this.leftTime_label.Size = new System.Drawing.Size(205, 15);
-            this.leftTime_label.TabIndex = 8;
-            this.leftTime_label.Text = "Dialog will be closed in 30 seconds.";
             // 
             // AuthForm
             // 
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(432, 203);
             this.Controls.Add(this.leftTime_label);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.wrong_msg);
@@ -143,13 +103,10 @@
             this.Controls.Add(this.title_label);
             this.Controls.Add(this.submit_btn);
             this.Controls.Add(this.code_input);
-            this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AuthForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RDOTP";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
