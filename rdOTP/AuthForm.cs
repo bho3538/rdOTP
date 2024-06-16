@@ -71,59 +71,51 @@ namespace rdOTP
 
             float scale = dpiX / 96;
 
-            if(scale == 1)
+            if (scale == 1)
             {
                 int width = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Size.Width;
                 if (width > 1920)
                 {
                     scale = (float)width / 1920;
-                    scale += 1;
                     bHack = true;
                 }
             }
 
-            if(scale > 1)
+            if (scale != 1)
             {
-                this.Width = (int)(this.Width * scale);
-                this.Height = (int)(this.Height * scale);
+                // ???
+                this.Width = (int)(this.Width * scale) - 15;
+                this.Height = (int)(this.Height * scale) - 30;
+            }
 
-                int cnt = this.Controls.Count;
 
-                for(int i = 0; i < cnt; i++)
+            int cnt = this.Controls.Count;
+
+            for (int i = 0; i < cnt; i++)
+            {
+                Control ctrl = this.Controls[i];
+
+                ctrl.Location = new Point((int)(ctrl.Location.X * scale), (int)(ctrl.Location.Y * scale));
+                ctrl.Width = (int)(ctrl.Width * scale);
+                ctrl.Height = (int)(ctrl.Height * scale);
+
+                if (bHack)
                 {
-                    Control ctrl = this.Controls[i];
-
-                    ctrl.Width = (int)(ctrl.Width * scale);
-                    ctrl.Height = (int)(ctrl.Height * scale);
-                    ctrl.Location = new Point((int)(ctrl.Location.X * scale), (int)(ctrl.Location.Y * scale));
-
-                    if(ctrl is Label lb)
+                    if (ctrl is Label lb)
                     {
-                        float fontSize = lb.Font.Size + scale;
-                        if (bHack)
-                        {
-                            fontSize += 6;
-                        }
+                        float fontSize = lb.Font.Size * scale; 
 
                         lb.Font = new Font("Arial", fontSize, lb.Font.Style);
                     }
-                    else if(ctrl is Button btn)
+                    else if (ctrl is Button btn)
                     {
-                        float fontSize = btn.Font.Size + scale;
-                        if (bHack)
-                        {
-                            fontSize += 6;
-                        }
+                        float fontSize = btn.Font.Size * scale;
 
                         btn.Font = new Font("Arial", fontSize, btn.Font.Style);
                     }
                     else if (ctrl is TextBox box)
                     {
-                        float fontSize = box.Font.Size + scale;
-                        if (bHack)
-                        {
-                            fontSize += 6;
-                        }
+                        float fontSize = box.Font.Size * scale;
 
                         box.Font = new Font("Arial", fontSize, box.Font.Style);
                     }
