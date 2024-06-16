@@ -141,6 +141,7 @@
     </Compile>
     <EmbeddedResource Include="AuthForm.ko-KR.resx">
       <DependentUpon>AuthForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="AuthForm.resx">
       <DependentUpon>AuthForm.cs</DependentUpon>
