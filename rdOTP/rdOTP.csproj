@@ -27,6 +27,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <GenerateSatelliteAssembliesForCore Condition=" '$(Platform)' == 'ARM64' ">true</GenerateSatelliteAssembliesForCore>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -114,6 +115,16 @@
     <Compile Include="KeySettings.Designer.cs">
       <DependentUpon>KeySettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Locale\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Locale\Resource.ko-KR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.ko-KR.resx</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs">
@@ -122,12 +133,33 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\VCRuntimeRequiredDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\VCRuntimeRequiredDialog.Designer.cs">
+      <DependentUpon>VCRuntimeRequiredDialog.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AuthForm.ko-KR.resx">
+      <DependentUpon>AuthForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="AuthForm.resx">
       <DependentUpon>AuthForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="KeySettings.ko-KR.resx">
+      <DependentUpon>KeySettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KeySettings.resx">
       <DependentUpon>KeySettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Locale\Resource.ko-KR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.ko-KR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Locale\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -138,8 +170,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Settings.ko-KR.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\VCRuntimeRequiredDialog.ko-KR.resx">
+      <DependentUpon>VCRuntimeRequiredDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\VCRuntimeRequiredDialog.resx">
+      <DependentUpon>VCRuntimeRequiredDialog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />

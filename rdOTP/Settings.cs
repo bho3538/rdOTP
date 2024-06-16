@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using rdOTP.Locale;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +20,7 @@ namespace rdOTP
         {
             InitializeComponent();
 
-            this.Version_label.Text = string.Format("Version : {0}", Application.ProductVersion);
+            this.Version_label.Text = $"{Resource.Main_Version} : { Application.ProductVersion}";
 
             CheckInstallStatus();
         }
@@ -37,20 +38,13 @@ namespace rdOTP
 
         private void intstall_btn_Click(object sender, EventArgs e)
         {
-            IntPtr hModule = LoadLibrary("rdOTPWrap.dll");
-            if (hModule == IntPtr.Zero)
-            {
-                MessageBox.Show("Failed to load rdOTPWrap.dll\nPlease install 'Visual C++ Redistributable 2022' or re-install this program", "RDOTP", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            FreeLibrary(hModule);
-
             Process.Start("regsvr32.exe", "rdOTPCred.dll").WaitForExit();
             CheckInstallStatus();
         }
 
         private void uninstall_btn_Click(object sender, EventArgs e)
         {
+
             Process.Start("regsvr32.exe", "/u rdOTPCred.dll").WaitForExit();
             CheckInstallStatus();
         }
@@ -62,47 +56,24 @@ namespace rdOTP
 
         private void CheckInstallStatus()
         {
-            this.status_value_label.Text = "Not Installed";
+            this.status_value_label.Text = Resource.Main_NotInstalled;
             this.status_value_label.ForeColor = Color.Red;
 
-            IntPtr hModule = LoadLibrary("rdOTPCred.dll");
-            if (hModule == IntPtr.Zero)
-            {
-                MessageBox.Show("Failed to load rdOTPCred.dll\nPlease re-install this program", "RDOTP", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            FreeLibrary(hModule);
-
-            hModule = LoadLibrary("rdOTPWrap.dll");
-            if(hModule == IntPtr.Zero)
-            {
-                MessageBox.Show("Failed to load rdOTPWrap.dll\nPlease install 'Visual C++ Redistributable 2022' or re-install this program", "RDOTP", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            FreeLibrary(hModule);
-
             //check registry
-
             try
             {
                 RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{0C34E73F-B241-48F3-8C7C-C5C7698BF717}");
                 if(key != null)
                 {
-                    this.status_value_label.Text = "Installed";
+                    this.status_value_label.Text = Resource.Main_Installed;
                     this.status_value_label.ForeColor = Color.Green;
                     key.Close();
                 }
             }
             catch
             {
-
+                // not installed
             }
         }
-
-        [DllImport("kernel32.dll")]
-        private static extern IntPtr LoadLibrary(string dllToLoad);
-
-        [DllImport("kernel32.dll")]
-        private static extern int FreeLibrary(IntPtr hModule);
     }
 }

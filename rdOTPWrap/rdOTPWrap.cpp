@@ -5,7 +5,18 @@
 using namespace rdOTPWrap;
 using namespace System::Runtime::InteropServices;
 
+static bool g_StyleEnabled = false;
+
 int RDOtpWrapper::Show() {
+
+	if (!g_StyleEnabled) {
+		g_StyleEnabled = true;
+
+		// show auth dialog pretty
+		System::Windows::Forms::Application::EnableVisualStyles();
+		System::Windows::Forms::Application::SetCompatibleTextRenderingDefault(false);
+	}
+
 	rdOTP::AuthForm^ form = gcnew rdOTP::AuthForm();
 	if (form->ShowAndValidateCode()) {
 		return 0;

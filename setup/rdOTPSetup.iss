@@ -4,9 +4,9 @@
 
 [Setup]
 PrivilegesRequired=admin
-OutputBaseFilename=rdOTP 1.3
+OutputBaseFilename=rdOTP 1.7
 AppName=rdOTP
-AppVersion=1.3
+AppVersion=1.7
 AppVerName=rdOTP
 AppPublisher=bho3538
 AppPublisherURL=https://github.com/bho3538/rdOTP
@@ -31,8 +31,8 @@ UninstallLogMode=append
 ArchitecturesInstallIn64BitMode=x64 arm64
 LanguageDetectionMethod=uilanguage
 ShowLanguageDialog=yes
-VersionInfoProductVersion=1.3
-VersionInfoVersion=1.3
+VersionInfoProductVersion=1.7
+VersionInfoVersion=1.7
 UsePreviousTasks=no
 
 
@@ -45,6 +45,7 @@ Name: "ENU" ; MessagesFile: "compiler:Default.isl"
 [Files]
 Source: ".\Source\rdOTP\Otp.NET.dll"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion
 Source: ".\Source\rdOTP\QRCoder.dll"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion 
+Source: ".\Source\rdOTP\ko-KR\rdOTP.resources.dll"; DestDir: "{app}\ko-KR"; Flags: restartreplace uninsrestartdelete ignoreversion;
 Source: ".\Source\rdOTP\rdOTP.exe"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion; Check: not InstallARM64
 Source: ".\Source\rdOTP\ARM64\rdOTP.exe"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
 
