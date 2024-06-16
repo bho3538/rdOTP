@@ -117,13 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="code_input.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="submit_btn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
   <data name="submit_btn.Text" xml:space="preserve">
     <value>확인</value>
   </data>
@@ -152,11 +145,8 @@
   <data name="title_des_label.Text" xml:space="preserve">
     <value>등록된 휴대전화의 OTP 번호를 입력하십시오.</value>
   </data>
-  <data name="time_label.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
   <data name="time_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 15</value>
+    <value>82, 15</value>
   </data>
   <data name="time_label.Text" xml:space="preserve">
     <value>컴퓨터 시간 : </value>
@@ -170,13 +160,10 @@
   <data name="wrong_msg.Text" xml:space="preserve">
     <value>인증 코드가 유효하지 않습니다.</value>
   </data>
-  <data name="pictureBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAAu5JREFUaEPtmM9rE0EUx6cHT3pQ/wELFtSzFloSQ0gIaRpt/wWF6lHrQax/Q9J4
+        DAAACwwBP0AiyAAAAu5JREFUaEPtmM9rE0EUx6cHT3pQ/wELFtSzFloSQ0gIaRpt/wWF6lHrQax/Q9J4
         UATBo3jwUJsfB2troia79VCw2MwmehLrwYunemqh48z6hOzmPexsduMc8oEP3e689+ab3U0CYWGy2uqc
         K1vOvbLtbJRt3pHHv1zVsTon11QNlJuDDHWpYjtvpOJocqtsd2PQ/v94srV1rGI5j8sWP8SD0qoeeWce
         qRkwbri8stunZYgGFk5PXq81P52CscNBXTUqvLyqa/LvgnrW17a3jysrVvd8teXcqFj8tb/+j7w+1Duh
@@ -192,11 +179,9 @@
         rkJggg==
 </value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
-  </data>
-  <data name="leftTime_label.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
   </data>
   <data name="leftTime_label.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 15</value>

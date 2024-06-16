@@ -45,7 +45,7 @@ Name: "ENU" ; MessagesFile: "compiler:Default.isl"
 [Files]
 Source: ".\Source\rdOTP\Otp.NET.dll"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion
 Source: ".\Source\rdOTP\QRCoder.dll"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion 
-Source: ".\Source\rdOTP\ko-KR\rdOTP.resources.dll"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion;
+Source: ".\Source\rdOTP\ko-KR\rdOTP.resources.dll"; DestDir: "{app}\ko-KR"; Flags: restartreplace uninsrestartdelete ignoreversion;
 Source: ".\Source\rdOTP\rdOTP.exe"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion; Check: not InstallARM64
 Source: ".\Source\rdOTP\ARM64\rdOTP.exe"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
 

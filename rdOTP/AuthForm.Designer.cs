@@ -92,8 +92,8 @@
             // 
             // AuthForm
             // 
-            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.leftTime_label);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.wrong_msg);

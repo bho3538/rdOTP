@@ -117,248 +117,209 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;leftTime_label.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="title_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 13</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="wrong_msg.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="wrong_msg.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;title_des_label.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="title_label.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;code_input.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="leftTime_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 15</value>
-  </data>
-  <data name="time_label.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="title_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
-  </data>
-  <data name="submit_btn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>305, 145</value>
-  </data>
-  <data name="time_value_label.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="leftTime_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 178</value>
-  </data>
-  <data name="title_label.Text" xml:space="preserve">
-    <value>Autherication Required</value>
-  </data>
-  <data name="wrong_msg.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 120</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="&gt;&gt;title_des_label.Name" xml:space="preserve">
-    <value>title_des_label</value>
-  </data>
-  <data name="title_label.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 14pt</value>
-  </data>
-  <data name="submit_btn.Text" xml:space="preserve">
-    <value>Submit</value>
-  </data>
-  <data name="code_input.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="time_value_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 15</value>
-  </data>
-  <data name="&gt;&gt;time_label.Name" xml:space="preserve">
-    <value>time_label</value>
-  </data>
-  <data name="wrong_msg.Text" xml:space="preserve">
-    <value>Autherication code does not valid.</value>
-  </data>
-  <data name="&gt;&gt;code_input.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;code_input.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;submit_btn.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="submit_btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 27</value>
-  </data>
-  <data name="&gt;&gt;title_des_label.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;title_label.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;submit_btn.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="code_input.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9.5pt</value>
+  </data>
+  <data name="code_input.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 82</value>
   </data>
   <data name="code_input.Size" type="System.Drawing.Size, System.Drawing">
     <value>406, 22</value>
   </data>
-  <data name="&gt;&gt;leftTime_label.ZOrder" xml:space="preserve">
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="code_input.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="time_label.Font" type="System.Drawing.Font, System.Drawing">
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="code_input.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;code_input.Name" xml:space="preserve">
+    <value>code_input</value>
+  </data>
+  <data name="&gt;&gt;code_input.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;code_input.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;code_input.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="submit_btn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9pt</value>
   </data>
-  <data name="wrong_msg.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 15</value>
+  <data name="submit_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>305, 145</value>
   </data>
-  <data name="&gt;&gt;time_value_label.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="submit_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 27</value>
   </data>
-  <data name="&gt;&gt;leftTime_label.Name" xml:space="preserve">
-    <value>leftTime_label</value>
+  <data name="submit_btn.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;time_value_label.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="submit_btn.Text" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="&gt;&gt;submit_btn.Name" xml:space="preserve">
+    <value>submit_btn</value>
+  </data>
+  <data name="&gt;&gt;submit_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;submit_btn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;submit_btn.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="title_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="title_label.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 14pt</value>
+  </data>
+  <data name="title_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 13</value>
+  </data>
+  <data name="title_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 22</value>
+  </data>
+  <data name="title_label.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="title_label.Text" xml:space="preserve">
+    <value>Autherication Required</value>
   </data>
   <data name="&gt;&gt;title_label.Name" xml:space="preserve">
     <value>title_label</value>
   </data>
-  <data name="&gt;&gt;wrong_msg.Name" xml:space="preserve">
-    <value>wrong_msg</value>
+  <data name="&gt;&gt;title_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>366, 13</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>RDOTP</value>
-  </data>
-  <data name="leftTime_label.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
-  </data>
-  <data name="&gt;&gt;wrong_msg.Parent" xml:space="preserve">
+  <data name="&gt;&gt;title_label.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;title_label.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;time_label.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="time_value_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>113, 152</value>
-  </data>
-  <data name="time_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 15</value>
-  </data>
-  <data name="time_label.Text" xml:space="preserve">
-    <value>Machine Time : </value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="wrong_msg.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9pt</value>
-  </data>
   <data name="title_des_label.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 8.25pt</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;time_label.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 55</value>
-  </data>
-  <data name="title_des_label.Text" xml:space="preserve">
-    <value>Enter OTP Code from registered phone.</value>
-  </data>
-  <data name="time_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 152</value>
-  </data>
-  <data name="&gt;&gt;wrong_msg.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="code_input.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="time_value_label.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9pt</value>
-  </data>
-  <data name="code_input.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 82</value>
-  </data>
-  <data name="time_label.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="title_des_label.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
   </data>
   <data name="title_des_label.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 50</value>
   </data>
+  <data name="title_des_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>260, 17</value>
+  </data>
+  <data name="title_des_label.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="title_des_label.Text" xml:space="preserve">
+    <value>Enter OTP Code from registered phone.</value>
+  </data>
+  <data name="&gt;&gt;title_des_label.Name" xml:space="preserve">
+    <value>title_des_label</value>
+  </data>
+  <data name="&gt;&gt;title_des_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;title_des_label.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;submit_btn.Name" xml:space="preserve">
-    <value>submit_btn</value>
+  <data name="&gt;&gt;title_des_label.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>AuthForm</value>
+  <data name="time_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="time_label.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="time_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 152</value>
+  </data>
+  <data name="time_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 15</value>
+  </data>
+  <data name="time_label.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="time_label.Text" xml:space="preserve">
+    <value>Machine Time : </value>
+  </data>
+  <data name="&gt;&gt;time_label.Name" xml:space="preserve">
+    <value>time_label</value>
   </data>
   <data name="&gt;&gt;time_label.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;wrong_msg.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="leftTime_label.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;submit_btn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;time_value_label.Parent" xml:space="preserve">
+  <data name="&gt;&gt;time_label.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>432, 203</value>
+  <data name="&gt;&gt;time_label.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="title_des_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 17</value>
-  </data>
-  <data name="title_label.AutoSize" type="System.Boolean, mscorlib">
+  <data name="time_value_label.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="time_value_label.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="time_value_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>113, 152</value>
+  </data>
+  <data name="time_value_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 15</value>
+  </data>
+  <data name="time_value_label.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;time_value_label.Name" xml:space="preserve">
     <value>time_value_label</value>
   </data>
-  <data name="submit_btn.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="&gt;&gt;time_value_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;time_value_label.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;time_value_label.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="wrong_msg.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="wrong_msg.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 9pt</value>
+  </data>
+  <data name="wrong_msg.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 120</value>
+  </data>
+  <data name="wrong_msg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 15</value>
+  </data>
+  <data name="wrong_msg.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="wrong_msg.Text" xml:space="preserve">
+    <value>Autherication code does not valid.</value>
+  </data>
+  <data name="&gt;&gt;wrong_msg.Name" xml:space="preserve">
+    <value>wrong_msg</value>
+  </data>
+  <data name="&gt;&gt;wrong_msg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;wrong_msg.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;wrong_msg.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -379,40 +340,79 @@
         rkJggg==
 </value>
   </data>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>366, 13</value>
+  </data>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 55</value>
+  </data>
   <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
+    <value>pictureBox1</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="leftTime_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="leftTime_label.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 8.5pt</value>
   </data>
-  <data name="submit_btn.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="leftTime_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 178</value>
   </data>
-  <data name="time_value_label.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="leftTime_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 15</value>
   </data>
-  <data name="title_des_label.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10pt</value>
-  </data>
-  <data name="&gt;&gt;code_input.Name" xml:space="preserve">
-    <value>code_input</value>
-  </data>
-  <data name="&gt;&gt;title_label.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="leftTime_label.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
   <data name="leftTime_label.Text" xml:space="preserve">
     <value>Dialog will be closed in 30 seconds.</value>
   </data>
+  <data name="&gt;&gt;leftTime_label.Name" xml:space="preserve">
+    <value>leftTime_label</value>
+  </data>
+  <data name="&gt;&gt;leftTime_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;leftTime_label.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="title_des_label.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;leftTime_label.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>ko-KR</value>
   </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>432, 203</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 8.25pt</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>RDOTP</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>AuthForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
