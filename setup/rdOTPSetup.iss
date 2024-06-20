@@ -43,20 +43,20 @@ Name: "ENU" ; MessagesFile: "compiler:Default.isl"
 [Dirs]
 
 [Files]
-Source: ".\Source\rdOTP\Otp.NET.dll"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion
-Source: ".\Source\rdOTP\QRCoder.dll"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion 
-Source: ".\Source\rdOTP\ko-KR\rdOTP.resources.dll"; DestDir: "{app}\ko-KR"; Flags: restartreplace uninsrestartdelete ignoreversion;
-Source: ".\Source\rdOTP\rdOTP.exe"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion; Check: not InstallARM64
-Source: ".\Source\rdOTP\ARM64\rdOTP.exe"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
+Source: "..\rdOTP\bin\Release\Otp.NET.dll"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion
+Source: "..\rdOTP\bin\Release\QRCoder.dll"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion 
+Source: "..\rdOTP\bin\Release\ko-KR\rdOTP.resources.dll"; DestDir: "{app}\ko-KR"; Flags: restartreplace uninsrestartdelete ignoreversion;
+Source: "..\rdOTP\bin\Release\rdOTP.exe"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion; Check: not InstallARM64
+Source: "..\rdOTP\bin\ARM64\Release\rdOTP.exe"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
 
-Source: ".\Source\rdOTP\x86\rdOTPCred.dll"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
-Source: ".\Source\rdOTP\x86\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
+Source: "..\Release\rdOTPCred.dll"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
+Source: "..\Release\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
 
-Source: ".\Source\rdOTP\x64\rdOTPCred.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
-Source: ".\Source\rdOTP\x64\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
+Source: "..\x64\Release\rdOTPCred.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
+Source: "..\x64\Release\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
 
-Source: ".\Source\rdOTP\ARM64\rdOTPCred.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
-Source: ".\Source\rdOTP\ARM64\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
+Source: "..\ARM64\Release\rdOTPCred.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
+Source: "..\ARM64\Release\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
 
 [Icons]
 Name: "{group}\rdOTP Settings"; Filename: "{app}\rdOTP.exe"

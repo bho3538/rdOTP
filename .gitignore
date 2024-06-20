@@ -363,4 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 setup/Output/*
-setup/Source/rdOTP*
+setup/Source/*
+setup/PDB/*
