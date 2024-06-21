@@ -1,10 +1,7 @@
 ## 설치 및 초기 설정 방법
 1. 설치파일을 더블클릭하여 실행합니다. 관리자 권한이 필요합니다.
 2. 정상적으로 설치가 완료되면 바탕화면에 다음과 같은 아이콘이 생깁니다.\
-   ![image](https://github.com/bho3538/rdOTP/assets/12496720/4a5f39da-9c0e-4d1f-8d0c-f1c355d210ea)
-3. 'rdOTP Settings'를 더블클릭하여 실행합니다.\
-   ![main](https://github.com/bho3538/rdOTP/assets/12496720/71baebb1-4000-4de2-9b8d-f510e4182af0)
-4. 'Install' 단추를 클릭하여 모듈을 시스템에 등록합니다.\
+   ![image](https://github.com/bho3538/rdOTP/assets/12496720/4a5f39da-9c0e-4d1f-8d0c-f1c355d210ea)\
    Visual C++ Redistributable 2022가 설치되지 않은 경우 아래와 같은 오류 메시지가 표시될수 있습니다.\
    ![image](https://github.com/bho3538/rdOTP/assets/12496720/12a4b525-ea5b-456b-956c-76d4f34c2463)\
    좌측 하단의 '다운로드' 링크를 클릭하거나(권장) 아래의 주소에서 수동으로 설치할 수 있습니다.\
@@ -12,6 +9,9 @@
    x86 : https://aka.ms/vs/17/release/vc_redist.x86.exe \
    x64 : https://aka.ms/vs/17/release/vc_redist.x64.exe \
    ARM64 : https://aka.ms/vs/17/release/vc_redist.ARM64.exe
+4. 'rdOTP Settings'를 더블클릭하여 실행합니다.\
+   ![main](https://github.com/bho3538/rdOTP/assets/12496720/71baebb1-4000-4de2-9b8d-f510e4182af0)
+5. 'Install' 단추를 클릭하여 모듈을 시스템에 등록합니다.\
 6. '환경설정' 단추를 눌러 OTP 키를 설정합니다. 최초 실행한 경우 '새 비밀 키 생성' 단추를 눌러 키를 생성하십시오.
    ![settings](https://github.com/bho3538/rdOTP/assets/12496720/46ddacdd-ca8b-44f3-a093-fc79e1bd4287)
 7. 키 생성후 'QR 코드 보기' 단추를 눌러 QR코드를 생성한 후 휴대전화 앱에 등록합니다.
