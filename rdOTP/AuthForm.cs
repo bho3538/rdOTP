@@ -26,7 +26,7 @@ namespace rdOTP
         private string _otpKey = "";
         private int _seconds = 30;
 
-        private const string TIME_FORMAT = "yyyy-mm-dd HH:mm:ss";
+        private const string TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
         public AuthForm()
         {
