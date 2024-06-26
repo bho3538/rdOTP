@@ -1,4 +1,5 @@
-﻿using rdOTP.Locale;
+﻿using Microsoft.Win32;
+using rdOTP.Locale;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,7 @@ namespace rdOTP.UI
             InitializeComponent();
 
             SetServiceStatusUI();
+
         }
 
         private void SetServiceStatusUI()
@@ -42,12 +44,37 @@ namespace rdOTP.UI
             this.service_install_status.Text = serviceInstalled ? Resource.Service_Installed : Resource.Service_NotInstalled;
             this.service_running_status.Text = serviceRunning ? Resource.Service_runnning : Resource.Service_Notrunning;
 
+            if (IsChromeRDEnabled())
+            {
+                this.chrome_rd_enable_chk.Checked = true;
+            }
+
             this.chrome_rd_enable_chk.CheckedChanged += Chrome_rd_enable_chk_CheckedChanged;
         }
 
         private void Chrome_rd_enable_chk_CheckedChanged(object sender, EventArgs e)
         {
-            this.chrome_rd_enable_chk.Checked = false;
+            if (this.chrome_rd_enable_chk.Checked)
+            {
+                SetDWORDValueAtReg(Registry.LocalMachine, "SOFTWARE\\RDOTP", "CheckChromeRemoteDesktop", 1);
+            }
+            else
+            {
+                SetDWORDValueAtReg(Registry.LocalMachine, "SOFTWARE\\RDOTP", "CheckChromeRemoteDesktop", 0);
+            }
+        }
+
+        private bool IsChromeRDEnabled()
+        {
+            int enabled = 0;
+            bool re = GetDWORDValueFromReg(Registry.LocalMachine, "SOFTWARE\\RDOTP", "CheckChromeRemoteDesktop", ref enabled);
+
+            if (re && enabled != 0)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private void lock_btn_Click(object sender, EventArgs e)
@@ -232,6 +259,73 @@ namespace rdOTP.UI
             {
                 return string.Empty;
             }
+        }
+
+        private string GetStringValueFromReg(RegistryKey hive, string key, string name)
+        {
+            string val = string.Empty;
+
+            try
+            {
+                var reg = hive.OpenSubKey(key);
+                if (reg == null)
+                {
+                    return val;
+                }
+
+                object obj = reg.GetValue(name, "", RegistryValueOptions.None);
+                if (obj is string str)
+                {
+                    val = str;
+                }
+            }
+            catch
+            {
+            }
+
+            return val;
+        }
+
+        private bool SetDWORDValueAtReg(RegistryKey hive, string key, string name, int val)
+        {
+            try
+            {
+                var reg = hive.OpenSubKey(key, true);
+                if (reg == null)
+                {
+                    reg = hive.CreateSubKey(key, true);
+                }
+
+                reg.SetValue(name, val, RegistryValueKind.DWord);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool GetDWORDValueFromReg(RegistryKey hive, string key, string name, ref int val)
+        {
+            try
+            {
+                var reg = hive.OpenSubKey(key, true);
+                if (reg != null)
+                {
+                    object value = reg.GetValue(name);
+                    if (value != null && value is int num)
+                    {
+                        val = num;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
         }
 
         #region marshal

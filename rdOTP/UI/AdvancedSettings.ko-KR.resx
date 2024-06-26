@@ -135,10 +135,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="service_install_status.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 15</value>
-  </data>
-  <data name="service_install_status.Text" xml:space="preserve">
-    <value>Not Installed</value>
+    <value>0, 15</value>
   </data>
   <data name="service_install_status_label.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 15</value>
@@ -155,11 +152,11 @@
   <data name="chrome_rd_enable_chk.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="chrome_rd_enable_chk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 19</value>
+  <data name="chrome_rd_enable_chk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>391, 35</value>
   </data>
-  <data name="chrome_rd_enable_chk.Text" xml:space="preserve">
-    <value>활성화</value>
+  <data name="chrome_rd_enable_chk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 14</value>
   </data>
   <data name="chrome_rd_label.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 15</value>
@@ -189,6 +186,6 @@
     <value>446, 286</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>고급 설정</value>
+    <value>추가 기능 설정</value>
   </data>
 </root>

@@ -117,148 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;service_running_status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Not Installed</value>
-  </data>
-  <data name="&gt;&gt;chrome_rd_enable_chk.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="chrome_rd_label.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;start_btn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="chrome_rd_label.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;install_btn.Parent" xml:space="preserve">
-    <value>other_remote_settings_group</value>
-  </data>
-  <data name="&gt;&gt;start_btn.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;service_running_status.Name" xml:space="preserve">
-    <value>service_running_status</value>
-  </data>
-  <data name="&gt;&gt;install_btn.Name" xml:space="preserve">
-    <value>install_btn</value>
-  </data>
-  <data name="&gt;&gt;warning_beta_label.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="checkBox1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="checkBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 19</value>
+  <data name="other_remote_settings_group.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
   </data>
-  <data name="warning_beta_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>282, 15</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;service_install_status.Name" xml:space="preserve">
-    <value>service_install_status</value>
-  </data>
-  <data name="&gt;&gt;install_btn.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;warning_beta_label.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="chrome_rd_enable_chk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>342, 32</value>
+  <data name="stop_btn.Text" xml:space="preserve">
+    <value>Stop</value>
   </data>
   <data name="&gt;&gt;service_install_status_label.Parent" xml:space="preserve">
     <value>other_remote_settings_group</value>
   </data>
-  <data name="&gt;&gt;lock_btn.Parent" xml:space="preserve">
-    <value>$this</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="service_install_status.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;lock_btn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lock_btn.Name" xml:space="preserve">
+    <value>lock_btn</value>
   </data>
-  <data name="&gt;&gt;checkBox1.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lock_btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 23</value>
-  </data>
-  <data name="&gt;&gt;stop_btn.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="uninstall_btn.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;service_run_status_label.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="service_run_status_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 146</value>
-  </data>
-  <data name="service_install_status_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 15</value>
-  </data>
-  <data name="warning_beta_label.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="stop_btn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>283, 168</value>
-  </data>
-  <data name="checkBox1.Text" xml:space="preserve">
-    <value>Enable</value>
-  </data>
-  <data name="&gt;&gt;service_install_status_label.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>other_remote_settings_group</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="chrome_rd_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 33</value>
-  </data>
-  <data name="&gt;&gt;chrome_rd_enable_chk.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;service_running_status.Parent" xml:space="preserve">
-    <value>other_remote_settings_group</value>
-  </data>
-  <data name="&gt;&gt;warning_beta_label.Name" xml:space="preserve">
-    <value>warning_beta_label</value>
-  </data>
-  <data name="&gt;&gt;service_install_status_label.Name" xml:space="preserve">
-    <value>service_install_status_label</value>
-  </data>
-  <data name="&gt;&gt;other_remote_settings_group.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;uninstall_btn.Name" xml:space="preserve">
-    <value>uninstall_btn</value>
-  </data>
-  <data name="&gt;&gt;service_install_status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="checkBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>342, 32</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 78</value>
-  </data>
-  <data name="&gt;&gt;chrome_rd_label.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="start_btn.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="&gt;&gt;service_running_status.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="start_btn.Location" type="System.Drawing.Point, System.Drawing">
     <value>136, 168</value>
@@ -266,248 +146,317 @@
   <data name="&gt;&gt;service_install_status_label.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="service_running_status.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 15</value>
+  <data name="uninstall_btn.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
-  <data name="chrome_rd_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>230, 15</value>
-  </data>
-  <data name="uninstall_btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 29</value>
-  </data>
-  <data name="&gt;&gt;checkBox1.Name" xml:space="preserve">
-    <value>checkBox1</value>
-  </data>
-  <data name="uninstall_btn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>283, 101</value>
-  </data>
-  <data name="stop_btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 29</value>
-  </data>
-  <data name="warning_beta_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 270</value>
-  </data>
-  <data name="&gt;&gt;service_run_status_label.Name" xml:space="preserve">
-    <value>service_run_status_label</value>
-  </data>
-  <data name="&gt;&gt;lock_btn.Name" xml:space="preserve">
-    <value>lock_btn</value>
-  </data>
-  <data name="other_remote_settings_group.Size" type="System.Drawing.Size, System.Drawing">
-    <value>421, 210</value>
-  </data>
-  <data name="lock_btn.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9pt</value>
-  </data>
-  <data name="other_remote_settings_group.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 15</value>
-  </data>
-  <data name="service_running_status.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="stop_btn.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="service_running_status.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 146</value>
-  </data>
-  <data name="&gt;&gt;start_btn.Name" xml:space="preserve">
-    <value>start_btn</value>
-  </data>
-  <data name="service_install_status_label.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="other_remote_settings_group.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9pt</value>
-  </data>
-  <data name="&gt;&gt;chrome_rd_enable_chk.Name" xml:space="preserve">
-    <value>chrome_rd_enable_chk</value>
-  </data>
-  <data name="start_btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 29</value>
-  </data>
-  <data name="&gt;&gt;checkBox1.Parent" xml:space="preserve">
-    <value>other_remote_settings_group</value>
-  </data>
-  <data name="&gt;&gt;uninstall_btn.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>AdvancedSettings</value>
-  </data>
-  <data name="&gt;&gt;stop_btn.Name" xml:space="preserve">
-    <value>stop_btn</value>
-  </data>
-  <data name="warning_beta_label.Text" xml:space="preserve">
-    <value>※ This feature is experimental. It may malfunction.</value>
-  </data>
-  <data name="other_remote_settings_group.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="service_install_status_label.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
-  </data>
-  <data name="service_install_status.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="service_run_status_label.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;chrome_rd_label.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;other_remote_settings_group.Name" xml:space="preserve">
-    <value>other_remote_settings_group</value>
-  </data>
-  <data name="uninstall_btn.Text" xml:space="preserve">
-    <value>Uninstall</value>
-  </data>
-  <data name="&gt;&gt;checkBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="start_btn.Text" xml:space="preserve">
+    <value>Start</value>
   </data>
   <data name="lock_btn.Location" type="System.Drawing.Point, System.Drawing">
     <value>296, 241</value>
   </data>
-  <data name="checkBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;chrome_rd_label.Name" xml:space="preserve">
+    <value>chrome_rd_label</value>
   </data>
-  <data name="chrome_rd_enable_chk.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="other_remote_settings_group.Size" type="System.Drawing.Size, System.Drawing">
+    <value>421, 210</value>
   </data>
-  <data name="&gt;&gt;lock_btn.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="warning_beta_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 270</value>
   </data>
-  <data name="lock_btn.Text" xml:space="preserve">
-    <value>Screen Lock Test</value>
-  </data>
-  <data name="other_remote_settings_group.Text" xml:space="preserve">
-    <value>Other Remote Programs</value>
-  </data>
-  <data name="&gt;&gt;service_install_status.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;other_remote_settings_group.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;service_running_status.Parent" xml:space="preserve">
+    <value>other_remote_settings_group</value>
   </data>
   <data name="&gt;&gt;start_btn.Parent" xml:space="preserve">
     <value>other_remote_settings_group</value>
   </data>
-  <data name="service_run_status_label.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="&gt;&gt;install_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;service_run_status_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;start_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="warning_beta_label.Text" xml:space="preserve">
+    <value>※ This feature is experimental. It may malfunction.</value>
+  </data>
+  <data name="service_install_status_label.Size" type="System.Drawing.Size, System.Drawing">
     <value>135, 15</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 15</value>
+  <data name="stop_btn.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
-  <data name="service_install_status.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 78</value>
+  <data name="install_btn.Text" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="&gt;&gt;other_remote_settings_group.Name" xml:space="preserve">
+    <value>other_remote_settings_group</value>
   </data>
   <data name="&gt;&gt;uninstall_btn.Parent" xml:space="preserve">
+    <value>other_remote_settings_group</value>
+  </data>
+  <data name="&gt;&gt;service_run_status_label.Name" xml:space="preserve">
+    <value>service_run_status_label</value>
+  </data>
+  <data name="other_remote_settings_group.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 15</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>AdvancedSettings</value>
+  </data>
+  <data name="install_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 29</value>
+  </data>
+  <data name="&gt;&gt;service_install_status.Name" xml:space="preserve">
+    <value>service_install_status</value>
+  </data>
+  <data name="&gt;&gt;chrome_rd_enable_chk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="start_btn.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lock_btn.Text" xml:space="preserve">
+    <value>Screen Lock Test</value>
+  </data>
+  <data name="lock_btn.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="other_remote_settings_group.Text" xml:space="preserve">
+    <value>Other Remote Programs</value>
+  </data>
+  <data name="&gt;&gt;start_btn.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;other_remote_settings_group.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;uninstall_btn.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="uninstall_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 29</value>
+  </data>
+  <data name="service_running_status.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 15</value>
+  </data>
+  <data name="service_run_status_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;chrome_rd_enable_chk.Name" xml:space="preserve">
+    <value>chrome_rd_enable_chk</value>
+  </data>
+  <data name="&gt;&gt;chrome_rd_enable_chk.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="service_install_status_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 78</value>
+  </data>
+  <data name="&gt;&gt;start_btn.Name" xml:space="preserve">
+    <value>start_btn</value>
+  </data>
+  <data name="service_running_status.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="service_install_status.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="service_run_status_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 146</value>
+  </data>
+  <data name="&gt;&gt;uninstall_btn.Name" xml:space="preserve">
+    <value>uninstall_btn</value>
+  </data>
+  <data name="warning_beta_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>282, 15</value>
+  </data>
+  <data name="service_run_status_label.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="warning_beta_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;service_install_status.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;install_btn.Parent" xml:space="preserve">
+    <value>other_remote_settings_group</value>
+  </data>
+  <data name="&gt;&gt;warning_beta_label.Name" xml:space="preserve">
+    <value>warning_beta_label</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>446, 296</value>
+  </data>
+  <data name="stop_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 29</value>
+  </data>
+  <data name="service_install_status_label.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="chrome_rd_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 15</value>
+  </data>
+  <data name="other_remote_settings_group.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="uninstall_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>283, 101</value>
+  </data>
+  <data name="&gt;&gt;other_remote_settings_group.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>AdvancedSettings</value>
+  </data>
+  <data name="&gt;&gt;chrome_rd_label.Parent" xml:space="preserve">
     <value>other_remote_settings_group</value>
   </data>
   <data name="&gt;&gt;stop_btn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="stop_btn.Text" xml:space="preserve">
-    <value>Stop</value>
-  </data>
-  <data name="&gt;&gt;chrome_rd_label.Parent" xml:space="preserve">
+  <data name="&gt;&gt;service_install_status.Parent" xml:space="preserve">
     <value>other_remote_settings_group</value>
   </data>
-  <data name="service_install_status_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 78</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>AdvancedSettings</value>
-  </data>
-  <data name="&gt;&gt;other_remote_settings_group.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;stop_btn.Parent" xml:space="preserve">
-    <value>other_remote_settings_group</value>
-  </data>
-  <data name="start_btn.Text" xml:space="preserve">
-    <value>Start</value>
-  </data>
-  <data name="&gt;&gt;install_btn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="service_running_status.Text" xml:space="preserve">
-    <value>Stopped</value>
-  </data>
-  <data name="install_btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 29</value>
-  </data>
-  <data name="&gt;&gt;chrome_rd_label.Name" xml:space="preserve">
-    <value>chrome_rd_label</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="chrome_rd_label.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="service_install_status_label.Text" xml:space="preserve">
     <value>Service Installed Status</value>
   </data>
-  <data name="&gt;&gt;warning_beta_label.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="service_run_status_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 15</value>
   </data>
-  <data name="service_running_status.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;chrome_rd_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;service_run_status_label.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lock_btn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="chrome_rd_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 33</value>
+  </data>
+  <data name="&gt;&gt;stop_btn.Parent" xml:space="preserve">
     <value>other_remote_settings_group</value>
   </data>
-  <data name="&gt;&gt;service_run_status_label.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;service_install_status.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="install_btn.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;install_btn.Name" xml:space="preserve">
+    <value>install_btn</value>
   </data>
-  <data name="&gt;&gt;chrome_rd_enable_chk.Parent" xml:space="preserve">
-    <value>other_remote_settings_group</value>
+  <data name="install_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>136, 101</value>
   </data>
   <data name="&gt;&gt;uninstall_btn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>446, 296</value>
-  </data>
-  <data name="warning_beta_label.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="install_btn.Text" xml:space="preserve">
-    <value>Install</value>
-  </data>
   <data name="chrome_rd_label.Text" xml:space="preserve">
     <value>Enable OTP at Chrome Remote Desktop</value>
   </data>
-  <data name="&gt;&gt;service_install_status.Parent" xml:space="preserve">
+  <data name="chrome_rd_enable_chk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>392, 30</value>
+  </data>
+  <data name="&gt;&gt;chrome_rd_label.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;service_running_status.Name" xml:space="preserve">
+    <value>service_running_status</value>
+  </data>
+  <data name="&gt;&gt;service_run_status_label.Parent" xml:space="preserve">
+    <value>other_remote_settings_group</value>
+  </data>
+  <data name="&gt;&gt;service_running_status.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;service_install_status_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="service_running_status.Location" type="System.Drawing.Point, System.Drawing">
+    <value>334, 146</value>
+  </data>
+  <data name="&gt;&gt;lock_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chrome_rd_enable_chk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 24</value>
+  </data>
+  <data name="uninstall_btn.Text" xml:space="preserve">
+    <value>Uninstall</value>
+  </data>
+  <data name="&gt;&gt;other_remote_settings_group.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="install_btn.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;warning_beta_label.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;warning_beta_label.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="service_running_status.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lock_btn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="service_install_status.Location" type="System.Drawing.Point, System.Drawing">
+    <value>313, 78</value>
+  </data>
+  <data name="&gt;&gt;warning_beta_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="service_install_status_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;stop_btn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="chrome_rd_enable_chk.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;stop_btn.Name" xml:space="preserve">
+    <value>stop_btn</value>
+  </data>
+  <data name="lock_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 23</value>
+  </data>
+  <data name="stop_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>283, 168</value>
+  </data>
+  <data name="&gt;&gt;service_install_status_label.Name" xml:space="preserve">
+    <value>service_install_status_label</value>
+  </data>
+  <data name="&gt;&gt;service_run_status_label.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="chrome_rd_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="warning_beta_label.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;install_btn.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;chrome_rd_enable_chk.Parent" xml:space="preserve">
     <value>other_remote_settings_group</value>
   </data>
   <data name="service_run_status_label.Text" xml:space="preserve">
     <value>Service Running Status</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="install_btn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>136, 101</value>
-  </data>
-  <data name="service_run_status_label.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;service_running_status.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="start_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 29</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

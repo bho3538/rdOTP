@@ -53,15 +53,15 @@ Source: "..\rdOTPSvc\bin\ARM64\Release\rdOTPSvc.exe"; DestDir: "{app}"; Flags: r
 
 Source: "..\Release\rdOTPCred.dll"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
 Source: "..\Release\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
-Source: "..\Release\rdOTPExt.exe"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
+Source: "..\Release\rdOTPHelper.exe"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
 
 Source: "..\x64\Release\rdOTPCred.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
 Source: "..\x64\Release\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
-Source: "..\x64\Release\rdOTPExt.exe"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
+Source: "..\x64\Release\rdOTPHelper.exe"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
 
 Source: "..\ARM64\Release\rdOTPCred.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
 Source: "..\ARM64\Release\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
-Source: "..\ARM64\Release\rdOTPExt.exe"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
+Source: "..\ARM64\Release\rdOTPHelper.exe"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
 
 
 [Icons]

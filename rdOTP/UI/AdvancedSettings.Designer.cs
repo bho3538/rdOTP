@@ -141,6 +141,7 @@ namespace rdOTP.UI
             this.Controls.Add(this.lock_btn);
             this.Controls.Add(this.warning_beta_label);
             this.Controls.Add(this.other_remote_settings_group);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "AdvancedSettings";
             this.ShowIcon = false;

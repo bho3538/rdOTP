@@ -176,7 +176,7 @@
     <value>Arial, 10pt</value>
   </data>
   <data name="Version_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 16</value>
+    <value>107, 16</value>
   </data>
   <data name="Version_label.Text" xml:space="preserve">
     <value>프로그램 버전 : {0}</value>
@@ -184,7 +184,7 @@
   <data name="logo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAAu5JREFUaEPtmM9rE0EUx6cHT3pQ/wELFtSzFloSQ0gIaRpt/wWF6lHrQax/Q9J4
+        EAAACxABrSO9dQAAAu5JREFUaEPtmM9rE0EUx6cHT3pQ/wELFtSzFloSQ0gIaRpt/wWF6lHrQax/Q9J4
         UATBo3jwUJsfB2troia79VCw2MwmehLrwYunemqh48z6hOzmPexsduMc8oEP3e689+ab3U0CYWGy2uqc
         K1vOvbLtbJRt3pHHv1zVsTon11QNlJuDDHWpYjtvpOJocqtsd2PQ/v94srV1rGI5j8sWP8SD0qoeeWce
         qRkwbri8stunZYgGFk5PXq81P52CscNBXTUqvLyqa/LvgnrW17a3jysrVvd8teXcqFj8tb/+j7w+1Duh
@@ -201,7 +201,7 @@
 </value>
   </data>
   <data name="MainTitle.Font" type="System.Drawing.Font, System.Drawing">
-    <value>맑은 고딕, 15pt, style=Bold</value>
+    <value>Malgun Gothic, 15pt, style=Bold</value>
   </data>
   <data name="MainTitle.Size" type="System.Drawing.Size, System.Drawing">
     <value>382, 28</value>
@@ -209,17 +209,26 @@
   <data name="MainTitle.Text" xml:space="preserve">
     <value>rdOTP - 간편한 Windows RDP 2차 인증</value>
   </data>
+  <data name="credit_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 15</value>
+  </data>
+  <data name="credit_label.Text" xml:space="preserve">
+    <value>프로그램 제작 : bho3538</value>
+  </data>
   <data name="aboutGroup.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 11pt</value>
   </data>
   <data name="aboutGroup.Text" xml:space="preserve">
     <value>정보</value>
   </data>
-  <data name="credit_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 15</value>
+  <data name="additional_config_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 16</value>
   </data>
-  <data name="credit_label.Text" xml:space="preserve">
-    <value>프로그램 제작 : bho3538</value>
+  <data name="additional_config_label.Text" xml:space="preserve">
+    <value>추가 기능 설정</value>
+  </data>
+  <data name="additional_config_btn.Text" xml:space="preserve">
+    <value>추가 기능 설정</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

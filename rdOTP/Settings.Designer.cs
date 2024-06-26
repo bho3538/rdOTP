@@ -118,11 +118,11 @@ namespace rdOTP
             // 
             // aboutGroup
             // 
+            resources.ApplyResources(this.aboutGroup, "aboutGroup");
             this.aboutGroup.Controls.Add(this.credit_label);
             this.aboutGroup.Controls.Add(this.Version_label);
             this.aboutGroup.Controls.Add(this.WebSite_link);
             this.aboutGroup.Controls.Add(this.IconInfo_link);
-            resources.ApplyResources(this.aboutGroup, "aboutGroup");
             this.aboutGroup.Name = "aboutGroup";
             this.aboutGroup.TabStop = false;
             // 
