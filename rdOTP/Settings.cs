@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using rdOTP.Locale;
+using rdOTP.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,7 +45,6 @@ namespace rdOTP
 
         private void uninstall_btn_Click(object sender, EventArgs e)
         {
-
             Process.Start("regsvr32.exe", "/u rdOTPCred.dll").WaitForExit();
             CheckInstallStatus();
         }
@@ -74,6 +74,12 @@ namespace rdOTP
             {
                 // not installed
             }
+        }
+
+        private void additional_config_btn_Click(object sender, EventArgs e)
+        {
+            AdvancedSettings settings = new AdvancedSettings();
+            settings.ShowDialog();
         }
     }
 }

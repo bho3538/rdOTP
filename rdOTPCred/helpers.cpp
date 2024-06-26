@@ -743,6 +743,41 @@ BOOL IsRemoteSession() {
     return isRemote;
 }
 
+BOOL IsChromeRemoteDesktop() {
+    BOOL re = FALSE;
+    HKEY hRegKey = NULL;
+    LONG lResult = RegOpenKeyExW(HKEY_LOCAL_MACHINE, L"SOFTWARE\\RDOTP", 0, KEY_READ, &hRegKey);
+    if (lResult == ERROR_SUCCESS) {
+        DWORD dwEnabled = 0;
+        DWORD cbEnabled = sizeof(dwEnabled);
+        DWORD dwType = 0;
+
+        lResult = RegQueryValueExW(hRegKey, L"CheckChromeRemoteDesktop", NULL, &dwType, (BYTE*)&dwEnabled, &cbEnabled);
+        if (lResult == ERROR_SUCCESS) {
+            if (dwEnabled == 1) {
+                // check remoting_desktop.exe is running
+                PROCESSENTRY32W pe32 = { sizeof(PROCESSENTRY32W),0, };
+                HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+                if (hSnap != INVALID_HANDLE_VALUE) {
+                    do {
+                        if (!wcscmp(L"remoting_desktop.exe", pe32.szExeFile)) {
+                            re = TRUE;
+                            break;
+                        }
+                    } while (Process32NextW(hSnap, &pe32));
+                    CloseHandle(hSnap);
+                }
+            }
+        }
+    }
+
+    if (hRegKey) {
+        RegCloseKey(hRegKey);
+    }
+
+    return re;
+}
+
 std::wstring GetWrapperModulePath() {
     WCHAR path[MAX_PATH] = { 0, };
     HMODULE self = GetModuleHandleW(L"rdOTPCred.dll");

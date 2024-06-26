@@ -139,6 +139,12 @@
   <data name="secret_config_btn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 11pt</value>
   </data>
+  <data name="secret_config_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>286, 91</value>
+  </data>
+  <data name="secret_config_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 25</value>
+  </data>
   <data name="secret_config_btn.Text" xml:space="preserve">
     <value>환경설정</value>
   </data>
@@ -203,17 +209,17 @@
   <data name="MainTitle.Text" xml:space="preserve">
     <value>rdOTP - 간편한 Windows RDP 2차 인증</value>
   </data>
-  <data name="credit_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 15</value>
-  </data>
-  <data name="credit_label.Text" xml:space="preserve">
-    <value>프로그램 제작 : bho3538</value>
-  </data>
   <data name="aboutGroup.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 11pt</value>
   </data>
   <data name="aboutGroup.Text" xml:space="preserve">
     <value>정보</value>
+  </data>
+  <data name="credit_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 15</value>
+  </data>
+  <data name="credit_label.Text" xml:space="preserve">
+    <value>프로그램 제작 : bho3538</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

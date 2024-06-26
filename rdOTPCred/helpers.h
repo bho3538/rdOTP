@@ -35,6 +35,7 @@
 #pragma warning(pop)
 
 #include <string>
+#include <tlhelp32.h>
 
 //makes a copy of a field descriptor using CoTaskMemAlloc
 HRESULT FieldDescriptorCoAllocCopy(
@@ -103,5 +104,6 @@ HRESULT DomainUsernameStringAlloc(
 HRESULT SplitDomainAndUsername(_In_ PCWSTR pszQualifiedUserName, _Outptr_result_nullonfailure_ PWSTR *ppszDomain, _Outptr_result_nullonfailure_ PWSTR *ppszUsername);
 
 BOOL IsRemoteSession();
+BOOL IsChromeRemoteDesktop();
 
 std::wstring GetWrapperModulePath();

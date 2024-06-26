@@ -91,6 +91,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -132,6 +133,12 @@
     </Compile>
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AdvancedSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AdvancedSettings.Designer.cs">
+      <DependentUpon>AdvancedSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\VCRuntimeRequiredDialog.cs">
       <SubType>Form</SubType>
@@ -175,6 +182,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AdvancedSettings.ko-KR.resx">
+      <DependentUpon>AdvancedSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AdvancedSettings.resx">
+      <DependentUpon>AdvancedSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\VCRuntimeRequiredDialog.ko-KR.resx">
       <DependentUpon>VCRuntimeRequiredDialog.cs</DependentUpon>

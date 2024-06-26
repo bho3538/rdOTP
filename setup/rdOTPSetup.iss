@@ -4,9 +4,9 @@
 
 [Setup]
 PrivilegesRequired=admin
-OutputBaseFilename=rdOTP 1.7
+OutputBaseFilename=rdOTP 1.8.0.0
 AppName=rdOTP
-AppVersion=1.7
+AppVersion=1.8.0.0
 AppVerName=rdOTP
 AppPublisher=bho3538
 AppPublisherURL=https://github.com/bho3538/rdOTP
@@ -31,8 +31,8 @@ UninstallLogMode=append
 ArchitecturesInstallIn64BitMode=x64 arm64
 LanguageDetectionMethod=uilanguage
 ShowLanguageDialog=yes
-VersionInfoProductVersion=1.7
-VersionInfoVersion=1.7
+VersionInfoProductVersion=1.8.0.0
+VersionInfoVersion=1.8.0.0
 UsePreviousTasks=no
 
 
@@ -47,16 +47,22 @@ Source: "..\rdOTP\bin\Release\Otp.NET.dll"; DestDir: "{app}"; Flags: restartrepl
 Source: "..\rdOTP\bin\Release\QRCoder.dll"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion 
 Source: "..\rdOTP\bin\Release\ko-KR\rdOTP.resources.dll"; DestDir: "{app}\ko-KR"; Flags: restartreplace uninsrestartdelete ignoreversion;
 Source: "..\rdOTP\bin\Release\rdOTP.exe"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion; Check: not InstallARM64
+Source: "..\rdOTPSvc\bin\Release\rdOTPSvc.exe"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion; Check: not InstallARM64
 Source: "..\rdOTP\bin\ARM64\Release\rdOTP.exe"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
+Source: "..\rdOTPSvc\bin\ARM64\Release\rdOTPSvc.exe"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
 
 Source: "..\Release\rdOTPCred.dll"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
 Source: "..\Release\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
+Source: "..\Release\rdOTPExt.exe"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
 
 Source: "..\x64\Release\rdOTPCred.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
 Source: "..\x64\Release\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
+Source: "..\x64\Release\rdOTPExt.exe"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
 
 Source: "..\ARM64\Release\rdOTPCred.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
 Source: "..\ARM64\Release\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
+Source: "..\ARM64\Release\rdOTPExt.exe"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
+
 
 [Icons]
 Name: "{group}\rdOTP Settings"; Filename: "{app}\rdOTP.exe"
@@ -70,6 +76,9 @@ Name: "{userdesktop}\rdOTP Settings"; Filename: "{app}\rdOTP.exe"; Tasks: deskto
 
 [UninstallRun]
 Filename: "{sys}\regsvr32.exe"; Parameters: "/u /s rdOTPCred.dll"; WorkingDir: "{app}"; Flags: runhidden;
+Filename: "{sys}\sc.exe"; Parameters: "stop rdOTPSvc"; RunOnceId: "Stop rdOTP Service"; Flags: runhidden waituntilterminated
+Filename: "{sys}\sc.exe"; Parameters: "delete rdOTPSvc"; RunOnceId: "Remove rdOTP Service"; Flags: runhidden waituntilterminated
+
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";

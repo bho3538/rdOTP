@@ -14,6 +14,10 @@ HRESULT CRdotpFilter::Filter(
 
     BOOL isRemoteSession = IsRemoteSession();
 
+    if (!isRemoteSession) {
+        isRemoteSession = IsChromeRemoteDesktop();
+    }
+
     for (DWORD i = 0; i < cProviders; i++) {
         if (rgclsidProviders[i] == CLSID_RDOTPProvider) {
             rgbAllow[i] = isRemoteSession;
