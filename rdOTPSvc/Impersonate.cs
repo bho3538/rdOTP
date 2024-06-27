@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -26,7 +27,11 @@ namespace rdOTPSvc
                 return false;
             }
 
-            if(CreateProcessAsUserW(hUserToken, @"C:\Users\wizvera\Desktop\test\rdOTPHelper.exe", null, IntPtr.Zero, IntPtr.Zero, false, 0, IntPtr.Zero, null, ref startInfo, ref procInfo))
+            string helperPath = GetFilePath("rdOTPHelper.exe");
+
+            Trace.WriteLine($"Chrome RemoteDesktop Detected. Execute lock helper at {helperPath}");
+
+            if (CreateProcessAsUserW(hUserToken, helperPath, null, IntPtr.Zero, IntPtr.Zero, false, 0, IntPtr.Zero, null, ref startInfo, ref procInfo))
             {
                 CloseHandle(procInfo.hThread);
                 CloseHandle(procInfo.hProcess);
@@ -47,6 +52,22 @@ namespace rdOTPSvc
             {
                 DuplicateTokenEx(hUserToken, 0, IntPtr.Zero, (int)SECURITY_IMPERSONATION_LEVEL.SecurityImpersonation, 1, ref phUserToken); // TOKEN_PRIMARY
                 CloseHandle(hUserToken);
+            }
+        }
+
+        private static string GetFilePath(string filename)
+        {
+            try
+            {
+                string path = Process.GetCurrentProcess().MainModule.FileName;
+                path = Path.GetDirectoryName(path);
+                path = Path.Combine(path, filename);
+
+                return path;
+            }
+            catch
+            {
+                return string.Empty;
             }
         }
 

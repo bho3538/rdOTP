@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="service_install_status.Location" type="System.Drawing.Point, System.Drawing">
+    <value>340, 78</value>
+  </data>
   <data name="stop_btn.Text" xml:space="preserve">
     <value>정지</value>
   </data>
@@ -129,19 +133,14 @@
   <data name="install_btn.Text" xml:space="preserve">
     <value>설치</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="service_install_status.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="service_install_status.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 15</value>
-  </data>
   <data name="service_install_status_label.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 15</value>
   </data>
   <data name="service_install_status_label.Text" xml:space="preserve">
     <value>서비스 설치 상태</value>
+  </data>
+  <data name="service_running_status.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 146</value>
   </data>
   <data name="service_run_status_label.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 15</value>
@@ -149,6 +148,7 @@
   <data name="service_run_status_label.Text" xml:space="preserve">
     <value>서비스 동작 상태</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="chrome_rd_enable_chk.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>

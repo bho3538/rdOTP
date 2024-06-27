@@ -21,7 +21,7 @@ namespace rdOTP.UI
     {
         private const string SERVICE_NAME = "rdOTPSvc";
         private const string SERVICE_FILE_NAME = "rdOTPSvc.exe";
-        private const string EXT_NAME = "rdOTPExt.exe";
+        private const string EXT_NAME = "rdOTPHelper.exe";
 
         public AdvancedSettings()
         {

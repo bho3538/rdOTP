@@ -31,11 +31,11 @@ namespace rdOTP.UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdvancedSettings));
             this.other_remote_settings_group = new System.Windows.Forms.GroupBox();
+            this.service_install_status = new System.Windows.Forms.Label();
             this.stop_btn = new System.Windows.Forms.Button();
             this.start_btn = new System.Windows.Forms.Button();
             this.uninstall_btn = new System.Windows.Forms.Button();
             this.install_btn = new System.Windows.Forms.Button();
-            this.service_install_status = new System.Windows.Forms.Label();
             this.service_install_status_label = new System.Windows.Forms.Label();
             this.service_running_status = new System.Windows.Forms.Label();
             this.service_run_status_label = new System.Windows.Forms.Label();
@@ -49,11 +49,11 @@ namespace rdOTP.UI
             // other_remote_settings_group
             // 
             resources.ApplyResources(this.other_remote_settings_group, "other_remote_settings_group");
+            this.other_remote_settings_group.Controls.Add(this.service_install_status);
             this.other_remote_settings_group.Controls.Add(this.stop_btn);
             this.other_remote_settings_group.Controls.Add(this.start_btn);
             this.other_remote_settings_group.Controls.Add(this.uninstall_btn);
             this.other_remote_settings_group.Controls.Add(this.install_btn);
-            this.other_remote_settings_group.Controls.Add(this.service_install_status);
             this.other_remote_settings_group.Controls.Add(this.service_install_status_label);
             this.other_remote_settings_group.Controls.Add(this.service_running_status);
             this.other_remote_settings_group.Controls.Add(this.service_run_status_label);
@@ -61,6 +61,11 @@ namespace rdOTP.UI
             this.other_remote_settings_group.Controls.Add(this.chrome_rd_label);
             this.other_remote_settings_group.Name = "other_remote_settings_group";
             this.other_remote_settings_group.TabStop = false;
+            // 
+            // service_install_status
+            // 
+            resources.ApplyResources(this.service_install_status, "service_install_status");
+            this.service_install_status.Name = "service_install_status";
             // 
             // stop_btn
             // 
@@ -89,11 +94,6 @@ namespace rdOTP.UI
             this.install_btn.Name = "install_btn";
             this.install_btn.UseVisualStyleBackColor = true;
             this.install_btn.Click += new System.EventHandler(this.install_btn_Click);
-            // 
-            // service_install_status
-            // 
-            resources.ApplyResources(this.service_install_status, "service_install_status");
-            this.service_install_status.Name = "service_install_status";
             // 
             // service_install_status_label
             // 
@@ -160,12 +160,12 @@ namespace rdOTP.UI
         private System.Windows.Forms.CheckBox chrome_rd_enable_chk;
         private System.Windows.Forms.Label chrome_rd_label;
         private System.Windows.Forms.Label warning_beta_label;
-        private System.Windows.Forms.Label service_install_status;
         private System.Windows.Forms.Label service_install_status_label;
         private System.Windows.Forms.Button stop_btn;
         private System.Windows.Forms.Button start_btn;
         private System.Windows.Forms.Button uninstall_btn;
         private System.Windows.Forms.Button install_btn;
         private System.Windows.Forms.Button lock_btn;
+        private System.Windows.Forms.Label service_install_status;
     }
 }
