@@ -54,10 +54,31 @@ namespace rdOTPSvc
 
                     if (processName.ToLower() == "remoting_desktop.exe" && IsChromeRemoteDesktop(pid))
                     {
+                        // 잠금 화면을 갱신해야 함.
+                        // 때때로 rdOTPCred 가 아닌 기본 Cred 가 이미 Load 되어 otp 인증을 수행할 수 없기 때문
+                        try
+                        {
+                            string systemLogonUIPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "logonui.exe").ToLower();
+                            Process[] logonUIs = Process.GetProcessesByName("logonui");
+                            foreach (var logonUI in logonUIs)
+                            {
+                                if (logonUI.MainModule.FileName.ToLower() == systemLogonUIPath)
+                                {
+                                    logonUI.Kill();
+                                }
+
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+
+
                         // Lock Workstation
                         if (Impersonate.LockActiveWorkstation() == false)
                         {
-                            Trace.WriteLine("Failed to execute rdOTPExt.exe");
+                            Trace.WriteLine("Failed to execute rdOTPHelper.exe");
                         }
                     }
                 }
