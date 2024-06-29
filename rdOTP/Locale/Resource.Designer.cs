@@ -245,5 +245,41 @@ namespace rdOTP.Locale {
                 return ResourceManager.GetString("Main_Version", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Installed과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Service_Installed {
+            get {
+                return ResourceManager.GetString("Service_Installed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Not Installed과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Service_NotInstalled {
+            get {
+                return ResourceManager.GetString("Service_NotInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Stopped과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Service_Notrunning {
+            get {
+                return ResourceManager.GetString("Service_Notrunning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Running과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        public static string Service_runnning {
+            get {
+                return ResourceManager.GetString("Service_runnning", resourceCulture);
+            }
+        }
     }
 }

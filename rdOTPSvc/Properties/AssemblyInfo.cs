@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // 어셈블리에 대한 일반 정보는 다음 특성 집합을 통해 
 // 제어됩니다. 어셈블리와 관련된 정보를 수정하려면
 // 이러한 특성 값을 변경하세요.
-[assembly: AssemblyTitle("rdOTP")]
-[assembly: AssemblyDescription("Serverless TOTP for RDP Connection")]
+[assembly: AssemblyTitle("rdOTPSvc")]
+[assembly: AssemblyDescription("rdOTP Service")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("byungho")]
-[assembly: AssemblyProduct("rdOTP")]
-[assembly: AssemblyCopyright("Copyright © bho3538 2024")]
-[assembly: AssemblyTrademark("rdOTP")]
+[assembly: AssemblyCompany("bho3538")]
+[assembly: AssemblyProduct("rdOTPSvc")]
+[assembly: AssemblyCopyright("Copyright © bho3538  2024")]
+[assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // ComVisible을 false로 설정하면 이 어셈블리의 형식이 COM 구성 요소에 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 이 프로젝트가 COM에 노출되는 경우 다음 GUID는 typelib의 ID를 나타냅니다.
-[assembly: Guid("ce139036-b150-4c2f-af42-b1cf8d1b78a7")]
+[assembly: Guid("7c46d7d8-62b2-444a-9c55-67107a1a1276")]
 
 // 어셈블리의 버전 정보는 다음 네 가지 값으로 구성됩니다.
 //

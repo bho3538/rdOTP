@@ -117,275 +117,281 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="status_value_label.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;IconInfo_link.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>528, 256</value>
+    <value>528, 306</value>
   </data>
-  <data name="Version_label.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Version_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 22</value>
-  </data>
-  <data name="&gt;&gt;WebSite_link.Parent" xml:space="preserve">
-    <value>aboutGroup</value>
-  </data>
-  <data name="&gt;&gt;intstall_btn.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="IconInfo_link.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 15</value>
-  </data>
-  <data name="MainTitle.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="MainTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 9</value>
-  </data>
-  <data name="&gt;&gt;uninstall_btn.Name" xml:space="preserve">
-    <value>uninstall_btn</value>
-  </data>
-  <data name="status_value_label.Text" xml:space="preserve">
-    <value>Not Installed</value>
-  </data>
-  <data name="status_value_label.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="WebSite_link.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="WebSite_link.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 43</value>
+  <data name="aboutGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 112</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="secret_config_btn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 10pt</value>
-  </data>
-  <data name="IconInfo_link.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 66</value>
-  </data>
-  <data name="&gt;&gt;MainTitle.Name" xml:space="preserve">
-    <value>MainTitle</value>
-  </data>
-  <data name="&gt;&gt;status_value_label.Name" xml:space="preserve">
-    <value>status_value_label</value>
-  </data>
-  <data name="aboutGroup.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 10pt</value>
-  </data>
-  <data name="&gt;&gt;WebSite_link.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="secret_label.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 10pt</value>
-  </data>
-  <data name="&gt;&gt;secret_label.Name" xml:space="preserve">
-    <value>secret_label</value>
-  </data>
-  <data name="logo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 62</value>
-  </data>
-  <data name="uninstall_btn.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;logo.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="uninstall_btn.Text" xml:space="preserve">
-    <value>Uninstall</value>
-  </data>
-  <data name="&gt;&gt;MainTitle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;secret_config_btn.Name" xml:space="preserve">
-    <value>secret_config_btn</value>
-  </data>
-  <data name="&gt;&gt;IconInfo_link.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;secret_config_btn.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="MainTitle.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;credit_label.Name" xml:space="preserve">
-    <value>credit_label</value>
-  </data>
-  <data name="status_label.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="credit_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 15</value>
-  </data>
-  <data name="MainTitle.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="credit_label.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Version_label.Text" xml:space="preserve">
-    <value>Version : {0}</value>
-  </data>
-  <data name="status_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 55</value>
-  </data>
-  <data name="&gt;&gt;status_label.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="WebSite_link.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;logo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="logo.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="secret_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 94</value>
-  </data>
-  <data name="secret_config_btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 28</value>
-  </data>
-  <data name="uninstall_btn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 24</value>
-  </data>
-  <data name="&gt;&gt;IconInfo_link.Parent" xml:space="preserve">
-    <value>aboutGroup</value>
-  </data>
-  <data name="uninstall_btn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>399, 51</value>
-  </data>
-  <data name="&gt;&gt;secret_label.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;secret_config_btn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;status_label.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="intstall_btn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 10pt</value>
-  </data>
-  <data name="WebSite_link.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 15</value>
-  </data>
-  <data name="status_label.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;aboutGroup.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="logo.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
-  </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="aboutGroup.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;MainTitle.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="secret_config_btn.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;status_label.Name" xml:space="preserve">
-    <value>status_label</value>
+  <data name="additional_config_btn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;intstall_btn.Name" xml:space="preserve">
     <value>intstall_btn</value>
   </data>
-  <data name="intstall_btn.Text" xml:space="preserve">
-    <value>Install</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="credit_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;WebSite_link.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="uninstall_btn.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
-  <data name="Version_label.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9pt</value>
-  </data>
-  <data name="secret_config_btn.Text" xml:space="preserve">
-    <value>Configuration</value>
-  </data>
-  <data name="WebSite_link.Text" xml:space="preserve">
-    <value>View web site with source code</value>
-  </data>
-  <data name="&gt;&gt;uninstall_btn.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="logo.ErrorImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="&gt;&gt;secret_config_btn.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="Version_label.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;status_value_label.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
-  </data>
-  <data name="Version_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 15</value>
-  </data>
-  <data name="secret_label.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="credit_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 87</value>
-  </data>
-  <data name="&gt;&gt;WebSite_link.Name" xml:space="preserve">
-    <value>WebSite_link</value>
-  </data>
-  <data name="IconInfo_link.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;credit_label.Parent" xml:space="preserve">
-    <value>aboutGroup</value>
-  </data>
-  <data name="&gt;&gt;intstall_btn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Version_label.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="credit_label.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9pt</value>
-  </data>
-  <data name="intstall_btn.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="additional_config_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;status_value_label.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;additional_config_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="secret_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 94</value>
+  </data>
+  <data name="&gt;&gt;IconInfo_link.Name" xml:space="preserve">
+    <value>IconInfo_link</value>
+  </data>
+  <data name="&gt;&gt;Version_label.Name" xml:space="preserve">
+    <value>Version_label</value>
+  </data>
+  <data name="MainTitle.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="logo.InitialImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
+  </data>
+  <data name="IconInfo_link.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 66</value>
+  </data>
+  <data name="&gt;&gt;IconInfo_link.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="intstall_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>286, 51</value>
+  </data>
+  <data name="credit_label.Text" xml:space="preserve">
+    <value>Program created by bho3538</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="status_label.Text" xml:space="preserve">
+    <value>Module Status</value>
+  </data>
+  <data name="&gt;&gt;secret_config_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;credit_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;additional_config_btn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="WebSite_link.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;uninstall_btn.Name" xml:space="preserve">
+    <value>uninstall_btn</value>
+  </data>
+  <data name="&gt;&gt;aboutGroup.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;logo.Name" xml:space="preserve">
+    <value>logo</value>
+  </data>
+  <data name="MainTitle.Text" xml:space="preserve">
+    <value>rdOTP - Serverless Windows RDP OTP Auth</value>
+  </data>
+  <data name="MainTitle.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;secret_label.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;additional_config_btn.Name" xml:space="preserve">
+    <value>additional_config_btn</value>
+  </data>
+  <data name="&gt;&gt;additional_config_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="logo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 62</value>
+  </data>
+  <data name="logo.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;aboutGroup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;status_label.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="credit_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 87</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="intstall_btn.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="WebSite_link.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;secret_config_btn.Name" xml:space="preserve">
+    <value>secret_config_btn</value>
+  </data>
+  <data name="&gt;&gt;Version_label.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="status_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 16</value>
+  </data>
+  <data name="additional_config_btn.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="secret_config_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 28</value>
+  </data>
+  <data name="WebSite_link.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 15</value>
+  </data>
+  <data name="&gt;&gt;MainTitle.Name" xml:space="preserve">
+    <value>MainTitle</value>
+  </data>
+  <data name="additional_config_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>286, 130</value>
+  </data>
+  <data name="status_value_label.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 10pt</value>
+  </data>
+  <data name="secret_config_btn.Text" xml:space="preserve">
+    <value>Auth Configuration</value>
+  </data>
+  <data name="secret_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 16</value>
+  </data>
+  <data name="&gt;&gt;WebSite_link.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="MainTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>444, 25</value>
+  </data>
+  <data name="aboutGroup.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="&gt;&gt;MainTitle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="uninstall_btn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 10pt</value>
+  </data>
+  <data name="&gt;&gt;Version_label.Parent" xml:space="preserve">
+    <value>aboutGroup</value>
+  </data>
+  <data name="logo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 232</value>
+  </data>
+  <data name="&gt;&gt;additional_config_label.Name" xml:space="preserve">
+    <value>additional_config_label</value>
+  </data>
+  <data name="&gt;&gt;logo.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;WebSite_link.Name" xml:space="preserve">
+    <value>WebSite_link</value>
+  </data>
+  <data name="Version_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 22</value>
+  </data>
+  <data name="credit_label.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="aboutGroup.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 10pt</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>rdOTP Settings</value>
+  </data>
+  <data name="status_label.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 10pt</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="additional_config_label.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;credit_label.Name" xml:space="preserve">
+    <value>credit_label</value>
+  </data>
+  <data name="WebSite_link.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="&gt;&gt;status_value_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;status_label.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;status_value_label.Type" xml:space="preserve">
+  <data name="&gt;&gt;secret_label.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="status_value_label.Text" xml:space="preserve">
+    <value>Not Installed</value>
+  </data>
+  <data name="additional_config_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 136</value>
+  </data>
+  <data name="&gt;&gt;logo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;WebSite_link.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="additional_config_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 28</value>
+  </data>
+  <data name="IconInfo_link.Text" xml:space="preserve">
+    <value>Lock icon by Icons8</value>
+  </data>
+  <data name="Version_label.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="additional_config_label.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;IconInfo_link.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="MainTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;uninstall_btn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="secret_label.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="status_value_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 16</value>
+  </data>
+  <data name="&gt;&gt;intstall_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uninstall_btn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="logo.ErrorImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="aboutGroup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>286, 182</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -684,88 +690,67 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 </value>
   </data>
-  <data name="aboutGroup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>286, 132</value>
+  <data name="&gt;&gt;status_value_label.Name" xml:space="preserve">
+    <value>status_value_label</value>
   </data>
-  <data name="&gt;&gt;intstall_btn.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;MainTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="intstall_btn.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 24</value>
   </data>
-  <data name="&gt;&gt;uninstall_btn.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="credit_label.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
-  <data name="&gt;&gt;aboutGroup.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="secret_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="status_value_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 16</value>
+  <data name="uninstall_btn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 24</value>
   </data>
-  <data name="&gt;&gt;secret_label.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="additional_config_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 16</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>rdOTP Settings</value>
+  <data name="intstall_btn.Text" xml:space="preserve">
+    <value>Install</value>
   </data>
-  <data name="MainTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>444, 25</value>
+  <data name="additional_config_label.Text" xml:space="preserve">
+    <value>Advanced Configuration</value>
   </data>
-  <data name="&gt;&gt;MainTitle.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="status_label.Text" xml:space="preserve">
-    <value>Module Status</value>
-  </data>
-  <data name="&gt;&gt;aboutGroup.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="Version_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="secret_label.Text" xml:space="preserve">
     <value>Auth Configuration</value>
   </data>
-  <data name="logo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 180</value>
+  <data name="uninstall_btn.Text" xml:space="preserve">
+    <value>Uninstall</value>
   </data>
-  <data name="uninstall_btn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 10pt</value>
+  <data name="MainTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
-  <data name="intstall_btn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>286, 51</value>
+  <data name="&gt;&gt;credit_label.Parent" xml:space="preserve">
+    <value>aboutGroup</value>
   </data>
-  <data name="&gt;&gt;backgroundWorker1.Type" xml:space="preserve">
-    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="uninstall_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>399, 51</value>
   </data>
-  <data name="&gt;&gt;credit_label.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;IconInfo_link.Parent" xml:space="preserve">
+    <value>aboutGroup</value>
   </data>
-  <data name="IconInfo_link.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;status_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="WebSite_link.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 43</value>
   </data>
   <data name="status_value_label.Location" type="System.Drawing.Point, System.Drawing">
     <value>160, 55</value>
   </data>
-  <data name="&gt;&gt;secret_label.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="credit_label.Text" xml:space="preserve">
-    <value>Program created by bho3538</value>
-  </data>
-  <data name="&gt;&gt;IconInfo_link.Name" xml:space="preserve">
-    <value>IconInfo_link</value>
-  </data>
-  <data name="aboutGroup.Text" xml:space="preserve">
-    <value>About</value>
-  </data>
-  <data name="MainTitle.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 15pt, style=Bold</value>
-  </data>
-  <data name="status_label.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 10pt</value>
-  </data>
   <data name="logo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAAu5JREFUaEPtmM9rE0EUx6cHT3pQ/wELFtSzFloSQ0gIaRpt/wWF6lHrQax/Q9J4
+        DwAACw8BkvkDpQAAAu5JREFUaEPtmM9rE0EUx6cHT3pQ/wELFtSzFloSQ0gIaRpt/wWF6lHrQax/Q9J4
         UATBo3jwUJsfB2troia79VCw2MwmehLrwYunemqh48z6hOzmPexsduMc8oEP3e689+ab3U0CYWGy2uqc
         K1vOvbLtbJRt3pHHv1zVsTon11QNlJuDDHWpYjtvpOJocqtsd2PQ/v94srV1rGI5j8sWP8SD0qoeeWce
         qRkwbri8stunZYgGFk5PXq81P52CscNBXTUqvLyqa/LvgnrW17a3jysrVvd8teXcqFj8tb/+j7w+1Duh
@@ -781,74 +766,152 @@
         rkJggg==
 </value>
   </data>
-  <data name="WebSite_link.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9pt</value>
+  <data name="&gt;&gt;additional_config_label.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="IconInfo_link.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9pt</value>
+  <data name="WebSite_link.Text" xml:space="preserve">
+    <value>View web site with source code</value>
   </data>
-  <data name="status_value_label.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 10pt</value>
+  <data name="status_label.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;logo.Name" xml:space="preserve">
-    <value>logo</value>
+  <data name="IconInfo_link.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;Version_label.Parent" xml:space="preserve">
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="&gt;&gt;uninstall_btn.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;MainTitle.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Version_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 15</value>
+  </data>
+  <data name="&gt;&gt;credit_label.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;secret_label.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="status_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;WebSite_link.Parent" xml:space="preserve">
     <value>aboutGroup</value>
+  </data>
+  <data name="&gt;&gt;secret_config_btn.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;aboutGroup.Name" xml:space="preserve">
     <value>aboutGroup</value>
   </data>
-  <data name="&gt;&gt;uninstall_btn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="status_value_label.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="secret_config_btn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>286, 88</value>
+  <data name="secret_label.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 10pt</value>
+  </data>
+  <data name="credit_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 15</value>
+  </data>
+  <data name="aboutGroup.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;additional_config_label.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="MainTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 9</value>
+  </data>
+  <data name="Version_label.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
   </data>
   <data name="&gt;&gt;backgroundWorker1.Name" xml:space="preserve">
     <value>backgroundWorker1</value>
   </data>
-  <data name="aboutGroup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 112</value>
+  <data name="additional_config_label.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 10pt</value>
   </data>
-  <data name="secret_label.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;logo.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="credit_label.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="secret_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 16</value>
-  </data>
-  <data name="&gt;&gt;credit_label.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;logo.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="status_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 16</value>
-  </data>
-  <data name="MainTitle.Text" xml:space="preserve">
-    <value>rdOTP - Serverless Windows RDP OTP Auth</value>
-  </data>
-  <data name="&gt;&gt;Version_label.Name" xml:space="preserve">
-    <value>Version_label</value>
-  </data>
-  <data name="IconInfo_link.Text" xml:space="preserve">
-    <value>Lock icon by Icons8</value>
+  <data name="additional_config_btn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 10pt</value>
   </data>
   <data name="&gt;&gt;Version_label.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="intstall_btn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 10pt</value>
+  </data>
+  <data name="secret_config_btn.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;intstall_btn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;backgroundWorker1.Type" xml:space="preserve">
+    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="IconInfo_link.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;secret_config_btn.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;secret_label.Name" xml:space="preserve">
+    <value>secret_label</value>
+  </data>
+  <data name="logo.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>CenterImage</value>
+  </data>
+  <data name="&gt;&gt;intstall_btn.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="secret_config_btn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 10pt</value>
+  </data>
+  <data name="&gt;&gt;status_value_label.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;aboutGroup.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;additional_config_btn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="IconInfo_link.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 15</value>
+  </data>
+  <data name="IconInfo_link.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="status_value_label.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
+  <data name="Version_label.Text" xml:space="preserve">
+    <value>Version : {0}</value>
+  </data>
+  <data name="&gt;&gt;status_label.Name" xml:space="preserve">
+    <value>status_label</value>
+  </data>
+  <data name="additional_config_btn.Text" xml:space="preserve">
+    <value>Advanced Configuration</value>
+  </data>
+  <data name="status_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 55</value>
+  </data>
+  <data name="secret_config_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>286, 88</value>
+  </data>
   <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>ko-KR</value>

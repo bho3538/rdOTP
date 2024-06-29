@@ -117,82 +117,75 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Auth_NotConfigured" xml:space="preserve">
-    <value>OTP 설정이 완료되지 않았습니다. '확인' 단추를 누르십시오.</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="service_install_status.Location" type="System.Drawing.Point, System.Drawing">
+    <value>340, 78</value>
   </data>
-  <data name="Auth_Timeout" xml:space="preserve">
-    <value>대화 상자가 {0}초 후 닫힘니다.</value>
-  </data>
-  <data name="Error_moduleNotFound" xml:space="preserve">
-    <value>필수 모듈 '{0}' 를 찾을 수 없습니다.
-프로그램을 다시 설치하십시오</value>
-  </data>
-  <data name="Error_osrequired" xml:space="preserve">
-    <value>이 프로그램은 Windows 8 (Windows Server 2012) 이상 환경이 필요합니다.</value>
-  </data>
-  <data name="KeySettings_changeconfirm" xml:space="preserve">
-    <value>비밀 키를 변경하면 휴대전화에 OTP를 다시 등록해야합니다.
-계속하시겠습니까?</value>
-  </data>
-  <data name="KeySettings_complete" xml:space="preserve">
-    <value>비밀키가 변경되었습니다.
-OTP 테스트를 진행해 주십시오.</value>
-  </data>
-  <data name="KeySettings_ExportDialogTitle" xml:space="preserve">
-    <value>비밀 키를 파일로 내보냅니다. (인코딩 : UTF8)</value>
-  </data>
-  <data name="KeySettings_ExportFailed" xml:space="preserve">
-    <value>비밀 키 내보내기 작업이 실패하였습니다.</value>
-  </data>
-  <data name="KeySettings_ExportSuccess" xml:space="preserve">
-    <value>비밀 키 내보내기 작업이 완료되었습니다.</value>
-  </data>
-  <data name="KeySettings_importConfirm" xml:space="preserve">
-    <value>비밀 키를 불러오면 휴대전화에 OTP를 다시 등록해야합니다.
-계속하시겠습니까?</value>
-  </data>
-  <data name="KeySettings_ImportDialogTitle" xml:space="preserve">
-    <value>비밀 키를 파일에서 불러옵니다. (인코딩 : UTF8)</value>
-  </data>
-  <data name="KeySettings_ImportInvalidKey" xml:space="preserve">
-    <value>유효하지 않은 키 파일입니다.</value>
-  </data>
-  <data name="KeySettings_ImportReadFailed" xml:space="preserve">
-    <value>비밀 키 파일을 읽을 수 없습니다.</value>
-  </data>
-  <data name="KeySettings_ImportSuccess" xml:space="preserve">
-    <value>비밀 키 불러오기 작업이 완료되었습니다.</value>
-  </data>
-  <data name="KeySettings_keynotfound" xml:space="preserve">
-    <value>비밀 키가 없습니다.
-새 키를 생성하거나, 저장된 비밀 키를 불러오십시오.</value>
-  </data>
-  <data name="KeySettings_testFailed" xml:space="preserve">
-    <value>테스트 실패
-다시 시도하거나 휴대전화에 OTP를 다시 등록하십시오.</value>
-  </data>
-  <data name="KeySettings_testPassed" xml:space="preserve">
-    <value>테스트 성공</value>
-  </data>
-  <data name="Main_Installed" xml:space="preserve">
-    <value>설치됨</value>
-  </data>
-  <data name="Main_NotInstalled" xml:space="preserve">
-    <value>설치되지 않음</value>
-  </data>
-  <data name="Main_Version" xml:space="preserve">
-    <value>프로그램 버전</value>
-  </data>
-  <data name="Service_Installed" xml:space="preserve">
-    <value>설치됨</value>
-  </data>
-  <data name="Service_NotInstalled" xml:space="preserve">
-    <value>설치되지 않음</value>
-  </data>
-  <data name="Service_Notrunning" xml:space="preserve">
+  <data name="stop_btn.Text" xml:space="preserve">
     <value>정지</value>
   </data>
-  <data name="Service_runnning" xml:space="preserve">
-    <value>동작 중</value>
+  <data name="start_btn.Text" xml:space="preserve">
+    <value>시작</value>
+  </data>
+  <data name="uninstall_btn.Text" xml:space="preserve">
+    <value>삭제</value>
+  </data>
+  <data name="install_btn.Text" xml:space="preserve">
+    <value>설치</value>
+  </data>
+  <data name="service_install_status_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 15</value>
+  </data>
+  <data name="service_install_status_label.Text" xml:space="preserve">
+    <value>서비스 설치 상태</value>
+  </data>
+  <data name="service_running_status.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 146</value>
+  </data>
+  <data name="service_run_status_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 15</value>
+  </data>
+  <data name="service_run_status_label.Text" xml:space="preserve">
+    <value>서비스 동작 상태</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="chrome_rd_enable_chk.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chrome_rd_enable_chk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>391, 35</value>
+  </data>
+  <data name="chrome_rd_enable_chk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 14</value>
+  </data>
+  <data name="chrome_rd_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 15</value>
+  </data>
+  <data name="chrome_rd_label.Text" xml:space="preserve">
+    <value>크롬 원격 데스크톱 OTP 인증</value>
+  </data>
+  <data name="other_remote_settings_group.Text" xml:space="preserve">
+    <value>타사 원격 프로그램</value>
+  </data>
+  <data name="warning_beta_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 262</value>
+  </data>
+  <data name="warning_beta_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>322, 15</value>
+  </data>
+  <data name="warning_beta_label.Text" xml:space="preserve">
+    <value>※ 실험적인 기능입니다. 프로그램이 오동작 할 수 있습니다.</value>
+  </data>
+  <data name="lock_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>296, 234</value>
+  </data>
+  <data name="lock_btn.Text" xml:space="preserve">
+    <value>화면 잠금 테스트</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>446, 286</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>추가 기능 설정</value>
   </data>
 </root>

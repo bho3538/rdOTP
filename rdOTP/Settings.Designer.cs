@@ -44,6 +44,8 @@ namespace rdOTP
             this.MainTitle = new System.Windows.Forms.Label();
             this.aboutGroup = new System.Windows.Forms.GroupBox();
             this.credit_label = new System.Windows.Forms.Label();
+            this.additional_config_label = new System.Windows.Forms.Label();
+            this.additional_config_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.aboutGroup.SuspendLayout();
             this.SuspendLayout();
@@ -130,11 +132,25 @@ namespace rdOTP
             this.credit_label.ForeColor = System.Drawing.Color.Green;
             this.credit_label.Name = "credit_label";
             // 
+            // additional_config_label
+            // 
+            resources.ApplyResources(this.additional_config_label, "additional_config_label");
+            this.additional_config_label.Name = "additional_config_label";
+            // 
+            // additional_config_btn
+            // 
+            resources.ApplyResources(this.additional_config_btn, "additional_config_btn");
+            this.additional_config_btn.Name = "additional_config_btn";
+            this.additional_config_btn.UseVisualStyleBackColor = true;
+            this.additional_config_btn.Click += new System.EventHandler(this.additional_config_btn_Click);
+            // 
             // Settings
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.additional_config_btn);
+            this.Controls.Add(this.additional_config_label);
             this.Controls.Add(this.aboutGroup);
             this.Controls.Add(this.MainTitle);
             this.Controls.Add(this.logo);
@@ -173,5 +189,7 @@ namespace rdOTP
         private System.Windows.Forms.Label MainTitle;
         private System.Windows.Forms.GroupBox aboutGroup;
         private System.Windows.Forms.Label credit_label;
+        private System.Windows.Forms.Label additional_config_label;
+        private System.Windows.Forms.Button additional_config_btn;
     }
 }

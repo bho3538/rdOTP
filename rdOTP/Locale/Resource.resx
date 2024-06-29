@@ -183,4 +183,16 @@ Try again or re-register QR Code at your phone</value>
   <data name="Main_Version" xml:space="preserve">
     <value>Version</value>
   </data>
+  <data name="Service_Installed" xml:space="preserve">
+    <value>Installed</value>
+  </data>
+  <data name="Service_NotInstalled" xml:space="preserve">
+    <value>Not Installed</value>
+  </data>
+  <data name="Service_Notrunning" xml:space="preserve">
+    <value>Stopped</value>
+  </data>
+  <data name="Service_runnning" xml:space="preserve">
+    <value>Running</value>
+  </data>
 </root>
