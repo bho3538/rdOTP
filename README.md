@@ -1,5 +1,5 @@
 # rdOTP
-A Server-less time based OTP (TOTP) Autherication for Windows RDP
+A Server-less time based OTP (TOTP) Autherication for Windows RDP and Chrome Remote Desktop
 
 https://github.com/bho3538/rdOTP/assets/12496720/77d471f9-766a-4ae9-b07e-5e159950f771
 
@@ -21,8 +21,13 @@ This program register 'Credential Provider' extension at system.\
 This credential provider require OTP autherication if user connect pc using RDP
 
 ## How to use this program?
+### Basic settings (RDP)
 [English](https://github.com/bho3538/rdOTP/blob/master/manual_en.md)\
 [한국어](https://github.com/bho3538/rdOTP/blob/master/manual_ko.md)
+
+### Chrome Remote Desktop settings
+[English](https://github.com/bho3538/rdOTP/blob/master/manual_chromerd.md)\
+[한국어](https://github.com/bho3538/rdOTP/blob/master/manual_chromerd_ko.md)
 
 ## Todo list
 Per account OTP Auth\
