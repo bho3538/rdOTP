@@ -1,5 +1,7 @@
 ## Setting chrome remote desktop (beta)
-Enable OTP Authentication when access using Chrome Remote Desktop.
+Enable OTP Authentication when access using Chrome Remote Desktop.\
+
+https://github.com/bho3538/rdOTP/assets/12496720/fa4d75f1-bfab-41f1-a0c6-b8c171d41a7b
 
 ### Requirememts
 rdOTP 1.8.0.0 + \
