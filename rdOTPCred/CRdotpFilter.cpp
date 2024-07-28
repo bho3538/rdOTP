@@ -18,6 +18,11 @@ HRESULT CRdotpFilter::Filter(
         isRemoteSession = IsChromeRemoteDesktop();
     }
 
+    if (isRemoteSession) {
+        // only enable credprovider at LogonUI.exe
+        isRemoteSession = IsLogonUI();
+    }
+
     for (DWORD i = 0; i < cProviders; i++) {
         if (rgclsidProviders[i] == CLSID_RDOTPProvider) {
             rgbAllow[i] = isRemoteSession;

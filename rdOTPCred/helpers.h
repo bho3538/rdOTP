@@ -105,5 +105,6 @@ HRESULT SplitDomainAndUsername(_In_ PCWSTR pszQualifiedUserName, _Outptr_result_
 
 BOOL IsRemoteSession();
 BOOL IsChromeRemoteDesktop();
+BOOL IsLogonUI();
 
 std::wstring GetWrapperModulePath();

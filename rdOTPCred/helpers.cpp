@@ -778,6 +778,28 @@ BOOL IsChromeRemoteDesktop() {
     return re;
 }
 
+BOOL IsLogonUI() {
+    WCHAR currentExePath[MAX_PATH] = { 0, };
+    WCHAR systemPath[MAX_PATH] = { 0, };
+    GetModuleFileNameW(NULL, currentExePath, MAX_PATH);
+
+    if (GetSystemDirectoryW(systemPath, MAX_PATH) == 0) {
+        return FALSE;
+    }
+
+    _wcslwr_s(currentExePath, MAX_PATH);
+    _wcslwr_s(systemPath, MAX_PATH);
+
+    std::wstring logonUIPath = systemPath;
+    logonUIPath += L"\\logonui.exe";
+
+    if (!wcscmp(currentExePath, logonUIPath.c_str())) {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 std::wstring GetWrapperModulePath() {
     WCHAR path[MAX_PATH] = { 0, };
     HMODULE self = GetModuleHandleW(L"rdOTPCred.dll");
