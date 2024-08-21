@@ -187,6 +187,6 @@
     <value>168, 15</value>
   </data>
   <data name="leftTime_label.Text" xml:space="preserve">
-    <value>대화 상자가 30초 후 닫힘니다.</value>
+    <value>대화 상자가 45초 후 닫힘니다.</value>
   </data>
 </root>

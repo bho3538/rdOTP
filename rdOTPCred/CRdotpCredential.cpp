@@ -400,19 +400,26 @@ typedef DWORD(__cdecl* TRDOTPWrapper_Show)(PVOID args);
 // Collect the username and password into a serialized credential for the correct usage scenario
 // (logon/unlock is what's demonstrated in this sample).  LogonUI then passes these credentials
 // back to the system to log on.
-HRESULT CRDotpCredential::GetSerialization(_Out_ CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE *pcpgsr,
-                                            _Out_ CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION *pcpcs,
-                                            _Outptr_result_maybenull_ PWSTR *ppwszOptionalStatusText,
-                                            _Out_ CREDENTIAL_PROVIDER_STATUS_ICON *pcpsiOptionalStatusIcon)
+HRESULT CRDotpCredential::GetSerialization(_Out_ CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE* pcpgsr,
+    _Out_ CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION* pcpcs,
+    _Outptr_result_maybenull_ PWSTR* ppwszOptionalStatusText,
+    _Out_ CREDENTIAL_PROVIDER_STATUS_ICON* pcpsiOptionalStatusIcon)
 {
     HRESULT hr = E_UNEXPECTED;
+    BOOL hasGlobalCredential = FALSE;
+
+    PWSTR pszDomain = NULL;
+    PWSTR pszUsername = NULL;
+    PWSTR pwzProtectedPassword = NULL;
+
+    PVOID otpData = NULL;
+
     *pcpgsr = CPGSR_NO_CREDENTIAL_NOT_FINISHED;
     *ppwszOptionalStatusText = nullptr;
     *pcpsiOptionalStatusIcon = CPSI_NONE;
     ZeroMemory(pcpcs, sizeof(*pcpcs));
 
     HMODULE hModule = LoadLibraryW(GetWrapperModulePath().c_str());
-
     if (!hModule) {
         *ppwszOptionalStatusText = StrDupW(L"Cannot load rdOTPWrap.dll\nPlease install visual c++ redistributable 2022\nYou can still login computer using local session");
         return S_OK;
@@ -422,74 +429,96 @@ HRESULT CRDotpCredential::GetSerialization(_Out_ CREDENTIAL_PROVIDER_GET_SERIALI
     TRDOTPWrapper_Cleanup RDOTPWrapper_Cleanup = (TRDOTPWrapper_Cleanup)GetProcAddress(hModule, "RDOTPWrapper_Cleanup");
     TRDOTPWrapper_Show RDOTPWrapper_Show = (TRDOTPWrapper_Show)GetProcAddress(hModule, "RDOTPWrapper_Show");
 
-    PVOID data = RDOTPWrapper_CreateInstance();
-
-    if (RDOTPWrapper_Show(data) == 1) {
-        RDOTPWrapper_Cleanup(data);
-        return E_FAIL;
+    if (g_UserName) {
+        pszDomain = g_DomainName;
+        pszUsername = g_UserName;
+        pwzProtectedPassword = g_EncPassword;
+        hasGlobalCredential = TRUE;
     }
+    else if(_pszQualifiedUserName) {
+        HANDLE hUser = NULL; // test user password valid before show OTP dialog
 
-    RDOTPWrapper_Cleanup(data);
+        hr = SplitDomainAndUsername(_pszQualifiedUserName, &pszDomain, &pszUsername);
+        if (FAILED(hr)) {
+            goto escapeArea;
+        }
 
-    PWSTR pwzProtectedPassword = g_EncPassword;
-    if (!pwzProtectedPassword) {
         hr = ProtectIfNecessaryAndCopyPassword(_rgFieldStrings[SFI_PASSWORD], _cpus, &pwzProtectedPassword);
+        if (FAILED(hr)) {
+            goto escapeArea;
+        }
+
+        if (!LogonUserW(pszUsername, pszDomain, _rgFieldStrings[SFI_PASSWORD], LOGON32_LOGON_INTERACTIVE, LOGON32_PROVIDER_DEFAULT, &hUser)) {;
+            hr = S_OK; // logon failed. (incorrect password)
+            *ppwszOptionalStatusText = StrDupW(L"Incorrect password or username.");
+
+            Sleep(1000);
+            goto escapeArea;
+        }
+        CloseHandle(hUser);
     }
     else {
+        goto escapeArea;
+    }
+
+    // Show OTP dialog
+    otpData = RDOTPWrapper_CreateInstance();
+    if (RDOTPWrapper_Show(otpData) == 1) {
+        // OTP Auth Failed
+        hr = E_FAIL;
+    }
+    else {
+        // OTP Auth Success
         hr = S_OK;
     }
 
+    RDOTPWrapper_Cleanup(otpData);
+    if (FAILED(hr)) {
+        goto escapeArea;
+    }
+
+    KERB_INTERACTIVE_UNLOCK_LOGON kiul;
+    hr = KerbInteractiveUnlockLogonInit(pszDomain, pszUsername, pwzProtectedPassword, _cpus, &kiul);
     if (SUCCEEDED(hr))
     {
-        PWSTR pszDomain = g_DomainName;
-        PWSTR pszUsername = g_UserName;
-
-        if (!pszDomain && !pszUsername) {
-            hr = SplitDomainAndUsername(_pszQualifiedUserName, &pszDomain, &pszUsername);
-        }
-
+        // We use KERB_INTERACTIVE_UNLOCK_LOGON in both unlock and logon scenarios.  It contains a
+        // KERB_INTERACTIVE_LOGON to hold the creds plus a LUID that is filled in for us by Winlogon
+        // as necessary.
+        hr = KerbInteractiveUnlockLogonPack(kiul, &pcpcs->rgbSerialization, &pcpcs->cbSerialization);
         if (SUCCEEDED(hr))
         {
-            KERB_INTERACTIVE_UNLOCK_LOGON kiul;
-            hr = KerbInteractiveUnlockLogonInit(pszDomain, pszUsername, pwzProtectedPassword, _cpus, &kiul);
+            ULONG ulAuthPackage;
+            hr = RetrieveNegotiateAuthPackage(&ulAuthPackage);
             if (SUCCEEDED(hr))
             {
-                // We use KERB_INTERACTIVE_UNLOCK_LOGON in both unlock and logon scenarios.  It contains a
-                // KERB_INTERACTIVE_LOGON to hold the creds plus a LUID that is filled in for us by Winlogon
-                // as necessary.
-                hr = KerbInteractiveUnlockLogonPack(kiul, &pcpcs->rgbSerialization, &pcpcs->cbSerialization);
-                if (SUCCEEDED(hr))
-                {
-                    ULONG ulAuthPackage;
-                    hr = RetrieveNegotiateAuthPackage(&ulAuthPackage);
-                    if (SUCCEEDED(hr))
-                    {
-                        pcpcs->ulAuthenticationPackage = ulAuthPackage;
-                        pcpcs->clsidCredentialProvider = CLSID_RDOTPProvider;
-                        // At this point the credential has created the serialized credential used for logon
-                        // By setting this to CPGSR_RETURN_CREDENTIAL_FINISHED we are letting logonUI know
-                        // that we have all the information we need and it should attempt to submit the
-                        // serialized credential.
-
-                        *pcpgsr = CPGSR_RETURN_CREDENTIAL_FINISHED;
-                    }
-                }
+                pcpcs->ulAuthenticationPackage = ulAuthPackage;
+                pcpcs->clsidCredentialProvider = CLSID_RDOTPProvider;
+                // At this point the credential has created the serialized credential used for logon
+                // By setting this to CPGSR_RETURN_CREDENTIAL_FINISHED we are letting logonUI know
+                // that we have all the information we need and it should attempt to submit the
+                // serialized credential.
+                *pcpgsr = CPGSR_RETURN_CREDENTIAL_FINISHED;
             }
-            if (!g_DomainName) {
-                CoTaskMemFree(pszDomain);
-            }
-
-            if (!g_UserName) {
-                CoTaskMemFree(pszUsername);
-            }
-        }
-        CoTaskMemFree(pwzProtectedPassword);
-
-        if (g_EncPassword) {
-            g_EncPassword = 0;
         }
     }
-    
+
+escapeArea:
+
+    if (!hasGlobalCredential) {
+        CoTaskMemFree(pszUsername);
+        CoTaskMemFree(pszDomain);
+        CoTaskMemFree(pwzProtectedPassword);
+    }
+    else {
+        CoTaskMemFree(pwzProtectedPassword);
+
+        // prevent double free
+        g_EncPassword = NULL;
+        g_EncPasswordLen = 0;
+    }
+   
+
+
     return hr;
 }
 
