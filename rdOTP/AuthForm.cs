@@ -24,7 +24,7 @@ namespace rdOTP
 
         private KeySettings _settings = new KeySettings();
         private string _otpKey = "";
-        private int _seconds = 30;
+        private int _seconds = 45;
 
         private const string TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
@@ -35,6 +35,7 @@ namespace rdOTP
 
             this.code_input.MaxLength = 16;
             this.code_input.TextChanged += Code_input_TextChanged;
+            this.code_input.KeyPress += Code_input_KeyPress;
             this.time_value_label.Text = DateTime.Now.ToString(TIME_FORMAT);
 
             _otpKey = _settings.GetGlobalSecretKey();
@@ -51,6 +52,15 @@ namespace rdOTP
             _timer.Tick += _timer_Tick;
             _timer.Interval = 1000;
             _timer.Start();
+        }
+
+        private void Code_input_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // if user press 'enter key' -> try validate code
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                HandleSubmit();
+            }
         }
 
         private void Code_input_TextChanged(object sender, EventArgs e)
@@ -162,6 +172,11 @@ namespace rdOTP
 
         private void submit_btn_Click(object sender, EventArgs e)
         {
+            HandleSubmit();
+        }
+
+        private void HandleSubmit()
+        {
             string code = this.code_input.Text;
 
             if (string.IsNullOrEmpty(_otpKey))
@@ -171,7 +186,7 @@ namespace rdOTP
                 return;
             }
 
-            if(string.IsNullOrWhiteSpace(code) || code.Length != 6)
+            if (string.IsNullOrWhiteSpace(code) || code.Length != 6)
             {
                 HandleCodeError();
                 return;
@@ -180,7 +195,7 @@ namespace rdOTP
             var totp = new Totp(Base32Encoding.ToBytes(_otpKey), 30, OtpHashMode.Sha1, 6);
 
             long matched = 0;
-            if(totp.VerifyTotp(code.Trim(), out matched, VerificationWindow.RfcSpecifiedNetworkDelay))
+            if (totp.VerifyTotp(code.Trim(), out matched, VerificationWindow.RfcSpecifiedNetworkDelay))
             {
                 valid = true;
                 this.Close();
@@ -189,7 +204,6 @@ namespace rdOTP
             {
                 HandleCodeError();
             }
-
         }
 
         private void HandleCodeError()
