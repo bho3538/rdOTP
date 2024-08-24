@@ -465,16 +465,21 @@ HRESULT CRDotpCredential::GetSerialization(_Out_ CREDENTIAL_PROVIDER_GET_SERIALI
     otpData = RDOTPWrapper_CreateInstance();
     if (RDOTPWrapper_Show(otpData) == 1) {
         // OTP Auth Failed
-        hr = E_FAIL;
+        hr = S_OK; // logon failed. (incorrect password)
+        *ppwszOptionalStatusText = StrDupW(L"Incorrect OTP validation code.");
+        RDOTPWrapper_Cleanup(otpData);
+
+        if (hasGlobalCredential) {
+            goto noFreeArea;
+        }
+        else{
+            goto escapeArea;
+        }
     }
     else {
         // OTP Auth Success
         hr = S_OK;
-    }
-
-    RDOTPWrapper_Cleanup(otpData);
-    if (FAILED(hr)) {
-        goto escapeArea;
+        RDOTPWrapper_Cleanup(otpData);
     }
 
     KERB_INTERACTIVE_UNLOCK_LOGON kiul;
@@ -516,8 +521,8 @@ escapeArea:
         g_EncPassword = NULL;
         g_EncPasswordLen = 0;
     }
-   
 
+noFreeArea:
 
     return hr;
 }
