@@ -87,6 +87,10 @@ namespace rdOTPSvc
             {
                 // ignore
             }
+            finally
+            {
+                args.NewEvent.Dispose();
+            }
         }
 
         private bool IsChromeRemoteDesktop(uint pid)
