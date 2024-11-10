@@ -2,6 +2,8 @@
 #include "CAuthWindow.h"
 #include "resource.h"
 
+#include <math.h>
+
 HWND g_ParentWindow = NULL;
 HWND g_AuthWindowHwnd = NULL;
 ATOM g_MainWindowClass = (ATOM)NULL;
@@ -37,12 +39,16 @@ DWORD g_SubmitBtnX = 260;
 DWORD g_SubmitBtnY = 160;
 DWORD g_SubmitBtnWidth = 60;
 DWORD g_SubmitBtnHeight = 30;
+HFONT g_SubmitBtnFont = NULL;
+DWORD g_SubmitBtnFontSize = 16;
 
 HWND g_CancelBtnHwnd = NULL;
 DWORD g_CancelBtnX = 330;
 DWORD g_CancelBtnY = 160;
 DWORD g_CancelBtnWidth = 60;
 DWORD g_CancelBtnHeight = 30;
+HFONT g_CancelBtnFont = NULL;
+DWORD g_CancelBtnFontSize = 16;
 
 HWND g_LockIconHwnd = NULL;
 DWORD g_LockIconX = 340;
@@ -62,7 +68,7 @@ DWORD g_AuthTimeLeftLabelFontSize = 15;
 HWND g_MachineTimeLabelHwnd = NULL;
 DWORD g_MachineTimeLabelX = 15;
 DWORD g_MachineTimeLabelY = 175;
-DWORD g_MachineTimeLabelWidth = 200;
+DWORD g_MachineTimeLabelWidth = 210;
 DWORD g_MachineTimeLabelHeight = 23;
 HFONT g_MachineTimeLabelFont = NULL;
 DWORD g_MachineTimeLabelFontSize = 15;
@@ -82,7 +88,7 @@ DWORD g_MainWindowX = 0;
 DWORD g_MainWindowY = 0;
 DWORD g_MainWindowWidth = 400;
 DWORD g_MainWindowHeight = 200;
-DWORD g_scale = 1;
+FLOAT g_scale = 1;
 DWORD g_Time = 0;
 
 #define BTN_SUBMIT 100
@@ -98,6 +104,11 @@ BOOL RDOTP_InitializeAuthWindow(HWND hwnd) {
 	if (!hwnd) {
 		hwnd = GetForegroundWindow();
 	}
+
+    INT dpi = _GetSystemDPI();
+    if (dpi > 96) {
+        g_scale = dpi / 96.0f;
+    }
 
     g_ParentWindow = hwnd;
 
@@ -119,30 +130,30 @@ BOOL RDOTP_InitializeAuthWindow(HWND hwnd) {
 }
 
 HWND RDOTP_CreateAuthWindow() {
-    g_AuthWindowHwnd = CreateWindowW(L"RDOTP_AuthWindow", L"MainWindow", WS_POPUPWINDOW, g_MainWindowX, g_MainWindowY,
-        g_MainWindowWidth, g_MainWindowHeight, g_ParentWindow, NULL, NULL, NULL);
+    g_AuthWindowHwnd = CreateWindowW(L"RDOTP_AuthWindow", L"MainWindow", WS_POPUPWINDOW, _CalcPos(g_MainWindowX), _CalcPos(g_MainWindowY),
+        _CalcPos(g_MainWindowWidth), _CalcPos(g_MainWindowHeight), g_ParentWindow, NULL, NULL, NULL);
     if (!g_AuthWindowHwnd) {
         return NULL;
     }
 
-    g_MainTitleLabelHwnd = CreateWindowW(L"static", L"Autherication Required", WS_CHILD, g_MainTitleLabelX, g_MainTitleLabelY, g_MainTitleLabelWidth,
-        g_MainTitleLabelHeight, g_AuthWindowHwnd, NULL, NULL, NULL);
+    g_MainTitleLabelHwnd = CreateWindowW(L"static", L"Autherication Required", WS_CHILD, _CalcPos(g_MainTitleLabelX), _CalcPos(g_MainTitleLabelY), _CalcPos(g_MainTitleLabelWidth),
+        _CalcPos(g_MainTitleLabelHeight), g_AuthWindowHwnd, NULL, NULL, NULL);
     if (!g_MainTitleLabelHwnd) {
         return NULL;
     }
     g_MainTitleLabelFont = _RDTP_SetLabelFont(g_MainTitleLabelHwnd, g_MainTItleLabelFontSize);
     ShowWindow(g_MainTitleLabelHwnd, SW_SHOW);
 
-    g_SubTitleLabelHwnd = CreateWindowW(L"static", L"Enter OTP code from registered phone", WS_CHILD, g_SubTitleLabelX, g_SubTitleLabelY, g_SubTitleLabelWidth,
-        g_SubTitleLabelHeight, g_AuthWindowHwnd, NULL, NULL, NULL);
+    g_SubTitleLabelHwnd = CreateWindowW(L"static", L"Enter OTP code from registered phone", WS_CHILD, _CalcPos(g_SubTitleLabelX), _CalcPos(g_SubTitleLabelY), _CalcPos(g_SubTitleLabelWidth),
+        _CalcPos(g_SubTitleLabelHeight), g_AuthWindowHwnd, NULL, NULL, NULL);
     if (!g_SubTitleLabelHwnd) {
         return NULL;
     }
     g_SubTitleLabelFont = _RDTP_SetLabelFont(g_SubTitleLabelHwnd, g_SubTitleLabelFontSize);
     ShowWindow(g_SubTitleLabelHwnd, SW_SHOW);
 
-    g_InputCodeTextboxHwnd = CreateWindowW(L"edit", L"", WS_CHILD | WS_BORDER | ES_CENTER, g_InputCodeTextboxX, g_InputCodeTextboxY, g_InputCodeTextboxWidth,
-        g_InputCodeTextboxHeight, g_AuthWindowHwnd, NULL, NULL, NULL);
+    g_InputCodeTextboxHwnd = CreateWindowW(L"edit", L"", WS_CHILD | WS_BORDER | ES_CENTER, _CalcPos(g_InputCodeTextboxX), _CalcPos(g_InputCodeTextboxY), _CalcPos(g_InputCodeTextboxWidth),
+        _CalcPos(g_InputCodeTextboxHeight), g_AuthWindowHwnd, NULL, NULL, NULL);
     if (!g_InputCodeTextboxHwnd) {
         return NULL;
     }
@@ -150,45 +161,47 @@ HWND RDOTP_CreateAuthWindow() {
     ShowWindow(g_InputCodeTextboxHwnd, SW_SHOW);
     SendMessageW(g_InputCodeTextboxHwnd, EM_SETLIMITTEXT, MAX_INPUTCODE_LEN - 1, (LPARAM)NULL);
 
-    g_SubmitBtnHwnd = CreateWindowW(L"button", L"Submit", WS_CHILD, g_SubmitBtnX, g_SubmitBtnY, g_SubmitBtnWidth,
-        g_SubmitBtnHeight, g_AuthWindowHwnd, (HMENU)BTN_SUBMIT, NULL, NULL);
+    g_SubmitBtnHwnd = CreateWindowW(L"button", L"Submit", WS_CHILD, _CalcPos(g_SubmitBtnX), _CalcPos(g_SubmitBtnY), _CalcPos(g_SubmitBtnWidth),
+        _CalcPos(g_SubmitBtnHeight), g_AuthWindowHwnd, (HMENU)BTN_SUBMIT, NULL, NULL);
     if (!g_SubmitBtnHwnd) {
         return NULL;
     }
+    g_SubmitBtnFont = _RDTP_SetLabelFont(g_SubmitBtnHwnd, g_SubmitBtnFontSize);
     ShowWindow(g_SubmitBtnHwnd, SW_SHOW);
 
-    g_CancelBtnHwnd = CreateWindowW(L"button", L"Cancel", WS_CHILD, g_CancelBtnX, g_CancelBtnY, g_CancelBtnWidth,
-        g_CancelBtnHeight, g_AuthWindowHwnd, (HMENU)BTN_CANCEL, NULL, NULL);
+    g_CancelBtnHwnd = CreateWindowW(L"button", L"Cancel", WS_CHILD, _CalcPos(g_CancelBtnX), _CalcPos(g_CancelBtnY), _CalcPos(g_CancelBtnWidth),
+        _CalcPos(g_CancelBtnHeight), g_AuthWindowHwnd, (HMENU)BTN_CANCEL, NULL, NULL);
     if (!g_CancelBtnHwnd) {
         return NULL;
     }
+    g_CancelBtnFont = _RDTP_SetLabelFont(g_CancelBtnHwnd, g_CancelBtnFontSize);
     ShowWindow(g_CancelBtnHwnd, SW_SHOW);
         
-    g_LockIcon = (HICON)LoadImageW(GetModuleHandleW(NULL), MAKEINTRESOURCE(IDI_ICON1), IMAGE_ICON, g_LockIconWidth, g_LockIconHeight, LR_DEFAULTCOLOR);
-    g_LockIconHwnd = CreateWindowW(L"static", L"", WS_CHILD | SS_ICON, g_LockIconX, g_LockIconY, g_LockIconWidth,
-        g_LockIconHeight, g_AuthWindowHwnd, NULL, NULL, NULL);
+    g_LockIcon = (HICON)LoadImageW(GetModuleHandleW(NULL), MAKEINTRESOURCE(IDI_ICON1), IMAGE_ICON, _CalcPos(g_LockIconWidth), _CalcPos(g_LockIconHeight), LR_DEFAULTCOLOR);
+    g_LockIconHwnd = CreateWindowW(L"static", L"", WS_CHILD | SS_ICON, _CalcPos(g_LockIconX), _CalcPos(g_LockIconY), _CalcPos(g_LockIconWidth),
+        _CalcPos(g_LockIconHeight), g_AuthWindowHwnd, NULL, NULL, NULL);
     if (!g_LockIconHwnd) {
         return NULL;
     }
 
-    g_MachineTimeLabelHwnd = CreateWindowW(L"static", L"Machine Time : ", WS_CHILD, g_MachineTimeLabelX, g_MachineTimeLabelY, g_MachineTimeLabelWidth,
-        g_MachineTimeLabelHeight, g_AuthWindowHwnd, NULL, NULL, NULL);
+    g_MachineTimeLabelHwnd = CreateWindowW(L"static", L"Machine Time : ", WS_CHILD, _CalcPos(g_MachineTimeLabelX), _CalcPos(g_MachineTimeLabelY), _CalcPos(g_MachineTimeLabelWidth),
+        _CalcPos(g_MachineTimeLabelHeight), g_AuthWindowHwnd, NULL, NULL, NULL);
     if (!g_MachineTimeLabelHwnd) {
         return NULL;
     }
     g_MachineTimeLabelFont = _RDTP_SetLabelFont(g_MachineTimeLabelHwnd, g_MachineTimeLabelFontSize);
     ShowWindow(g_MachineTimeLabelHwnd, SW_SHOW);
 
-    g_AuthTimeLeftLabelHwnd = CreateWindowW(L"static", L"", WS_CHILD, g_AuthTimeLeftLabelX, g_AuthTimeLeftLabelY, g_AuthTimeLeftLabelWidth,
-        g_AuthTimeLeftLabelHeight, g_AuthWindowHwnd, NULL, NULL, NULL);
+    g_AuthTimeLeftLabelHwnd = CreateWindowW(L"static", L"", WS_CHILD, _CalcPos(g_AuthTimeLeftLabelX), _CalcPos(g_AuthTimeLeftLabelY), _CalcPos(g_AuthTimeLeftLabelWidth),
+        _CalcPos(g_AuthTimeLeftLabelHeight), g_AuthWindowHwnd, NULL, NULL, NULL);
     if (!g_AuthTimeLeftLabelHwnd) {
         return NULL;
     }
     g_AuthTimeLeftLabelFont = _RDTP_SetLabelFont(g_AuthTimeLeftLabelHwnd, g_AuthTimeLeftLabelFontSize);
     ShowWindow(g_AuthTimeLeftLabelHwnd, SW_SHOW);
 
-    g_AuthCodeNotValidLabelHwnd = CreateWindowW(L"static", L"Authentication code does not valid.", WS_CHILD, g_AuthCodeNotValidLabelX, g_AuthCodeNotValidLabelY, g_AuthCodeNotValidLabelWidth,
-        g_AuthCodeNotValidLabelHeight, g_AuthWindowHwnd, NULL, NULL, NULL);
+    g_AuthCodeNotValidLabelHwnd = CreateWindowW(L"static", L"Authentication code does not valid.", WS_CHILD, _CalcPos(g_AuthCodeNotValidLabelX), _CalcPos(g_AuthCodeNotValidLabelY), 
+        _CalcPos(g_AuthCodeNotValidLabelWidth), _CalcPos(g_AuthCodeNotValidLabelHeight), g_AuthWindowHwnd, NULL, NULL, NULL);
     if (!g_AuthCodeNotValidLabelHwnd) {
         return NULL;
     }
@@ -196,8 +209,9 @@ HWND RDOTP_CreateAuthWindow() {
     ShowWindow(g_AuthCodeNotValidLabelHwnd, SW_HIDE);
 
     SendMessageW(g_LockIconHwnd, STM_SETIMAGE, IMAGE_ICON, (LPARAM)g_LockIcon);
-
     ShowWindow(g_LockIconHwnd, SW_SHOW);
+
+    SetFocus(g_InputCodeTextboxHwnd);
 
     return g_AuthWindowHwnd;
 }
@@ -265,6 +279,8 @@ LRESULT CALLBACK _RDOTP_AuthWindow_WndProc(HWND hWnd, UINT msg, WPARAM wParam, L
 }
 
 HFONT _RDTP_SetLabelFont(HWND hLabel, DWORD dwFontSize) {
+    dwFontSize = _CalcPos(dwFontSize);
+
     HFONT hFont = CreateFontW(
         dwFontSize,
         0,
@@ -326,10 +342,14 @@ void _RDOTP_CloseAndCleanupControls() {
     DeleteObject(g_AuthCodeNotValidLabelFont);
     g_AuthCodeNotValidLabelFont = NULL;
 
+    DeleteObject(g_SubmitBtnFont);
+    g_SubmitBtnFont = NULL;
     CloseWindow(g_SubmitBtnHwnd);
     DestroyWindow(g_SubmitBtnHwnd);
     g_SubmitBtnHwnd = NULL;
 
+    DeleteObject(g_CancelBtnFont);
+    g_CancelBtnFont = NULL;
     CloseWindow(g_CancelBtnHwnd);
     DestroyWindow(g_CancelBtnHwnd);
     g_CancelBtnHwnd = NULL;
@@ -380,4 +400,20 @@ void _RDOTP_HandleAuthTimer() {
     SetWindowTextW(g_AuthTimeLeftLabelHwnd, leftAuthTimeText);
 
     g_Time--;
+}
+
+INT _GetSystemDPI() {
+    HDC screen = GetDC(NULL);
+    int dpi = GetDeviceCaps(screen, LOGPIXELSX);
+    ReleaseDC(NULL, screen);
+
+    return dpi;
+}
+
+DWORD _CalcPos(DWORD originalPos) {
+    FLOAT position = originalPos * g_scale;
+
+    position = roundf(position);
+    
+    return (DWORD)position;
 }

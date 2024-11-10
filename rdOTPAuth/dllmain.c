@@ -2,6 +2,9 @@
 #include "pch.h"
 #include "CAuthWindow.h"
 #include <CommCtrl.h>
+#include <shellscalingapi.h>
+
+#pragma comment(lib, "Shcore.lib")
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
@@ -20,6 +23,8 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 }
 
 int main() {
+
+    SetProcessDpiAwareness(PROCESS_SYSTEM_DPI_AWARE);
 
     InitCommonControls();
 

@@ -11,3 +11,6 @@ void _RDOTP_CloseAndCleanupControls();
 BOOL _RDOTP_ProcessAuth(LPCWSTR pOtpCode);
 
 void _RDOTP_HandleAuthTimer();
+
+INT _GetSystemDPI();
+DWORD _CalcPos(DWORD originalPos);
