@@ -9,7 +9,8 @@
 
 // add headers that you want to pre-compile here
 #include "framework.h"
-
+#include <stdlib.h>
 #pragma comment(lib, "comctl32.lib")
+#pragma comment(lib, "bcrypt.lib")
 
 #endif //PCH_H

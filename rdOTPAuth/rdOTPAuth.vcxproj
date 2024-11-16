@@ -201,12 +201,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CAuthWindow.h" />
+    <ClInclude Include="CTotp.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CAuthWindow.c" />
+    <ClCompile Include="CTotp.c" />
     <ClCompile Include="dllmain.c" />
     <ClCompile Include="pch.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
