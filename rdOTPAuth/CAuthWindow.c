@@ -3,6 +3,7 @@
 #include "resource.h"
 
 #include <math.h>
+#include "CTotp.h"
 
 HWND g_ParentWindow = NULL;
 HWND g_AuthWindowHwnd = NULL;
@@ -33,6 +34,7 @@ DWORD g_InputCodeTextboxWidth = 380;
 DWORD g_InputCodeTextboxHeight = 23;
 HFONT g_InputCodeTextboxFont = NULL;
 DWORD g_InputCodeTextboxFontSize = 18;
+LONG_PTR g_InputCodeTextboxOrigProc = 0;
 
 HWND g_SubmitBtnHwnd = NULL;
 DWORD g_SubmitBtnX = 260;
@@ -136,6 +138,7 @@ HWND RDOTP_CreateAuthWindow() {
         return NULL;
     }
 
+    // main title label
     g_MainTitleLabelHwnd = CreateWindowW(L"static", L"Autherication Required", WS_CHILD, _CalcPos(g_MainTitleLabelX), _CalcPos(g_MainTitleLabelY), _CalcPos(g_MainTitleLabelWidth),
         _CalcPos(g_MainTitleLabelHeight), g_AuthWindowHwnd, NULL, NULL, NULL);
     if (!g_MainTitleLabelHwnd) {
@@ -152,15 +155,20 @@ HWND RDOTP_CreateAuthWindow() {
     g_SubTitleLabelFont = _RDTP_SetLabelFont(g_SubTitleLabelHwnd, g_SubTitleLabelFontSize);
     ShowWindow(g_SubTitleLabelHwnd, SW_SHOW);
 
+    // validate code edit control
     g_InputCodeTextboxHwnd = CreateWindowW(L"edit", L"", WS_CHILD | WS_BORDER | ES_CENTER, _CalcPos(g_InputCodeTextboxX), _CalcPos(g_InputCodeTextboxY), _CalcPos(g_InputCodeTextboxWidth),
         _CalcPos(g_InputCodeTextboxHeight), g_AuthWindowHwnd, NULL, NULL, NULL);
     if (!g_InputCodeTextboxHwnd) {
         return NULL;
     }
     g_InputCodeTextboxFont = _RDTP_SetLabelFont(g_InputCodeTextboxHwnd, g_InputCodeTextboxFontSize);
+    g_InputCodeTextboxOrigProc = GetWindowLongPtrW(g_InputCodeTextboxHwnd, GWLP_WNDPROC);
+    // handle 'Enter' key at edit control
+    SetWindowLongPtrW(g_InputCodeTextboxHwnd, GWLP_WNDPROC, (LONG_PTR)_RDOTP_InputCodeCtrl_WndProc);
     ShowWindow(g_InputCodeTextboxHwnd, SW_SHOW);
     SendMessageW(g_InputCodeTextboxHwnd, EM_SETLIMITTEXT, MAX_INPUTCODE_LEN - 1, (LPARAM)NULL);
 
+    // submit auth code
     g_SubmitBtnHwnd = CreateWindowW(L"button", L"Submit", WS_CHILD, _CalcPos(g_SubmitBtnX), _CalcPos(g_SubmitBtnY), _CalcPos(g_SubmitBtnWidth),
         _CalcPos(g_SubmitBtnHeight), g_AuthWindowHwnd, (HMENU)BTN_SUBMIT, NULL, NULL);
     if (!g_SubmitBtnHwnd) {
@@ -169,6 +177,7 @@ HWND RDOTP_CreateAuthWindow() {
     g_SubmitBtnFont = _RDTP_SetLabelFont(g_SubmitBtnHwnd, g_SubmitBtnFontSize);
     ShowWindow(g_SubmitBtnHwnd, SW_SHOW);
 
+    // close auth dialog button
     g_CancelBtnHwnd = CreateWindowW(L"button", L"Cancel", WS_CHILD, _CalcPos(g_CancelBtnX), _CalcPos(g_CancelBtnY), _CalcPos(g_CancelBtnWidth),
         _CalcPos(g_CancelBtnHeight), g_AuthWindowHwnd, (HMENU)BTN_CANCEL, NULL, NULL);
     if (!g_CancelBtnHwnd) {
@@ -176,14 +185,23 @@ HWND RDOTP_CreateAuthWindow() {
     }
     g_CancelBtnFont = _RDTP_SetLabelFont(g_CancelBtnHwnd, g_CancelBtnFontSize);
     ShowWindow(g_CancelBtnHwnd, SW_SHOW);
-        
-    g_LockIcon = (HICON)LoadImageW(GetModuleHandleW(NULL), MAKEINTRESOURCE(IDI_ICON1), IMAGE_ICON, _CalcPos(g_LockIconWidth), _CalcPos(g_LockIconHeight), LR_DEFAULTCOLOR);
+     
+    // LOCK image icon
+    LPCWSTR iconType = MAKEINTRESOURCE(IDI_ICON1);
+    if (g_scale >= 2) {
+        iconType = MAKEINTRESOURCE(IDI_ICON2);
+    }
+    g_LockIcon = (HICON)LoadImageW(GetModuleHandleW(NULL), iconType, IMAGE_ICON, _CalcPos(g_LockIconWidth), _CalcPos(g_LockIconHeight), LR_DEFAULTCOLOR);
     g_LockIconHwnd = CreateWindowW(L"static", L"", WS_CHILD | SS_ICON, _CalcPos(g_LockIconX), _CalcPos(g_LockIconY), _CalcPos(g_LockIconWidth),
         _CalcPos(g_LockIconHeight), g_AuthWindowHwnd, NULL, NULL, NULL);
     if (!g_LockIconHwnd) {
         return NULL;
     }
 
+    SendMessageW(g_LockIconHwnd, STM_SETIMAGE, IMAGE_ICON, (LPARAM)g_LockIcon);
+    ShowWindow(g_LockIconHwnd, SW_SHOW);
+
+    // current machine time label
     g_MachineTimeLabelHwnd = CreateWindowW(L"static", L"Machine Time : ", WS_CHILD, _CalcPos(g_MachineTimeLabelX), _CalcPos(g_MachineTimeLabelY), _CalcPos(g_MachineTimeLabelWidth),
         _CalcPos(g_MachineTimeLabelHeight), g_AuthWindowHwnd, NULL, NULL, NULL);
     if (!g_MachineTimeLabelHwnd) {
@@ -192,6 +210,7 @@ HWND RDOTP_CreateAuthWindow() {
     g_MachineTimeLabelFont = _RDTP_SetLabelFont(g_MachineTimeLabelHwnd, g_MachineTimeLabelFontSize);
     ShowWindow(g_MachineTimeLabelHwnd, SW_SHOW);
 
+    // auth left time label
     g_AuthTimeLeftLabelHwnd = CreateWindowW(L"static", L"", WS_CHILD, _CalcPos(g_AuthTimeLeftLabelX), _CalcPos(g_AuthTimeLeftLabelY), _CalcPos(g_AuthTimeLeftLabelWidth),
         _CalcPos(g_AuthTimeLeftLabelHeight), g_AuthWindowHwnd, NULL, NULL, NULL);
     if (!g_AuthTimeLeftLabelHwnd) {
@@ -200,6 +219,7 @@ HWND RDOTP_CreateAuthWindow() {
     g_AuthTimeLeftLabelFont = _RDTP_SetLabelFont(g_AuthTimeLeftLabelHwnd, g_AuthTimeLeftLabelFontSize);
     ShowWindow(g_AuthTimeLeftLabelHwnd, SW_SHOW);
 
+    // message label showed when auth code does not valid.
     g_AuthCodeNotValidLabelHwnd = CreateWindowW(L"static", L"Authentication code does not valid.", WS_CHILD, _CalcPos(g_AuthCodeNotValidLabelX), _CalcPos(g_AuthCodeNotValidLabelY), 
         _CalcPos(g_AuthCodeNotValidLabelWidth), _CalcPos(g_AuthCodeNotValidLabelHeight), g_AuthWindowHwnd, NULL, NULL, NULL);
     if (!g_AuthCodeNotValidLabelHwnd) {
@@ -207,9 +227,6 @@ HWND RDOTP_CreateAuthWindow() {
     }
     g_AuthCodeNotValidLabelFont = _RDTP_SetLabelFont(g_AuthCodeNotValidLabelHwnd, g_AuthCodeNotValidLabelFontSize);
     ShowWindow(g_AuthCodeNotValidLabelHwnd, SW_HIDE);
-
-    SendMessageW(g_LockIconHwnd, STM_SETIMAGE, IMAGE_ICON, (LPARAM)g_LockIcon);
-    ShowWindow(g_LockIconHwnd, SW_SHOW);
 
     SetFocus(g_InputCodeTextboxHwnd);
 
@@ -256,12 +273,13 @@ LRESULT CALLBACK _RDOTP_AuthWindow_WndProc(HWND hWnd, UINT msg, WPARAM wParam, L
             return (LRESULT)g_TransParentBtnBk;
         }; break;
         case WM_CTLCOLORSTATIC: {
-            if (lParam == g_AuthCodeNotValidLabelHwnd) {
+            if ((HWND)lParam == g_AuthCodeNotValidLabelHwnd) {
                 SetTextColor((HDC)wParam, RGB(255, 0, 0));
             }
             return (LRESULT)g_TransParentBtnBk;
         }; break;
         case WM_TIMER: {
+            // handle auth left time
             if (wParam == AUTH_TIMER) {
                 _RDOTP_HandleAuthTimer();
             }
@@ -318,6 +336,7 @@ void _RDOTP_CloseAndCleanupControls() {
     DeleteObject(g_SubTitleLabelFont);
     g_SubTitleLabelFont = NULL;
 
+    SetWindowLongPtrW(g_InputCodeTextboxHwnd, GWLP_WNDPROC, g_InputCodeTextboxOrigProc);
     CloseWindow(g_InputCodeTextboxHwnd);
     DestroyWindow(g_InputCodeTextboxHwnd);
     g_InputCodeTextboxHwnd = NULL;
@@ -375,11 +394,7 @@ BOOL _RDOTP_ProcessAuth(LPCWSTR pOtpCode) {
         return FALSE;
     }
 
-    if (!wcscmp(pOtpCode, L"1234")) {
-        return TRUE;
-    }
-
-    return FALSE;
+    return RDOTP_ValidateCode(pOtpCode);
 }
 
 void _RDOTP_HandleAuthTimer() {
@@ -403,6 +418,7 @@ void _RDOTP_HandleAuthTimer() {
 }
 
 INT _GetSystemDPI() {
+    // 'rdOTP" need to support windows 8 (server2012), so cannot use 'GetDpiForSystem()'
     HDC screen = GetDC(NULL);
     int dpi = GetDeviceCaps(screen, LOGPIXELSX);
     ReleaseDC(NULL, screen);
@@ -416,4 +432,17 @@ DWORD _CalcPos(DWORD originalPos) {
     position = roundf(position);
     
     return (DWORD)position;
+}
+
+LRESULT CALLBACK _RDOTP_InputCodeCtrl_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+    // Handle 'Enter' Key
+    switch (message) {
+        case WM_KEYDOWN: {
+            if (wParam == VK_RETURN) {
+                SendMessageW(g_AuthWindowHwnd, WM_COMMAND, BTN_SUBMIT, 0);
+            }
+        }; break;
+    }
+
+    return CallWindowProcW((WNDPROC)g_InputCodeTextboxOrigProc, hWnd, message, wParam, lParam);
 }

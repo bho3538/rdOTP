@@ -27,15 +27,15 @@ BOOL RDOTP_ValidateCode(LPCWSTR userInputCode) {
         return isValid;
     }
 
-    // before 30 seconds, now, after 30 seconds
+    // before 30 seconds, now, after 30 seconds (To compensate for time errors between devices)
     LPWSTR validCodes[3] = { 0, };
     LONGLONG times[3];
     
     times[0] = time(0);
-    times[1] = times[0] - 30;
-    times[2] = times[0] + 30;
+    times[1] = times[0] - 30; // before 30 seconds
+    times[2] = times[0] + 30; // after 30 seconds
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < ARRAYSIZE(validCodes); i++) {
         LONGLONG baseTime = times[i] / _TIME_STEP;
         validCodes[i] = (LPWSTR)malloc((_AUTH_CODE_LEN + 1) * sizeof(WCHAR));
         if (!validCodes[i]) {
@@ -46,13 +46,13 @@ BOOL RDOTP_ValidateCode(LPCWSTR userInputCode) {
             break;
         }
 
-        if (!wcscmp(validCodes, userInputCode)) {
+        if (!wcscmp(validCodes[i], userInputCode)) {
             isValid = TRUE;
             break;
         }
     }
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < ARRAYSIZE(validCodes); i++) {
         if (validCodes[i]) {
             memset(validCodes[i], 0, (_AUTH_CODE_LEN + 1) * sizeof(WCHAR));
             free(validCodes[i]);

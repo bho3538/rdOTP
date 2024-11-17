@@ -59,5 +59,8 @@
     <Image Include="icons8-lock-48.ico">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="icons8-lock-96.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

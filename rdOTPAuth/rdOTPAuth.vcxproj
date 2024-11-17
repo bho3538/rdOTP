@@ -227,6 +227,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="icons8-lock-48.ico" />
+    <Image Include="icons8-lock-96.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

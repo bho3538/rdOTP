@@ -5,6 +5,8 @@ HWND RDOTP_CreateAuthWindow();
 BOOL RDOTP_ShowAuthWindow();
 
 LRESULT CALLBACK _RDOTP_AuthWindow_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+LRESULT CALLBACK _RDOTP_InputCodeCtrl_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+
 HFONT _RDTP_SetLabelFont(HWND hLabel, DWORD dwFontSize);
 void _RDOTP_CloseAndCleanupControls();
 
