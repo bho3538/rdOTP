@@ -31,14 +31,14 @@ cp -Force "$g_currentPath\rdOTP\obj\Release\ko-KR" "$g_currentPath\source\rdOTP\
 # build arm64 cred provider dll
 & "$g_msbuildPath" "$g_currentPath\rdOTP.sln" -t:rdOTPCred -p:Configuration=Release -p:Platform="ARM64";
 
-# build x86 cred wrapper dll
-& "$g_msbuildPath" "$g_currentPath\rdOTP.sln" -t:rdOTPWrap -p:Configuration=Release -p:Platform="x86";
+# build x86 auth dll
+& "$g_msbuildPath" "$g_currentPath\rdOTP.sln" -t:rdOTPAuth -p:Configuration=Release -p:Platform="x86";
 
-# build x64 cred wrapper dll
-& "$g_msbuildPath" "$g_currentPath\rdOTP.sln" -t:rdOTPWrap -p:Configuration=Release -p:Platform="x64";
+# build x64 auth dll
+& "$g_msbuildPath" "$g_currentPath\rdOTP.sln" -t:rdOTPAuth -p:Configuration=Release -p:Platform="x64";
 
-# build arm64 cred wrapper dll
-& "$g_msbuildPath" "$g_currentPath\rdOTP.sln" -t:rdOTPWrap -p:Configuration=Release -p:Platform="ARM64";
+# build arm64 auth dll
+& "$g_msbuildPath" "$g_currentPath\rdOTP.sln" -t:rdOTPAuth -p:Configuration=Release -p:Platform="ARM64";
 
 # build x86 ext exe
 & "$g_msbuildPath" "$g_currentPath\rdOTP.sln" -t:rdOTPHelper -p:Configuration=Release -p:Platform="x86";
@@ -67,13 +67,13 @@ cp -Force "$g_currentPath\rdOTPSvc\bin\Release\rdOTPSvc.pdb" "$g_currentPath\set
 cp -Force "$g_currentPath\rdOTPSvc\bin\ARM64\Release\rdOTPSvc.pdb" "$g_currentPath\setup\PDB\ARM64";
 
 cp -Force "$g_currentPath\Release\rdOTPCred.pdb" "$g_currentPath\setup\PDB\x86";
-cp -Force "$g_currentPath\Release\rdOTPWrap.pdb" "$g_currentPath\setup\PDB\x86";
+cp -Force "$g_currentPath\Release\rdOTPAuth.pdb" "$g_currentPath\setup\PDB\x86";
 cp -Force "$g_currentPath\Release\rdOTPHelper.pdb" "$g_currentPath\setup\PDB\x86";
 
 cp -Force "$g_currentPath\x64\Release\rdOTPCred.pdb" "$g_currentPath\setup\PDB\x64";
-cp -Force "$g_currentPath\x64\Release\rdOTPWrap.pdb" "$g_currentPath\setup\PDB\x64";
+cp -Force "$g_currentPath\x64\Release\rdOTPAuth.pdb" "$g_currentPath\setup\PDB\x64";
 cp -Force "$g_currentPath\x64\Release\rdOTPHelper.pdb" "$g_currentPath\setup\PDB\x64";
 
 cp -Force "$g_currentPath\ARM64\Release\rdOTPCred.pdb" "$g_currentPath\setup\PDB\ARM64";
-cp -Force "$g_currentPath\ARM64\Release\rdOTPWrap.pdb" "$g_currentPath\setup\PDB\ARM64";
+cp -Force "$g_currentPath\ARM64\Release\rdOTPAuth.pdb" "$g_currentPath\setup\PDB\ARM64";
 cp -Force "$g_currentPath\ARM64\Release\rdOTPHelper.pdb" "$g_currentPath\setup\PDB\ARM64";
