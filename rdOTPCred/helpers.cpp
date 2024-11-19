@@ -810,7 +810,7 @@ std::wstring GetWrapperModulePath() {
     }
 
     re = re.substr(0, re.find_last_of(L"\\"));
-    re = re + L"\\rdOTPWrap.dll";
+    re = re + L"\\rdOTPAuth.dll";
     
 
     return re;

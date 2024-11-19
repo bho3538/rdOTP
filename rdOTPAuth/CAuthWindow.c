@@ -82,6 +82,9 @@ DWORD g_AuthCodeNotValidLabelWidth = 200;
 DWORD g_AuthCodeNotValidLabelHeight = 23;
 HFONT g_AuthCodeNotValidLabelFont = NULL;
 DWORD g_AuthCodeNotValidLabelFontSize = 15;
+BOOL g_AuthCodeNotValidDisplayed = FALSE;
+
+DWORD g_FailedAuthCnt = 0;
 
 
 // end controls
@@ -93,6 +96,8 @@ DWORD g_MainWindowHeight = 200;
 FLOAT g_scale = 1;
 DWORD g_Time = 0;
 
+BOOL g_AuthValid = FALSE;
+
 #define BTN_SUBMIT 100
 #define BTN_CANCEL 101
 
@@ -102,7 +107,7 @@ DWORD g_Time = 0;
 #define AUTH_TIMER 1
 
 
-BOOL RDOTP_InitializeAuthWindow(HWND hwnd) {
+_declspec(dllexport) BOOL RDOTP_InitializeAuthWindow(HWND hwnd) {
 	if (!hwnd) {
 		hwnd = GetForegroundWindow();
 	}
@@ -122,18 +127,42 @@ BOOL RDOTP_InitializeAuthWindow(HWND hwnd) {
     wc.lpszClassName = L"RDOTP_AuthWindow";
 
     g_MainWindowClass = RegisterClassExW(&wc);
-    if (g_MainWindowClass) {
-        return TRUE;
+    if (!g_MainWindowClass) {
+        return FALSE;
     }
 
     g_TransParentBtnBk = GetSysColorBrush(COLOR_WINDOW);
+    g_FailedAuthCnt = 0;
 
-	return FALSE;
+	return TRUE;
 }
 
-HWND RDOTP_CreateAuthWindow() {
-    g_AuthWindowHwnd = CreateWindowW(L"RDOTP_AuthWindow", L"MainWindow", WS_POPUPWINDOW, _CalcPos(g_MainWindowX), _CalcPos(g_MainWindowY),
-        _CalcPos(g_MainWindowWidth), _CalcPos(g_MainWindowHeight), g_ParentWindow, NULL, NULL, NULL);
+_declspec(dllexport) HWND RDOTP_CreateAuthWindow() {
+    // Show auth window at screen center
+    DWORD screenX = GetSystemMetrics(SM_CXSCREEN);
+    DWORD screenY = GetSystemMetrics(SM_CYSCREEN);
+
+    // hack
+    if (g_scale == 1 && screenX > 3000) {
+        g_scale = 2;
+    }
+
+    DWORD windowWidth = _CalcPos(g_MainWindowWidth);
+    DWORD windowHeight = _CalcPos(g_MainWindowHeight);
+
+    g_MainWindowX = (screenX - windowWidth) / 2;
+    g_MainWindowY = (screenY - windowHeight) / 2;
+
+    if (g_MainWindowX < 0) {
+        g_MainWindowX = 20;
+    }
+
+    if (g_MainWindowY < 0) {
+        g_MainWindowY = 20;
+    }
+
+    g_AuthWindowHwnd = CreateWindowW(L"RDOTP_AuthWindow", L"MainWindow", WS_POPUPWINDOW, (g_MainWindowX), (g_MainWindowY),
+        windowWidth, windowHeight, g_ParentWindow, NULL, NULL, NULL);
     if (!g_AuthWindowHwnd) {
         return NULL;
     }
@@ -191,7 +220,7 @@ HWND RDOTP_CreateAuthWindow() {
     if (g_scale >= 2) {
         iconType = MAKEINTRESOURCE(IDI_ICON2);
     }
-    g_LockIcon = (HICON)LoadImageW(GetModuleHandleW(NULL), iconType, IMAGE_ICON, _CalcPos(g_LockIconWidth), _CalcPos(g_LockIconHeight), LR_DEFAULTCOLOR);
+    g_LockIcon = (HICON)LoadImageW(GetModuleHandleW(L"rdOTPAuth.dll"), iconType, IMAGE_ICON, _CalcPos(g_LockIconWidth), _CalcPos(g_LockIconHeight), LR_DEFAULTCOLOR);
     g_LockIconHwnd = CreateWindowW(L"static", L"", WS_CHILD | SS_ICON, _CalcPos(g_LockIconX), _CalcPos(g_LockIconY), _CalcPos(g_LockIconWidth),
         _CalcPos(g_LockIconHeight), g_AuthWindowHwnd, NULL, NULL, NULL);
     if (!g_LockIconHwnd) {
@@ -227,13 +256,16 @@ HWND RDOTP_CreateAuthWindow() {
     }
     g_AuthCodeNotValidLabelFont = _RDTP_SetLabelFont(g_AuthCodeNotValidLabelHwnd, g_AuthCodeNotValidLabelFontSize);
     ShowWindow(g_AuthCodeNotValidLabelHwnd, SW_HIDE);
+    g_AuthCodeNotValidDisplayed = FALSE;
 
     SetFocus(g_InputCodeTextboxHwnd);
 
     return g_AuthWindowHwnd;
 }
 
-BOOL RDOTP_ShowAuthWindow() {
+_declspec(dllexport) BOOL RDOTP_ShowAuthWindow() {
+    g_AuthValid = FALSE;
+
     if (!g_AuthWindowHwnd) {
         return FALSE;
     }
@@ -242,7 +274,19 @@ BOOL RDOTP_ShowAuthWindow() {
 
     SetTimer(g_AuthWindowHwnd, AUTH_TIMER, 1000, NULL);
 
-    return ShowWindow(g_AuthWindowHwnd, SW_SHOW);
+    ShowWindow(g_AuthWindowHwnd, SW_SHOW);
+
+    MSG msg;
+    while (IsWindow(g_AuthWindowHwnd)) {
+        if (PeekMessageW(&msg, NULL, 0, 0, PM_REMOVE)) {
+            TranslateMessage(&msg);
+            DispatchMessageW(&msg);
+        }
+
+        Sleep(1);
+    }
+
+    return g_AuthValid;
 }
 
 
@@ -259,13 +303,22 @@ LRESULT CALLBACK _RDOTP_AuthWindow_WndProc(HWND hWnd, UINT msg, WPARAM wParam, L
 
                 if (_RDOTP_ProcessAuth(otpCode)) {
                     // auth success
+                    g_AuthValid = TRUE;
                     SendMessageW(g_AuthWindowHwnd, WM_CLOSE, 0, 0);
                 }
                 else {
                     // auth failed
-                    Sleep(1500);
-                    SendMessageW(g_InputCodeTextboxHwnd, WM_SETTEXT, 0, 0);
-                    ShowWindow(g_AuthCodeNotValidLabelHwnd, SW_SHOW);
+                    g_FailedAuthCnt++;
+                    if (g_FailedAuthCnt >= 5) {
+                        Sleep(3000);
+                        SendMessageW(g_AuthWindowHwnd, WM_CLOSE, 0, 0);
+                    }
+                    else {
+                        Sleep(500);
+                        SendMessageW(g_InputCodeTextboxHwnd, WM_SETTEXT, 0, 0);
+                        ShowWindow(g_AuthCodeNotValidLabelHwnd, SW_SHOW);
+                        g_AuthCodeNotValidDisplayed = TRUE;
+                    }
                 }
             }
         }; break;
@@ -285,9 +338,9 @@ LRESULT CALLBACK _RDOTP_AuthWindow_WndProc(HWND hWnd, UINT msg, WPARAM wParam, L
             }
 
         }; break;
-        case WM_DESTROY:
+        case WM_CLOSE:
             _RDOTP_CloseAndCleanupControls();
-            PostQuitMessage(0);
+            DestroyWindow(hWnd);
             break;
 
         default:
@@ -440,6 +493,10 @@ LRESULT CALLBACK _RDOTP_InputCodeCtrl_WndProc(HWND hWnd, UINT message, WPARAM wP
         case WM_KEYDOWN: {
             if (wParam == VK_RETURN) {
                 SendMessageW(g_AuthWindowHwnd, WM_COMMAND, BTN_SUBMIT, 0);
+            }
+            else if (g_AuthCodeNotValidDisplayed) {
+                g_AuthCodeNotValidDisplayed = FALSE;
+                ShowWindow(g_AuthCodeNotValidLabelHwnd, SW_HIDE);
             }
         }; break;
     }

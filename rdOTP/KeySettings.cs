@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -150,14 +151,25 @@ namespace rdOTP
                 return;
             }
 
-            AuthForm form = new AuthForm();
-            if (form.ShowAndValidateCode())
+            if (!RDOTP_InitializeAuthWindow(this.Handle))
             {
-                MessageBox.Show(Resource.KeySettings_testPassed, "rdOTP");
+                MessageBox.Show("RDOTP_InitializeAuthWindow failed", "rdOTP");
+                return;
+            }
+
+            if (RDOTP_CreateAuthWindow() == IntPtr.Zero)
+            {
+                MessageBox.Show("RDOTP_CreateAuthWindow failed", "rdOTP");
+                return;
+            }
+
+            if (RDOTP_ShowAuthWindow() == false)
+            {
+                MessageBox.Show(Resource.KeySettings_testFailed, "rdOTP", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show(Resource.KeySettings_testFailed, "rdOTP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Resource.KeySettings_testPassed, "rdOTP");
             }
         }
 
@@ -308,5 +320,14 @@ namespace rdOTP
             }
             this.qrcode.Image = null;
         }
+
+        [DllImport("rdOTPAuth.dll")]
+        private static extern bool RDOTP_InitializeAuthWindow(IntPtr hwnd);
+
+        [DllImport("rdOTPAuth.dll")]
+        private static extern IntPtr RDOTP_CreateAuthWindow();
+
+        [DllImport("rdOTPAuth.dll")]
+        private static extern bool RDOTP_ShowAuthWindow();
     }
 }

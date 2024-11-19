@@ -393,9 +393,17 @@ HRESULT CRDotpCredential::CommandLinkClicked(DWORD dwFieldID)
     return hr;
 }
 
-typedef PVOID(__cdecl* TRDOTPWrapper_CreateInstance)();
-typedef void(__cdecl* TRDOTPWrapper_Cleanup)(PVOID args);
-typedef DWORD(__cdecl* TRDOTPWrapper_Show)(PVOID args);
+//typedef PVOID(__cdecl* TRDOTPWrapper_CreateInstance)();
+//typedef void(__cdecl* TRDOTPWrapper_Cleanup)(PVOID args);
+//typedef DWORD(__cdecl* TRDOTPWrapper_Show)(PVOID args);
+
+//__declspec(dllexport)  BOOL RDOTP_InitializeAuthWindow(HWND hwnd);
+//__declspec(dllexport) HWND RDOTP_CreateAuthWindow();
+//__declspec(dllexport) BOOL RDOTP_ShowAuthWindow();
+
+typedef BOOL(__cdecl* TRDOTP_InitializeAuthWindow)(HWND hwnd);
+typedef HWND(__cdecl* TRDOTP_CreateAuthWindow)();
+typedef BOOL(__cdecl* TRDOTP_ShowAuthWindow)();
 
 // Collect the username and password into a serialized credential for the correct usage scenario
 // (logon/unlock is what's demonstrated in this sample).  LogonUI then passes these credentials
@@ -412,8 +420,6 @@ HRESULT CRDotpCredential::GetSerialization(_Out_ CREDENTIAL_PROVIDER_GET_SERIALI
     PWSTR pszUsername = NULL;
     PWSTR pwzProtectedPassword = NULL;
 
-    PVOID otpData = NULL;
-
     *pcpgsr = CPGSR_NO_CREDENTIAL_NOT_FINISHED;
     *ppwszOptionalStatusText = nullptr;
     *pcpsiOptionalStatusIcon = CPSI_NONE;
@@ -421,13 +427,19 @@ HRESULT CRDotpCredential::GetSerialization(_Out_ CREDENTIAL_PROVIDER_GET_SERIALI
 
     HMODULE hModule = LoadLibraryW(GetWrapperModulePath().c_str());
     if (!hModule) {
-        *ppwszOptionalStatusText = StrDupW(L"Cannot load rdOTPWrap.dll\nPlease install visual c++ redistributable 2022\nYou can still login computer using local session");
+        *ppwszOptionalStatusText = StrDupW(L"Cannot load rdOTPAuth.dll\nYou can still login computer using local session");
         return S_OK;
     }
 
-    TRDOTPWrapper_CreateInstance RDOTPWrapper_CreateInstance = (TRDOTPWrapper_CreateInstance)GetProcAddress(hModule, "RDOTPWrapper_CreateInstance");
-    TRDOTPWrapper_Cleanup RDOTPWrapper_Cleanup = (TRDOTPWrapper_Cleanup)GetProcAddress(hModule, "RDOTPWrapper_Cleanup");
-    TRDOTPWrapper_Show RDOTPWrapper_Show = (TRDOTPWrapper_Show)GetProcAddress(hModule, "RDOTPWrapper_Show");
+    //TRDOTPWrapper_CreateInstance RDOTPWrapper_CreateInstance = (TRDOTPWrapper_CreateInstance)GetProcAddress(hModule, "RDOTPWrapper_CreateInstance");
+    //TRDOTPWrapper_Cleanup RDOTPWrapper_Cleanup = (TRDOTPWrapper_Cleanup)GetProcAddress(hModule, "RDOTPWrapper_Cleanup");
+    //TRDOTPWrapper_Show RDOTPWrapper_Show = (TRDOTPWrapper_Show)GetProcAddress(hModule, "RDOTPWrapper_Show");
+
+    TRDOTP_InitializeAuthWindow RDOTP_InitializeAuthWindow = (TRDOTP_InitializeAuthWindow)GetProcAddress(hModule, "RDOTP_InitializeAuthWindow");
+    TRDOTP_CreateAuthWindow RDOTP_CreateAuthWindow = (TRDOTP_CreateAuthWindow)GetProcAddress(hModule, "RDOTP_CreateAuthWindow");
+    TRDOTP_ShowAuthWindow RDOTP_ShowAuthWindow = (TRDOTP_ShowAuthWindow)GetProcAddress(hModule, "RDOTP_ShowAuthWindow");
+
+
 
     if (g_UserName) {
         pszDomain = g_DomainName;
@@ -462,24 +474,28 @@ HRESULT CRDotpCredential::GetSerialization(_Out_ CREDENTIAL_PROVIDER_GET_SERIALI
     }
 
     // Show OTP dialog
-    otpData = RDOTPWrapper_CreateInstance();
-    if (RDOTPWrapper_Show(otpData) == 1) {
-        // OTP Auth Failed
-        hr = S_OK; // logon failed. (incorrect password)
-        *ppwszOptionalStatusText = StrDupW(L"Incorrect OTP validation code.");
-        RDOTPWrapper_Cleanup(otpData);
 
-        if (hasGlobalCredential) {
-            goto noFreeArea;
-        }
-        else{
-            goto escapeArea;
-        }
+    if (RDOTP_InitializeAuthWindow(0) == FALSE) {
+        hr = S_OK; // module error
+        *ppwszOptionalStatusText = StrDupW(L"rdOTPAuth.dll InitializeAuthWindow failed.");
     }
     else {
-        // OTP Auth Success
-        hr = S_OK;
-        RDOTPWrapper_Cleanup(otpData);
+        RDOTP_CreateAuthWindow();
+        if (RDOTP_ShowAuthWindow() == FALSE) {
+            hr = S_OK; // logon failed. (incorrect password)
+            *ppwszOptionalStatusText = StrDupW(L"Incorrect OTP validation code.");
+
+            if (hasGlobalCredential) {
+                goto noFreeArea;
+            }
+            else {
+                goto escapeArea;
+            }
+        }
+        else {
+            // OTP Auth Success
+            hr = S_OK;
+        }
     }
 
     KERB_INTERACTIVE_UNLOCK_LOGON kiul;

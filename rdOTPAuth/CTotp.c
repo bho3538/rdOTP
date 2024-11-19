@@ -17,12 +17,25 @@ BOOL RDOTP_ValidateCode(LPCWSTR userInputCode) {
     }
 
     BOOL isValid = FALSE;
-	// load secret key from registry
-	char secretKeyStr[] = "";
+	// load secret key from registry (ANSI)
+    HKEY hRDOTPKey;
+    if (RegOpenKeyExA(HKEY_LOCAL_MACHINE, "SOFTWARE\\rdOTP", 0, KEY_READ, &hRDOTPKey) != 0) {
+        return FALSE;
+    }
+
+    CHAR globalSecretKey[64] = { 0, };
+    DWORD globalSecretKeyLen = ARRAYSIZE(globalSecretKey);
+
+    LRESULT re = RegQueryValueExA(hRDOTPKey, "GlobalSecretKey", NULL, NULL, globalSecretKey, &globalSecretKeyLen);
+    if (re != 0) {
+        RegCloseKey(hRDOTPKey);
+        return FALSE;
+    }
+    RegCloseKey(hRDOTPKey);
 
 	// scrent key (decode BASE32)
     BYTE secretKey[20];
-    if (!_RDOTP_DecodeBase32(secretKeyStr, sizeof(secretKeyStr), secretKey, sizeof(secretKey))) {
+    if (!_RDOTP_DecodeBase32(globalSecretKey, sizeof(globalSecretKey), secretKey, sizeof(secretKey))) {
         // invalid secret key (decode failed)
         return isValid;
     }
@@ -58,6 +71,9 @@ BOOL RDOTP_ValidateCode(LPCWSTR userInputCode) {
             free(validCodes[i]);
         }
     }
+
+    memset(globalSecretKey, 0, ARRAYSIZE(globalSecretKey));
+    memset(secretKey, 0, ARRAYSIZE(secretKey));
 
 	return isValid;
 }

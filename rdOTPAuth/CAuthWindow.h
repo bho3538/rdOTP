@@ -1,8 +1,9 @@
 #pragma once
 
-BOOL RDOTP_InitializeAuthWindow(HWND hwnd);
-HWND RDOTP_CreateAuthWindow();
-BOOL RDOTP_ShowAuthWindow();
+__declspec(dllexport)  BOOL RDOTP_InitializeAuthWindow(HWND hwnd);
+__declspec(dllexport) HWND RDOTP_CreateAuthWindow();
+__declspec(dllexport) BOOL RDOTP_ShowAuthWindow();
+
 
 LRESULT CALLBACK _RDOTP_AuthWindow_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 LRESULT CALLBACK _RDOTP_InputCodeCtrl_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
