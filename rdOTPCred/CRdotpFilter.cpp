@@ -12,7 +12,7 @@ HRESULT CRdotpFilter::Filter(
     _Inout_updates_(cProviders)  BOOL* rgbAllow,
     /* [in] */ DWORD cProviders) {
 
-    BOOL isRemoteSession = TRUE;
+    BOOL isRemoteSession = IsRemoteSession();
 
     if (!isRemoteSession) {
         isRemoteSession = IsChromeRemoteDesktop();
