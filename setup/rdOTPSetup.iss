@@ -4,9 +4,9 @@
 
 [Setup]
 PrivilegesRequired=admin
-OutputBaseFilename=rdOTP 1.8.2.0
+OutputBaseFilename=rdOTP 2.0.0.0
 AppName=rdOTP
-AppVersion=1.8.2.0
+AppVersion=2.0.0.0
 AppVerName=rdOTP
 AppPublisher=bho3538
 AppPublisherURL=https://github.com/bho3538/rdOTP
@@ -31,8 +31,8 @@ UninstallLogMode=append
 ArchitecturesInstallIn64BitMode=x64 arm64
 LanguageDetectionMethod=uilanguage
 ShowLanguageDialog=yes
-VersionInfoProductVersion=1.8.2.0
-VersionInfoVersion=1.8.2.0
+VersionInfoProductVersion=2.0.0.0
+VersionInfoVersion=2.0.0.0
 UsePreviousTasks=no
 
 
@@ -52,15 +52,15 @@ Source: "..\rdOTP\bin\ARM64\Release\rdOTP.exe"; DestDir: "{app}"; Flags: restart
 Source: "..\rdOTPSvc\bin\ARM64\Release\rdOTPSvc.exe"; DestDir: "{app}"; Flags: restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
 
 Source: "..\Release\rdOTPCred.dll"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
-Source: "..\Release\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
+Source: "..\Release\rdOTPAuth.dll"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
 Source: "..\Release\rdOTPHelper.exe"; DestDir: "{app}"; Flags: 32bit restartreplace uninsrestartdelete ignoreversion; Check: InstallOtherArch
 
 Source: "..\x64\Release\rdOTPCred.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
-Source: "..\x64\Release\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
+Source: "..\x64\Release\rdOTPAuth.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
 Source: "..\x64\Release\rdOTPHelper.exe"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallX64
 
 Source: "..\ARM64\Release\rdOTPCred.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
-Source: "..\ARM64\Release\rdOTPWrap.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
+Source: "..\ARM64\Release\rdOTPAuth.dll"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
 Source: "..\ARM64\Release\rdOTPHelper.exe"; DestDir: "{app}"; Flags: 64bit restartreplace uninsrestartdelete ignoreversion; Check: InstallARM64
 
 

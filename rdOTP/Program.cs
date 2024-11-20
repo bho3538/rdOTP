@@ -33,18 +33,10 @@ namespace rdOTP
                 return;
             }
 
-            if (!CheckVCRuntime())
-            {
-                Application.Run(new VCRuntimeRequiredDialog());
-            }
-            else
-            {
-                // Show Main Screen
-                Application.Run(new Settings());
-            }
+            Application.Run(new Settings());
         }
 
-        private static List<string> _moduleNames = new List<string>() { "rdOTPCred.dll", "rdOTPWrap.dll" };
+        private static List<string> _moduleNames = new List<string>() { "rdOTPCred.dll", "rdOTPAuth.dll" };
 
         private static bool CheckModuleExists()
         {
