@@ -8,7 +8,6 @@ Windows 8 (Server 2012) or higer version. (x86, x64)\
 (ARM64 require rdOTP 1.3 or higher)\
 .NET Framework 4.6.2 or higher version.\
 (.NET Framework 4.8.1 required in ARM64 OS)\
-Visual C++ Redistributable 2022
 
 ## Tested OS
 Windows Server 2012 R2\
