@@ -43,12 +43,14 @@ namespace rdOTPSvc
             {
                 _processStartWatch.EventArrived -= ProcessStarted;
                 _processStartWatch.Dispose();
+                _processStartWatch = null;
             }
 
             if (_processStopWatch != null)
             {
                 _processStopWatch.EventArrived -= ProcessStarted;
                 _processStopWatch.Dispose();
+                _processStopWatch = null;
             }
 
             _watchTargetPid = uint.MaxValue;
@@ -67,8 +69,15 @@ namespace rdOTPSvc
                     string processName = (string)args.NewEvent.Properties["ProcessName"].Value;
                     uint pid = (uint)args.NewEvent.Properties["ProcessID"].Value;
 
-                    if (processName.ToLowerInvariant() == "remoting_desktop.exe" && IsChromeRemoteDesktop(pid) && !IsChromeRemoteDesktopWatched())
+                    if (processName.ToLowerInvariant() == "remoting_desktop.exe" && IsChromeRemoteDesktop(pid))
                     {
+                        // 이미 크롬 원격 데스크톱이 관리되고 있는 경우
+                        if (IsChromeRemoteDesktopWatched())
+                        {
+                            // 무시
+                            return;
+                        }
+
                         SetChromeRemoteDesktopWatch(pid);
 
                         // 잠금 화면을 갱신해야 함.
@@ -87,7 +96,7 @@ namespace rdOTPSvc
                         }
                         catch
                         {
-
+                            // 종료 실패하는 경우에는 무시
                         }
 
 
@@ -111,22 +120,45 @@ namespace rdOTPSvc
 
         private void ProcessStoped(object sender, EventArrivedEventArgs args)
         {
-            uint pid = (uint)args.NewEvent.Properties["ProcessID"].Value;
+            uint pid = uint.MaxValue;
 
-            if (IsWatchedChromeRemoteDesktop(pid))
+            try
             {
-                // 실행중인 크롬 원격 데스크톱 연결이 종료됨
-                // 화면을 다시 lock
+                pid = (uint)args.NewEvent.Properties["ProcessID"].Value;
+            }
+            catch
+            {
+                // 어떠한 프로세스가 종료되었는지 확인할 수 없으므로 관리중인 크롬 원격 데스크톱 프로세스 정보를 초기화 후 종료
                 SetChromeRemoteDesktopWatch(uint.MaxValue);
-
-                // Lock Workstation
-                if (Impersonate.LockActiveWorkstation() == false)
-                {
-                    Trace.WriteLine("Failed to execute rdOTPHelper.exe");
-                }
+                args.NewEvent.Dispose();
+                return;
             }
 
-            args.NewEvent.Dispose();
+
+            try
+            {
+                // 이미 관리중인 크롬 원격 데스크톱이 종료된 경우
+                if (IsWatchedChromeRemoteDesktop(pid))
+                {
+                    // 실행중인 크롬 원격 데스크톱 연결이 종료됨
+                    // 화면을 다시 lock
+                    SetChromeRemoteDesktopWatch(uint.MaxValue);
+
+                    // Lock Workstation
+                    if (Impersonate.LockActiveWorkstation() == false)
+                    {
+                        Trace.WriteLine("Failed to execute rdOTPHelper.exe");
+                    }
+                }
+            }
+            catch
+            {
+                
+            }
+            finally
+            {
+                args.NewEvent.Dispose();
+            }
         }
 
         private bool IsChromeRemoteDesktopWatched()
