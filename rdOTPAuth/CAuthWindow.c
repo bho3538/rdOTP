@@ -102,7 +102,7 @@ BOOL g_AuthValid = FALSE;
 #define BTN_CANCEL 101
 
 #define MAX_INPUTCODE_LEN 16
-#define MAX_AUTH_TIME 45
+#define MAX_AUTH_TIME 40
 
 #define AUTH_TIMER 1
 
@@ -161,7 +161,7 @@ _declspec(dllexport) HWND RDOTP_CreateAuthWindow() {
         g_MainWindowY = 20;
     }
 
-    g_AuthWindowHwnd = CreateWindowW(L"RDOTP_AuthWindow", L"MainWindow", WS_POPUPWINDOW, (g_MainWindowX), (g_MainWindowY),
+    g_AuthWindowHwnd = CreateWindowExW(WS_EX_TOPMOST, L"RDOTP_AuthWindow", L"MainWindow", WS_POPUPWINDOW, (g_MainWindowX), (g_MainWindowY),
         windowWidth, windowHeight, g_ParentWindow, NULL, NULL, NULL);
     if (!g_AuthWindowHwnd) {
         return NULL;
@@ -192,6 +192,7 @@ _declspec(dllexport) HWND RDOTP_CreateAuthWindow() {
     }
     g_InputCodeTextboxFont = _RDTP_SetLabelFont(g_InputCodeTextboxHwnd, g_InputCodeTextboxFontSize);
     g_InputCodeTextboxOrigProc = GetWindowLongPtrW(g_InputCodeTextboxHwnd, GWLP_WNDPROC);
+
     // handle 'Enter' key at edit control
     SetWindowLongPtrW(g_InputCodeTextboxHwnd, GWLP_WNDPROC, (LONG_PTR)_RDOTP_InputCodeCtrl_WndProc);
     ShowWindow(g_InputCodeTextboxHwnd, SW_SHOW);
@@ -271,6 +272,8 @@ _declspec(dllexport) BOOL RDOTP_ShowAuthWindow() {
     }
 
     g_Time = MAX_AUTH_TIME;
+
+    _RDOTP_HandleAuthTimer();
 
     SetTimer(g_AuthWindowHwnd, AUTH_TIMER, 1000, NULL);
 

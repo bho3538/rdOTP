@@ -95,6 +95,11 @@ HRESULT CRDotpCredential::Initialize(CREDENTIAL_PROVIDER_USAGE_SCENARIO cpus,
     {
         hr = SHStrDupW(L"Help", &_rgFieldStrings[SFI_LAUNCHWINDOW_LINK]);
     }
+    if (SUCCEEDED(hr)) 
+    {
+        hr = SHStrDupW(L"Refresh", &_rgFieldStrings[SFI_REFRESH]);
+    }
+
     if (SUCCEEDED(hr))
     {
         hr = pcpUser->GetStringValue(PKEY_Identity_QualifiedUserName, &_pszQualifiedUserName);
@@ -378,7 +383,13 @@ HRESULT CRDotpCredential::CommandLinkClicked(DWORD dwFieldID)
             }
 
             // Pop a messagebox indicating the click.
-            ::MessageBox(hwndOwner, L"Visit this link using other devices.\nhttps://github.com/bho3538/rdOTP", L"RDOTP", 0);
+            MessageBoxW(GetForegroundWindow(), L"Visit this link using other devices.\nhttps://github.com/bho3538/rdOTP", L"rdOTP", MB_TOPMOST);
+            break;
+        case SFI_REFRESH:
+            if (MessageBoxW(GetForegroundWindow(), L"Reload credential provider?", L"rdOTP", MB_YESNO | MB_TOPMOST | MB_DEFBUTTON2) == IDYES) {
+                TerminateProcess(GetCurrentProcess(), 0);
+            }
+
             break;
         default:
             hr = E_INVALIDARG;
@@ -393,13 +404,6 @@ HRESULT CRDotpCredential::CommandLinkClicked(DWORD dwFieldID)
     return hr;
 }
 
-//typedef PVOID(__cdecl* TRDOTPWrapper_CreateInstance)();
-//typedef void(__cdecl* TRDOTPWrapper_Cleanup)(PVOID args);
-//typedef DWORD(__cdecl* TRDOTPWrapper_Show)(PVOID args);
-
-//__declspec(dllexport)  BOOL RDOTP_InitializeAuthWindow(HWND hwnd);
-//__declspec(dllexport) HWND RDOTP_CreateAuthWindow();
-//__declspec(dllexport) BOOL RDOTP_ShowAuthWindow();
 
 typedef BOOL(__cdecl* TRDOTP_InitializeAuthWindow)(HWND hwnd);
 typedef HWND(__cdecl* TRDOTP_CreateAuthWindow)();

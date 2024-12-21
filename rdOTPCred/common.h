@@ -18,13 +18,14 @@
 // using each of the nine available field types here.
 enum SAMPLE_FIELD_ID
 {
-    SFI_TILEIMAGE         = 0,
-    SFI_LABEL             = 1,
-    SFI_LARGE_TEXT        = 2,
-    SFI_PASSWORD          = 3,
-    SFI_SUBMIT_BUTTON     = 4,
+    SFI_TILEIMAGE = 0,
+    SFI_LABEL = 1,
+    SFI_LARGE_TEXT = 2,
+    SFI_PASSWORD = 3,
+    SFI_SUBMIT_BUTTON = 4,
     SFI_LAUNCHWINDOW_LINK = 5,
-    SFI_NUM_FIELDS        = 6,  // Note: if new fields are added, keep NUM_FIELDS last.  This is used as a count of the number of fields
+    SFI_REFRESH = 6,
+    SFI_NUM_FIELDS = 7,  // Note: if new fields are added, keep NUM_FIELDS last.  This is used as a count of the number of fields
 };
 
 // The first value indicates when the tile is displayed (selected, not selected)
@@ -67,8 +68,9 @@ static const CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR s_rgCredProvFieldDescriptors[]
 {
     { SFI_TILEIMAGE,         CPFT_TILE_IMAGE,    (LPWSTR)L"Image",                      CPFG_CREDENTIAL_PROVIDER_LOGO  },
     { SFI_LABEL,             CPFT_SMALL_TEXT,    (LPWSTR)L"Tooltip",                    CPFG_CREDENTIAL_PROVIDER_LABEL },
-    { SFI_LARGE_TEXT,        CPFT_LARGE_TEXT,    (LPWSTR)L"Sample Credential Provider"                                 },
+    { SFI_LARGE_TEXT,        CPFT_LARGE_TEXT,    (LPWSTR)L"rdOTP Credential Provider"                                 },
     { SFI_PASSWORD,          CPFT_PASSWORD_TEXT, (LPWSTR)L"Password"                                              },
     { SFI_SUBMIT_BUTTON,     CPFT_SUBMIT_BUTTON, (LPWSTR)L"Submit"                                                     },
     { SFI_LAUNCHWINDOW_LINK, CPFT_COMMAND_LINK,  (LPWSTR)L"Help"                                       },
+    { SFI_REFRESH,           CPFT_COMMAND_LINK,  (LPWSTR)L"Refresh"                                       },
 };

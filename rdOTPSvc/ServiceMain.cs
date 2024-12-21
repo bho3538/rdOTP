@@ -66,7 +66,6 @@ namespace rdOTPSvc
                                 {
                                     logonUI.Kill();
                                 }
-
                             }
                         }
                         catch
