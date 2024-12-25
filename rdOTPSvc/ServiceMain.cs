@@ -48,7 +48,7 @@ namespace rdOTPSvc
 
             if (_processStopWatch != null)
             {
-                _processStopWatch.EventArrived -= ProcessStarted;
+                _processStopWatch.EventArrived -= ProcessStoped;
                 _processStopWatch.Dispose();
                 _processStopWatch = null;
             }
