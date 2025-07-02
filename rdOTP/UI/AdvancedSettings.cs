@@ -49,7 +49,25 @@ namespace rdOTP.UI
                 this.chrome_rd_enable_chk.Checked = true;
             }
 
+            if (IsChromeRDCurtainEnabled())
+            {
+                this.chrome_rd_curtain_chk.Checked = true;
+            }
+
             this.chrome_rd_enable_chk.CheckedChanged += Chrome_rd_enable_chk_CheckedChanged;
+            this.chrome_rd_curtain_chk.CheckedChanged += Chrome_rd_curtain_chk_CheckedChanged;
+        }
+
+        private void Chrome_rd_curtain_chk_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.chrome_rd_enable_chk.Checked)
+            {
+                SetDWORDValueAtReg(Registry.LocalMachine, "SOFTWARE\\RDOTP", "EnableChromeRDCurtainMode", 1);
+            }
+            else
+            {
+                SetDWORDValueAtReg(Registry.LocalMachine, "SOFTWARE\\RDOTP", "EnableChromeRDCurtainMode", 0);
+            }
         }
 
         private void Chrome_rd_enable_chk_CheckedChanged(object sender, EventArgs e)
@@ -68,6 +86,19 @@ namespace rdOTP.UI
         {
             int enabled = 0;
             bool re = GetDWORDValueFromReg(Registry.LocalMachine, "SOFTWARE\\RDOTP", "CheckChromeRemoteDesktop", ref enabled);
+
+            if (re && enabled != 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool IsChromeRDCurtainEnabled()
+        {
+            int enabled = 0;
+            bool re = GetDWORDValueFromReg(Registry.LocalMachine, "SOFTWARE\\RDOTP", "EnableChromeRDCurtainMode", ref enabled);
 
             if (re && enabled != 0)
             {

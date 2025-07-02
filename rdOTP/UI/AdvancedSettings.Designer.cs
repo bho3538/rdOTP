@@ -31,6 +31,8 @@ namespace rdOTP.UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdvancedSettings));
             this.other_remote_settings_group = new System.Windows.Forms.GroupBox();
+            this.chrome_rd_curtain_chk = new System.Windows.Forms.CheckBox();
+            this.chrome_rd_curtain_label = new System.Windows.Forms.Label();
             this.service_install_status = new System.Windows.Forms.Label();
             this.stop_btn = new System.Windows.Forms.Button();
             this.start_btn = new System.Windows.Forms.Button();
@@ -49,6 +51,8 @@ namespace rdOTP.UI
             // other_remote_settings_group
             // 
             resources.ApplyResources(this.other_remote_settings_group, "other_remote_settings_group");
+            this.other_remote_settings_group.Controls.Add(this.chrome_rd_curtain_chk);
+            this.other_remote_settings_group.Controls.Add(this.chrome_rd_curtain_label);
             this.other_remote_settings_group.Controls.Add(this.service_install_status);
             this.other_remote_settings_group.Controls.Add(this.stop_btn);
             this.other_remote_settings_group.Controls.Add(this.start_btn);
@@ -61,6 +65,17 @@ namespace rdOTP.UI
             this.other_remote_settings_group.Controls.Add(this.chrome_rd_label);
             this.other_remote_settings_group.Name = "other_remote_settings_group";
             this.other_remote_settings_group.TabStop = false;
+            // 
+            // chrome_rd_curtain_chk
+            // 
+            resources.ApplyResources(this.chrome_rd_curtain_chk, "chrome_rd_curtain_chk");
+            this.chrome_rd_curtain_chk.Name = "chrome_rd_curtain_chk";
+            this.chrome_rd_curtain_chk.UseVisualStyleBackColor = true;
+            // 
+            // chrome_rd_curtain_label
+            // 
+            resources.ApplyResources(this.chrome_rd_curtain_label, "chrome_rd_curtain_label");
+            this.chrome_rd_curtain_label.Name = "chrome_rd_curtain_label";
             // 
             // service_install_status
             // 
@@ -167,5 +182,7 @@ namespace rdOTP.UI
         private System.Windows.Forms.Button install_btn;
         private System.Windows.Forms.Button lock_btn;
         private System.Windows.Forms.Label service_install_status;
+        private System.Windows.Forms.Label chrome_rd_curtain_label;
+        private System.Windows.Forms.CheckBox chrome_rd_curtain_chk;
     }
 }

@@ -118,20 +118,47 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chrome_rd_curtain_chk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>391, 65</value>
+  </data>
+  <data name="chrome_rd_curtain_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 69</value>
+  </data>
+  <data name="chrome_rd_curtain_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 15</value>
+  </data>
+  <data name="chrome_rd_curtain_label.Text" xml:space="preserve">
+    <value>커튼 모드 사용</value>
+  </data>
   <data name="service_install_status.Location" type="System.Drawing.Point, System.Drawing">
-    <value>340, 78</value>
+    <value>340, 100</value>
+  </data>
+  <data name="stop_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>283, 190</value>
   </data>
   <data name="stop_btn.Text" xml:space="preserve">
     <value>정지</value>
   </data>
+  <data name="start_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>136, 190</value>
+  </data>
   <data name="start_btn.Text" xml:space="preserve">
     <value>시작</value>
+  </data>
+  <data name="uninstall_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>283, 123</value>
   </data>
   <data name="uninstall_btn.Text" xml:space="preserve">
     <value>삭제</value>
   </data>
+  <data name="install_btn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>136, 123</value>
+  </data>
   <data name="install_btn.Text" xml:space="preserve">
     <value>설치</value>
+  </data>
+  <data name="service_install_status_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 100</value>
   </data>
   <data name="service_install_status_label.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 15</value>
@@ -140,7 +167,10 @@
     <value>서비스 설치 상태</value>
   </data>
   <data name="service_running_status.Location" type="System.Drawing.Point, System.Drawing">
-    <value>338, 146</value>
+    <value>338, 168</value>
+  </data>
+  <data name="service_run_status_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 168</value>
   </data>
   <data name="service_run_status_label.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 15</value>
@@ -164,11 +194,14 @@
   <data name="chrome_rd_label.Text" xml:space="preserve">
     <value>크롬 원격 데스크톱 OTP 인증</value>
   </data>
+  <data name="other_remote_settings_group.Size" type="System.Drawing.Size, System.Drawing">
+    <value>421, 233</value>
+  </data>
   <data name="other_remote_settings_group.Text" xml:space="preserve">
     <value>타사 원격 프로그램</value>
   </data>
   <data name="warning_beta_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 262</value>
+    <value>10, 280</value>
   </data>
   <data name="warning_beta_label.Size" type="System.Drawing.Size, System.Drawing">
     <value>322, 15</value>
@@ -177,13 +210,13 @@
     <value>※ 실험적인 기능입니다. 프로그램이 오동작 할 수 있습니다.</value>
   </data>
   <data name="lock_btn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>296, 234</value>
+    <value>296, 254</value>
   </data>
   <data name="lock_btn.Text" xml:space="preserve">
     <value>화면 잠금 테스트</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>446, 286</value>
+    <value>446, 304</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>추가 기능 설정</value>
