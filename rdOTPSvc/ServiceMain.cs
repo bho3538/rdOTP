@@ -20,6 +20,7 @@ namespace rdOTPSvc
         private object _lock = new object();
 
         private uint _watchTargetPid = uint.MaxValue;
+        private IntPtr _curtainProcess = IntPtr.Zero;
 
         public ServiceMain()
         {
@@ -99,6 +100,11 @@ namespace rdOTPSvc
                             // 종료 실패하는 경우에는 무시
                         }
 
+                        // 커튼 활성화
+                        if (_curtainProcess == IntPtr.Zero)
+                        {
+                            _curtainProcess = Impersonate.StartCurtain();
+                        }
 
                         // Lock Workstation
                         if (Impersonate.LockActiveWorkstation() == false)
@@ -134,7 +140,6 @@ namespace rdOTPSvc
                 return;
             }
 
-
             try
             {
                 // 이미 관리중인 크롬 원격 데스크톱이 종료된 경우
@@ -148,6 +153,14 @@ namespace rdOTPSvc
                     if (Impersonate.LockActiveWorkstation() == false)
                     {
                         Trace.WriteLine("Failed to execute rdOTPHelper.exe");
+                    }
+
+                    // 커튼 종료
+                    if (_curtainProcess != IntPtr.Zero)
+                    {
+                        // 이미 사용자에 의해 종료된 경우는 TerminateProcess 가 실패
+                        Impersonate.KillProcess(_curtainProcess);
+                        _curtainProcess = IntPtr.Zero;
                     }
                 }
             }

@@ -144,12 +144,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Curtain.h" />
+    <ClInclude Include="CurtainManager.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Curtain.c" />
+    <ClCompile Include="CurtainManager.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="pch.c" />
+    <ClCompile Include="Utils.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="rdOTPCurtain.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icons8-lock-48.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

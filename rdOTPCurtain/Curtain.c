@@ -57,7 +57,7 @@ HWND RDOTPShowCurtainWindow(
 	SetLayeredWindowAttributes(
 		hwnd,
 		0,
-		100,
+		255,
 		LWA_ALPHA
 	);
 
@@ -90,10 +90,114 @@ LRESULT CALLBACK _CurtainWindowWndProc(
 	LPARAM lParam
 ) 
 {
-	if (msg == WM_DESTROY)
+
+	switch (msg)
 	{
-		PostQuitMessage(0);
-		return 0;
+		case WM_DESTROY:
+		{
+			PostQuitMessage(0);
+
+			return 0;
+		}
+		case WM_PAINT:
+		{
+			// 창의 크기 구하기
+			RECT rc;
+			GetClientRect(hwnd, &rc);
+
+			PAINTSTRUCT ps;
+			HDC hdc = BeginPaint(hwnd, &ps);
+
+			if (!hdc)
+			{
+				break;
+			}
+
+			SetBkMode(hdc, TRANSPARENT);
+
+			// 표시할 텍스트의 색
+			SetTextColor(hdc, RGB(150, 150, 150));
+
+			int windowHeight = rc.bottom - rc.top;
+
+			// 타이틀 폰트 (큰거)
+			HFONT titleFont = CreateFontW(
+				windowHeight * 8 / 100,
+				0,
+				0,
+				0,
+				FW_NORMAL,
+				FALSE,
+				FALSE,
+				FALSE,
+				DEFAULT_CHARSET,
+				OUT_DEFAULT_PRECIS,
+				CLIP_DEFAULT_PRECIS,
+				DEFAULT_QUALITY,
+				0,
+				L"Arial"
+			);
+
+			// 설명 폰트 (작은거)
+			HFONT subTitleFont = CreateFontW(
+				windowHeight * 3 / 100,
+				0,
+				0,
+				0,
+				FW_NORMAL,
+				FALSE,
+				FALSE,
+				FALSE,
+				DEFAULT_CHARSET,
+				OUT_DEFAULT_PRECIS,
+				CLIP_DEFAULT_PRECIS,
+				DEFAULT_QUALITY,
+				0,
+				L"Arial"
+			);
+
+			HFONT oldFont = (HFONT)SelectObject(hdc, titleFont);
+			RECT rcTitle =
+			{
+				rc.left,
+				rc.top + 50,
+				rc.right,
+				rc.top + windowHeight / 2
+			};
+
+			DrawTextW(
+				hdc,
+				L"Under Remotely Controlled",
+				-1,
+				&rcTitle,
+				DT_CENTER | DT_VCENTER
+			);
+
+			SelectObject(hdc, subTitleFont);
+			RECT rcSubTitle =
+			{
+				rc.left,
+				rc.top + windowHeight / 2,
+				rc.right,
+				rc.bottom
+			};
+
+			DrawTextW(
+				hdc,
+				L"To close this window, Press 'Win' key using keyboard, find 'rdOTP' at system tray and click 'Exit'",
+				-1,
+				&rcSubTitle,
+				DT_CENTER | DT_VCENTER
+			);
+
+			// 정리
+			SelectObject(hdc, oldFont);
+			DeleteObject(titleFont);
+			DeleteObject(subTitleFont);
+			EndPaint(hwnd, &ps);
+
+			return 0;
+		}
 	}
 
 	return DefWindowProc(hwnd, msg, wParam, lParam);

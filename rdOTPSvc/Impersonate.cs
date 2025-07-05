@@ -39,8 +39,41 @@ namespace rdOTPSvc
 
             CloseHandle(hUserToken);
 
-
             return true;
+        }
+
+        public static IntPtr StartCurtain()
+        {
+            IntPtr hUserToken = IntPtr.Zero;
+            PROCESS_INFORMATION procInfo = new PROCESS_INFORMATION();
+            STARTUPINFO startInfo = new STARTUPINFO();
+            startInfo.cb = Marshal.SizeOf(typeof(STARTUPINFO));
+
+            GetSessionUserToken(ref hUserToken);
+
+            if (hUserToken == IntPtr.Zero)
+            {
+                Trace.WriteLine("Cannot found active user token");
+                return IntPtr.Zero;
+            }
+
+            string helperPath = GetFilePath("rdOTPCurtain.exe");
+
+            Trace.WriteLine($"Chrome RemoteDesktop Detected. Execute curtain at {helperPath}");
+
+            if (CreateProcessAsUserW(hUserToken, helperPath, null, IntPtr.Zero, IntPtr.Zero, false, 0, IntPtr.Zero, null, ref startInfo, ref procInfo))
+            {
+                CloseHandle(procInfo.hThread);
+            }
+
+            CloseHandle(hUserToken);
+
+            return procInfo.hProcess;
+        }
+
+        public static void KillProcess(IntPtr hProcess)
+        {
+            TerminateProcess(hProcess, 0);
         }
 
         private static void GetSessionUserToken(ref IntPtr phUserToken)
@@ -105,6 +138,8 @@ namespace rdOTPSvc
         [DllImport("Wtsapi32.dll")]
         private static extern uint WTSQueryUserToken(uint SessionId, ref IntPtr phToken);
 
+        [DllImport("kernel32")]
+        public static extern uint TerminateProcess(IntPtr hProcess, int ExitCode);
 
         [StructLayout(LayoutKind.Sequential)]
         private struct PROCESS_INFORMATION
