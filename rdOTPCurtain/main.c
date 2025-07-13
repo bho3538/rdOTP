@@ -28,6 +28,8 @@ int WINAPI wWinMain(
 		DispatchMessageW(&msg);
 	}
 
+	RDOTPReleaseCurtainMgr();
+
 	return 0;
 }
 

@@ -7,11 +7,12 @@ const DWORD RDOTP_ETW_BUFFER_SIZE = 256;
 const GUID RDOTP_LOGGER_GUID = { 0x81760642, 0x83d5, 0x44ab, { 0x9e, 0x38, 0xc7, 0x63, 0x2a, 0x92, 0x6e, 0x8b } };
 const GUID RDOTP_TRACE_GUID_PROCESS_MANIFEST = { 0x22fb2cd6,0x0e7b,0x422b,{0xa0,0xc7,0x2f,0xad,0x1f,0xd0,0xe7,0x16} };
 
-ETWTraceManager::ETWTraceManager() :
+ETWTraceManager::ETWTraceManager(ProcessManager* processManager) :
 	_eventTraceThread(NULL),
 	_traceSession(0),
 	_traceProperties(NULL),
-	_requestStop(false)
+	_requestStop(false),
+	_processManager(processManager)
 {}
 
 ETWTraceManager::~ETWTraceManager()
@@ -22,6 +23,11 @@ bool ETWTraceManager::Initialize()
 	if (_traceProperties != NULL)
 	{
 		return true;
+	}
+
+	if (_processManager == NULL)
+	{
+		return false;
 	}
 
 	DWORD bufferSize = sizeof(EVENT_TRACE_PROPERTIES) + sizeof(RDOTP_LOGGER_NAME) + sizeof(WCHAR);
@@ -250,11 +256,12 @@ void WINAPI ETWTraceManager::TraceEventCallback(
 
 	switch (opCode)
 	{
+		// todo : parse another data
 		case EVENT_TRACE_TYPE_START:
 		{
 			DWORD pid = *(DWORD*)record->UserData;
 
-			_this->_processManager.CheckIsStartedRemoteProcess(pid);
+			_this->_processManager->CheckIsStartedRemoteProcess(pid);
 			
 			break;
 		}
@@ -262,7 +269,7 @@ void WINAPI ETWTraceManager::TraceEventCallback(
 		{
 			DWORD pid = *(DWORD*)record->UserData;
 
-			_this->_processManager.CheckIsEndedRemoteProcess(pid);
+			_this->_processManager->CheckIsEndedRemoteProcess(pid);
 
 			break;
 		}

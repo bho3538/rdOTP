@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{00594cb8-f5c3-4ac9-9f1e-12ec671127d2}</ProjectGuid>
-    <RootNamespace>rdOTPSvc2</RootNamespace>
+    <RootNamespace>rdOTPSvc</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

@@ -13,6 +13,9 @@ static NOTIFYICONDATAW g_TrayMenu = { 0, };
 static HWND* g_CurtainWindows = NULL;
 static int g_CurtainWindowsCnt = 0;
 
+// 부팅 직후 커튼이 실행되는 경우 Explorer 초기화가 완료되지 않아 tray menu 가 표시되지 않을 수 있기 때문
+static BOOL g_NeedCreateTrayMenu = FALSE;
+
 LRESULT CALLBACK _CurtainMgrWindowWndProc(
 	HWND hwnd,
 	UINT msg,
@@ -81,7 +84,15 @@ BOOL RDOTPStartCurtainMgr()
 	g_TrayMenu.uCallbackMessage = _RDOTP_TRAY_MESSAGE;
 	g_TrayMenu.hIcon = LoadIconW(GetModuleHandleW(NULL), MAKEINTRESOURCE(IDI_ICON1));
 	wcscpy_s(g_TrayMenu.szTip, ARRAYSIZE(g_TrayMenu.szTip), L"rdOTP");
-	Shell_NotifyIconW(NIM_ADD, &g_TrayMenu);
+
+	// Tray menu 생성
+	if (Shell_NotifyIconW(
+		NIM_ADD,
+		&g_TrayMenu
+	) == FALSE)
+	{
+		g_NeedCreateTrayMenu = TRUE;
+	}
 
 	// 커튼 창 생성
 	_ShowCurtainWindow();
@@ -103,7 +114,9 @@ void RDOTPStopCurtainMgr()
 
 void RDOTPReleaseCurtainMgr()
 {
+	RDOTPReleaseCurtain();
 
+	UnregisterClassW(_RDOTP_CURTAIN_WINDOW_MANAGER_CLASSNAME, NULL);
 }
 
 LRESULT CALLBACK _CurtainMgrWindowWndProc(
@@ -113,8 +126,15 @@ LRESULT CALLBACK _CurtainMgrWindowWndProc(
 	LPARAM lParam
 )
 {
+	static UINT s_uTaskbarRestart = UINT_MAX;
+
 	switch (msg)
 	{
+		case WM_CREATE:
+		{
+			s_uTaskbarRestart = RegisterWindowMessageW(L"TaskbarCreated");
+			break;
+		}
 		case _RDOTP_TRAY_MESSAGE:
 		{
 			if (lParam == WM_LBUTTONUP || lParam == WM_RBUTTONUP)
@@ -138,9 +158,24 @@ LRESULT CALLBACK _CurtainMgrWindowWndProc(
 			PostQuitMessage(0);
 			break;
 		}
+		default:
+		{
+			if (msg == s_uTaskbarRestart)
+			{
+				if (g_NeedCreateTrayMenu)
+				{
+					g_NeedCreateTrayMenu = FALSE;
+
+					Shell_NotifyIconW(
+						NIM_ADD,
+						&g_TrayMenu
+					);
+				}
+			}
+		}
 	}
 
-	return DefWindowProc(hwnd, msg, wParam, lParam);
+	return DefWindowProcW(hwnd, msg, wParam, lParam);
 }
 
 void _ShowTrayMenuOptions(
@@ -196,7 +231,7 @@ void _ShowCurtainWindow()
 
 	// 생성한 창의 수
 	int hwndCnt = 0;
-	for (int i = 0; i < monitorRectsCount - 1; i++)
+	for (int i = 0; i < monitorRectsCount; i++)
 	{
 		// 각 모니터별로 창을 생성
 		HWND hwnd = RDOTPShowCurtainWindow(

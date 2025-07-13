@@ -90,6 +90,16 @@ void ProcessManager::CheckIsEndedRemoteProcess(DWORD pid)
 	OnChromeRemoteDesktopEnded(pid);
 }
 
+void ProcessManager::OnUserLogon()
+{
+	if (_needStartCurtainWhenLogon)
+	{
+		_needStartCurtainWhenLogon = FALSE;
+
+		_curtainProcess = StartProcessOnUserSession(L"rdOTPCurtain.exe");
+	}
+}
+
 void ProcessManager::OnChromeRemoteDesktopStarted(DWORD pid)
 {
 	// already running

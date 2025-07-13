@@ -9,7 +9,7 @@
 class ETWTraceManager
 {
 public:
-	ETWTraceManager();
+	ETWTraceManager(ProcessManager* processManager);
 	~ETWTraceManager();
 
 	bool Initialize();
@@ -25,7 +25,7 @@ private:
 	TRACEHANDLE _traceSession;
 	EVENT_TRACE_PROPERTIES* _traceProperties;
 
-	ProcessManager _processManager;
+	ProcessManager* _processManager;
 
 	bool InitializeSession();
 

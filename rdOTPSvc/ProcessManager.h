@@ -11,6 +11,8 @@ public:
 	void CheckIsStartedRemoteProcess(DWORD pid);
 	void CheckIsEndedRemoteProcess(DWORD pid);
 
+	void OnUserLogon();
+
 private:
 	// 원격 프로그램 (크롬 원격 데스크톱) 의 pid
 	DWORD _remoteProgramPid;
@@ -18,7 +20,8 @@ private:
 	// 로컬 모니터의 화면을 가리는 프로세스의 핸들
 	HANDLE _curtainProcess;
 
-	BOOL _needStartCurtainWhenLogon;
+	// 로그온 이벤트 시 커튼을 실행해야 하는지 여부
+	volatile BOOL _needStartCurtainWhenLogon;
 
 	// 크롬 원격 데스크톱이 시작된 경우 수행하는 작업
 	void OnChromeRemoteDesktopStarted(DWORD pid);

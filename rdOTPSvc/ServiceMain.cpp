@@ -24,6 +24,85 @@ void WINAPI ServiceMain::RunService()
 	::StartServiceCtrlDispatcherW(DispatchTable);
 }
 
+void ServiceMain::InstallService()
+{
+	SC_HANDLE hScmManager = NULL;
+	SC_HANDLE hSvc = NULL;
+
+	WCHAR modulePath[MAX_PATH];
+
+	if (!GetModuleFileNameW(NULL, modulePath, MAX_PATH))
+	{
+		return;
+	}
+
+	hScmManager = ::OpenSCManagerW(
+		NULL,
+		NULL,
+		SC_MANAGER_ALL_ACCESS
+	);
+
+	if (!hScmManager)
+	{
+		return;
+	}
+
+	hSvc = ::CreateServiceW(
+		hScmManager,
+		_RDOTP_SVC_NAME,
+		_RDOTP_SVC_NAME,
+		SERVICE_ALL_ACCESS,
+		SERVICE_WIN32_OWN_PROCESS,
+		SERVICE_AUTO_START,
+		SERVICE_ERROR_NORMAL,
+		modulePath,
+		NULL,
+		NULL,
+		NULL,
+		NULL,
+		NULL
+	);
+
+	if (hSvc)
+	{
+		::CloseServiceHandle(hSvc);
+	}
+
+	::CloseServiceHandle(hScmManager);
+}
+
+void ServiceMain::RemoveService()
+{
+	SC_HANDLE hScmManager = NULL;
+	SC_HANDLE hSvc = NULL;
+
+	hScmManager = ::OpenSCManagerW(
+		NULL,
+		NULL,
+		SC_MANAGER_ALL_ACCESS
+	);
+
+	if (!hScmManager)
+	{
+		return;
+	}
+
+	hSvc = ::OpenServiceW(
+		hScmManager,
+		_RDOTP_SVC_NAME,
+		DELETE
+	);
+
+	if (hSvc)
+	{
+		::DeleteService(hSvc);
+
+		::CloseServiceHandle(hSvc);
+	}
+
+	::CloseServiceHandle(hScmManager);
+}
+
 void WINAPI ServiceMain::SvcMain(
 	DWORD dwArgc,
 	LPWSTR* lpszArgv
@@ -76,10 +155,10 @@ DWORD WINAPI ServiceMain::SvcCtrlHandler(
 		{
 			if (dwEventType == WTS_SESSION_LOGON)
 			{
-
+				_this->_processManager.OnUserLogon();
 			}
 
-			break;
+			return NO_ERROR;
 		}
 	}
 
@@ -160,7 +239,7 @@ void ServiceMain::Run()
 	}
 
 	// 실행할 것들
-	ETWTraceManager traceManager;
+	ETWTraceManager traceManager(&_processManager);
 	if (traceManager.Initialize() == false)
 	{
 		return;

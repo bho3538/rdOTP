@@ -1,7 +1,13 @@
 #pragma once
+
+#include "ProcessManager.h"
+
 class ServiceMain
 {
 public:
+	static void InstallService();
+	static void RemoveService();
+
 	static void WINAPI RunService();
 private:
 
@@ -37,5 +43,7 @@ private:
 	HANDLE _svcStopEvent;
 
 	DWORD _reportStatusCnt;
+
+	ProcessManager _processManager;
 };
 

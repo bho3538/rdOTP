@@ -213,34 +213,20 @@ namespace rdOTP.UI
                 throw new Exception($"Service file not found. ({serviceBinPath})");
             }
 
-            IntPtr scm = OpenSCManagerW(null, null, ScmAccessRights.AllAccess);
-            if (scm != IntPtr.Zero)
-            {
-                IntPtr service = CreateService(scm, SERVICE_NAME, SERVICE_NAME, ServiceAccessRights.AllAccess, SERVICE_WIN32_OWN_PROCESS, ServiceBootFlag.AutoStart, ServiceError.Normal, serviceBinPath, null, IntPtr.Zero, null, null, null);
-
-                if (service != IntPtr.Zero)
-                {
-                    CloseServiceHandle(service);
-                }
-
-                CloseServiceHandle(scm);
-            }
+            Process p = Process.Start(serviceBinPath, "/install");
+            p.WaitForExit();
         }
 
         private void UninstallService()
         {
-            IntPtr scm = OpenSCManagerW(null, null, ScmAccessRights.AllAccess);
-            if (scm != IntPtr.Zero)
+            string serviceBinPath = GetFilePath(SERVICE_FILE_NAME);
+            if (!File.Exists(serviceBinPath))
             {
-                IntPtr service = OpenService(scm, SERVICE_NAME, ServiceAccessRights.AllAccess);
-                if (service != IntPtr.Zero)
-                {
-                    DeleteService(service);
-                    CloseServiceHandle(service);
-                }
-
-                CloseServiceHandle(scm);
+                throw new Exception($"Service file not found. ({serviceBinPath})");
             }
+
+            Process p = Process.Start(serviceBinPath, "/uninstall");
+            p.WaitForExit();
         }
 
         private void StartService()

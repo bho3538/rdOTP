@@ -25,6 +25,11 @@ BOOL RDOTPInitializeCurtain()
 	return TRUE;
 }
 
+void RDOTPReleaseCurtain()
+{
+	UnregisterClassW(_RDOTP_CURTAIN_WINDOW_CLASSNAME, NULL);
+}
+
 HWND RDOTPShowCurtainWindow(
 	int x,
 	int y,
